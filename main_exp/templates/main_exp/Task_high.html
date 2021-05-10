@@ -1,0 +1,101 @@
+<title>Experiment</title>
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+<span id='title'></span>
+{% endblock %}
+
+{% block content %}
+
+<button class="otree-btn-next btn btn-primary" type="button" id="draw_button">Draw</button>
+<br>
+<br>
+<span id='display_1'></span>
+<span id='display_2'></span>
+<span id='display_3'></span>
+<span id='display_4'></span>
+<span id='display_5'></span>
+<span id='display_6'></span>
+<span id='display_7'></span>
+<span id='display_8'></span>
+<span id='display_9'></span>
+<span id='display_10'></span>
+<span id='display_11'></span>
+<span id='display_12'></span>
+<span id='display_13'></span>
+<span id='display_14'></span>
+<span id='display_15'></span>
+<span id='display_16'></span>
+<span id='display_17'></span>
+<span id='display_18'></span>
+<span id='display_19'></span>
+<span id='display_20'></span>
+<br>
+<br>
+<span id='display_max'></span>
+<br>
+<br>
+{{ form.draw_1.errors }}
+<input type='hidden' name='draw_1' id='draw_1'></input>
+<input type='hidden' name='draw_2' id='draw_2'></input>
+<input type='hidden' name='draw_3' id='draw_3'></input>
+<input type='hidden' name='draw_4' id='draw_4'></input>
+<input type='hidden' name='draw_5' id='draw_5'></input>
+<input type='hidden' name='draw_6' id='draw_6'></input>
+<input type='hidden' name='draw_7' id='draw_7'></input>
+<input type='hidden' name='draw_8' id='draw_8'></input>
+<input type='hidden' name='draw_9' id='draw_9'></input>
+<input type='hidden' name='draw_10' id='draw_10'></input>
+<input type='hidden' name='draw_11' id='draw_11'></input>
+<input type='hidden' name='draw_12' id='draw_12'></input>
+<input type='hidden' name='draw_13' id='draw_13'></input>
+<input type='hidden' name='draw_14' id='draw_14'></input>
+<input type='hidden' name='draw_15' id='draw_15'></input>
+<input type='hidden' name='draw_16' id='draw_16'></input>
+<input type='hidden' name='draw_17' id='draw_17'></input>
+<input type='hidden' name='draw_18' id='draw_18'></input>
+<input type='hidden' name='draw_19' id='draw_19'></input>
+<input type='hidden' name='draw_20' id='draw_20'></input>
+<input type='hidden' name='current_max_is' id='current_max_is'></input>
+    {% next_button %}
+
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min) ) + min;
+}
+function getMaxOfArray(numArray) {
+  return Math.max.apply(null, numArray);
+}
+
+var count = 0;
+var draw_btn = document.getElementById("draw_button");
+var int_array = [];
+document.getElementById('title').innerHTML = 'Sie haben bisher noch kein Angebot erhalten.';
+high_min = js_vars.min;
+high_max = js_vars.max;
+draw_btn.onclick = function () {
+    count++;
+    // Draw a random number within the specified corridor.
+    random_draw = getRndInteger(high_min, high_max);
+    // get respective variable name
+    var input_var="#draw_" + count;
+    var display_var="display_" + count;
+    // print the number into the resp. field
+    document.getElementById(display_var).innerHTML = random_draw;
+    // Store it into input field.
+    $(input_var).val(random_draw);
+    // Change dynamic title
+    document.getElementById('title').innerHTML = 'Sie haben ein Angebot über '+random_draw+' erhalten.';
+    // Store draw in array and find max and print it too.
+    int_array.push(random_draw);
+    var current_max = getMaxOfArray(int_array);
+    $('current_max_is').val(current_max);
+    document.getElementById('display_max').innerHTML = current_max;
+};
+</script>
+{% endblock %}
