@@ -23,14 +23,31 @@ class Task(Page):
         )
 
 class ResultsWaitPage(WaitPage):
-    pass
+    after_all_players_arrive = 'set_payoffs'
 
+class Individual_Results(Page):
+    def vars_for_template(self):
+        me = self.player
+        return dict(
+            my_performance=me.current_max_is,
+            my_costs=me.total_costs
+        )
 
-class Results(Page):
-    pass
+class Total_Results(Page):
+    def vars_for_template(self):
+        me = self.player
+        opponent = me.get_others_in_group()[0]
+        return dict(
+            my_performance=me.current_max_is,
+            my_costs=me.total_costs,
+            my_payoff=me.payoff,
+            other_performance=opponent.current_max_is,
+            total_performance=max(me.current_max_is,opponent.current_max_is)
+        )
 
 
 page_sequence = [
     Task,
     ResultsWaitPage,
-    Results]
+    Individual_Results,
+    Total_Results]

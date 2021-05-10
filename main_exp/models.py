@@ -22,7 +22,7 @@ class Constants(BaseConstants):
     players_per_group = 2
     num_rounds = 1
     timeout = 600
-    cost = 10
+    cost = 1
     high_ability = [20,40]
     low_ability =  [10,20]
 
@@ -36,7 +36,13 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    pass
+    def set_payoffs(self):
+        p1 = self.get_player_by_id(1)
+        p2 = self.get_player_by_id(2)
+        total_performance = max(p1.current_max_is,p2.current_max_is)
+        for sub in [p1,p2]:
+            sub.total_costs = (Constants.cost * sub.num_draws)
+            sub.payoff = c(total_performance - sub.total_costs)
 
 
 class Player(BasePlayer):
@@ -64,3 +70,4 @@ class Player(BasePlayer):
     draw_20 = models.IntegerField(blank=True)
     current_max_is = models.IntegerField()
     num_draws = models.IntegerField()
+    total_costs = models.IntegerField()
