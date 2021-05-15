@@ -36,9 +36,6 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
     def creating_session(self):
         self.group_randomly()
-        print(Constants.high_ability[0])
-        #t1 = self.group.get_player_by_id(1)
-        #t2 = self.group.get_player_by_id(2)
 
 
 class Group(BaseGroup):
@@ -51,7 +48,7 @@ class Group(BaseGroup):
                 sub.total_costs = (Constants.cost * sub.num_draws)
                 sub.payoff = c(total_performance - sub.total_costs)
             else:
-                sub.total_costs = 0
+                #sub.total_costs = 0
                 sub.payoff = c(0)
 
 class Player(BasePlayer):
