@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block content %}
+{% if player.attention_check == 1 %}
     <p> Ihre individuelle Leistung ist <b>{{my_performance}}</b>.</p>
       <br>
 
@@ -15,6 +16,12 @@
     hypothetische Fragen stellen. <br>
     Diese Fragen beeinflussen Ihre Auszahlung nicht, doch bitte geben Sie Ihre ehrliche
       Einschätzung.</p>
+{% elif player.attention_check == 0 %}
+<p> Leider waren Sie nicht aufmerksam genug und haben es verpasst den Button im Pop Up Fenster zu klicken! Daher
+  bekommen Sie für diesen Teil keine Auszahlung. Selbstverständlich bekommen Sie jedoch die Teilnahmegebühr von X€
+  wenn Sie die Studie beenden.
+</p>
+{% endif %}
 
     {% next_button %}
 {% endblock %}
