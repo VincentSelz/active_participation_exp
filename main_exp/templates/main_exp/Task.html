@@ -158,10 +158,6 @@ draw_btn.onclick = function () {
     // Count clicks
     if (count < 20) {
     count++;
-    } else {
-    console.log('Finito');
-    }
-
     $('#num_draws').val(count);
     document.getElementById('display_num_draws').innerHTML = count;
     // Draw a random number within the specified corridor.
@@ -180,6 +176,9 @@ draw_btn.onclick = function () {
     var current_max = getMaxOfArray(int_array);
     document.getElementById("current_max_is").value = current_max;
     document.getElementById('display_max').innerHTML = current_max;
+    } else {
+    console.log('Finito');
+    }
 };
 </script>
 {% endblock %}
