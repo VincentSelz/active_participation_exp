@@ -7,6 +7,28 @@
 {% endblock %}
 
 {% block content %}
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+          <h4 class="modal-title">Pop Up</h4>
+        </div>
+        <div class="modal-body">
+          <p>Bitte klicken Sie auf den Button unten.</p>
+        </div>
+        <div class="modal-footer" style="text-align: center">
+          <button type="button" class="btn btn-danger" id="AttentionBtn" data-dismiss="modal">Klicken Sie Hier</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<!-- Information regarding payoffs -->
 <div class='left_div'>
       <p>
         Jede Ziehung ist eine zufällige Zahl zwischen: <br>
@@ -32,6 +54,8 @@
       <br>
       <br>
 </div>
+
+<!-- Search history -->
 <div class='right_div'>
       <p><b>Dein Suchverlauf:</b></p><br>
       <table style="width:100%;text-align:center;align:center">
@@ -74,6 +98,7 @@
 </tr>
 </table>
 </div>
+<input type='hidden' name='attention_check' value='0' id='attention_check'></input>
 <input type='hidden' name='draw_1' id='draw_1'></input>
 <input type='hidden' name='draw_2' id='draw_2'></input>
 <input type='hidden' name='draw_3' id='draw_3'></input>
@@ -135,9 +160,39 @@ th, td {
   padding: 5px;
 }
 </style>
+
+<style>
+    .otree-timer {
+        display: none;
+    }
+</style>
 {% endblock %}
 
+
 {% block scripts %}
+<script>
+$(document).ready(function(){
+  $("#myBtn").click(function(){
+    $("#myModal").modal();
+  });
+});
+</script>
+
+<script>
+start = js_vars.pop_up_start;
+end = js_vars.pop_up_end;
+    $(function () {
+        $('.otree-timer__time-left').on('update.countdown', function (event) {
+            if (event.offset.totalSeconds === start) {
+                $("#myModal").modal();
+            }
+            if (event.offset.totalSeconds === end) {
+                $('#myModal').modal('hide');
+            }
+        });
+    });
+</script>
+
 <script>
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min) ) + min;
@@ -145,11 +200,11 @@ function getRndInteger(min, max) {
 function getMaxOfArray(numArray) {
   return Math.max.apply(null, numArray);
 }
-
+document.getElementById('title').innerHTML = 'Sie haben bisher noch kein Angebot erhalten.';
 var count = 0;
 var draw_btn = document.getElementById("draw_button");
+var att_btn = document.getElementById("AttentionBtn");
 var int_array = [];
-document.getElementById('title').innerHTML = 'Sie haben bisher noch kein Angebot erhalten.';
 min_bound = js_vars.min;
 max_bound = js_vars.max;
 document.getElementById('lower').innerHTML = min_bound;
@@ -180,5 +235,9 @@ draw_btn.onclick = function () {
     console.log('Finito');
     }
 };
+var att_btn = document.getElementById("AttentionBtn");
+att_btn.onclick = function (){
+  $('#attention_check').val(1);
+}
 </script>
 {% endblock %}
