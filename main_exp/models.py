@@ -21,7 +21,7 @@ class Constants(BaseConstants):
     name_in_url = 'main_exp'
     players_per_group = 2
     num_rounds = 1
-    timeout = 600
+    task_timeout = 600
     cost = 1
     high_ability = [20,40]
     low_ability =  [10,20]
@@ -78,3 +78,7 @@ class Player(BasePlayer):
     current_max_is = models.IntegerField()
     num_draws = models.IntegerField()
     total_costs = models.IntegerField()
+
+    # Prompt Counter
+    prompt_counter = models.IntegerField()
+    Task_warnings = models.FloatField()

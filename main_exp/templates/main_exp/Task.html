@@ -7,6 +7,15 @@
 {% endblock %}
 
 {% block content %}
+{% include "global/warning_box_html.html" %}
+<div class="warning_alert_box" id="warning_alert_box">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <center> Bitte beachten Sie, dass ein Benutzen von Hilfsmitteln während der Studie nicht erlaubt ist.</center>
+    <br>
+    <p>Bleiben Sie bitte mit Ihrer Maus in dem Browserfenster und verlassen dieses nicht! Ein Nicht beachten dieser Regeln kann zum Ausschluss aus dem Experiment führen.
+</div>
+
+
 <div id="visual" class="stagger-visualizer"></div>
 
   <!-- Modal -->
@@ -125,6 +134,8 @@
 <input type='hidden' name='draw_20' id='draw_20'></input>
 <input type='hidden' name='current_max_is' id='current_max_is'></input>
 <input type='hidden' name='num_draws' id='num_draws'></input>
+<input type="hidden" name="prompt_counter" value="0" id="prompt_counter"/>
+<input type="hidden" name="Task_warnings" value="0" id="Task_warnings"/>
 
 <button class="otree-btn-next btn btn-danger btn-lg" style="display: block; margin: auto;" type="button" id="draw_button">Draw</button>
 </div>
@@ -187,9 +198,39 @@ th, td {
     }
 </style>
 
-<style>
+<style type="text/css">
 
-      canvas { height:100%; width:100%; }
+ /* The alert message box */
+.warning_alert_box {
+  padding: 20px;
+  background-color: #dc3545; /* Red */
+  color: white;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  display: none
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
+
+div.hidden
+{
+   display: none
+}
 
 </style>
 
@@ -290,7 +331,43 @@ const staggersAnimation = anime.timeline({
 })
 staggersAnimation.play();
 </script>
+<script>
+var prompt_counter = 0;
+var confirmOnPageExit = function (e)
+{
+    // If we haven't been passed the event get the window.event
+    e = e || window.event;
+    // Stores the prompts made by the player
+    prompt_counter += 1;
+    $("#prompt_counter").val(prompt_counter);
 
+    var message = 'Wenn Sie die Seite neuladen, bekommen Sie keine zusätzliche Auszahlung!';
+
+    // For IE6-8 and Firefox prior to version 4
+    if (e)
+    {
+        e.returnValue = message;
+    }
+
+    // For Chrome, Safari, IE8+ and Opera 12+
+    return message;
+};
+$(function () {
+        $('.otree-timer__time-left').on('update.countdown', function (event) {
+            if (event.offset.totalSeconds < 2) {
+                window.onbeforeunload = null;
+
+            }
+            else {
+                window.onbeforeunload = confirmOnPageExit;
+            }
+        });
+    });
+
+function disableBeforeUnload() {
+    window.onbeforeunload = null;
+}
+</script>
 <script>
 function backToBasics() {
   $('#visual').hide();
@@ -321,7 +398,7 @@ draw_btn.onclick = function () {
     setTimeout(function() {
       $('#visual').hide();
       $('.block-content').show();
-    },10000);
+    },30000);
     count++;
     $('#num_draws').val(count);
     document.getElementById('display_num_draws').innerHTML = count;
@@ -348,7 +425,26 @@ draw_btn.onclick = function () {
 var att_btn = document.getElementById("AttentionBtn");
 att_btn.onclick = function (){
   $('#attention_check').val(1);
-}
+};
+</script>
+
+<script type="text/javascript">
+
+window.addEventListener("load", function(event) {
+    $('#warning_alert_box').hide();
+    var i =0;
+    document.addEventListener("mouseout", function(event) {
+        event = event ? event : window.event;
+        var from = event.relatedTarget || event.toElement;
+        if (!from) {
+            // Show alert box
+            $('#warning_alert_box').show();
+            // count up
+            i = i +1;
+            document.getElementById( "Task_warnings").value = i;
+        }
+    });
+});
 </script>
 
 

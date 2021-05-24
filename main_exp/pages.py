@@ -3,13 +3,14 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 class Task(Page):
-    timeout_seconds = Constants.timeout
+    timeout_seconds = Constants.task_timeout
     form_model = 'player'
     form_fields = [
         'draw_1','draw_2','draw_3','draw_4','draw_5','draw_6',
         'draw_7','draw_8','draw_9','draw_10','draw_11','draw_12',
         'draw_13','draw_14','draw_15','draw_16','draw_17','draw_18',
-        'draw_19','draw_20','current_max_is','num_draws','attention_check'
+        'draw_19','draw_20','current_max_is','num_draws','attention_check',
+        'prompt_counter','Task_warnings'
     ]
     def js_vars(self):
         pop_up_start=Constants.pop_up_time
