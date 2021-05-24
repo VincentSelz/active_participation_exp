@@ -3,10 +3,12 @@
 {% load otree static %}
 
 {% block title %}
-<span id='title'></span>
+<span id='title' class="block-content"></span>
 {% endblock %}
 
 {% block content %}
+<div id="visual" class="stagger-visualizer"></div>
+
   <!-- Modal -->
   <div class="modal fade" id="myModal" data-backdrop="static" data-keyboard="false" role="dialog">
     <div class="modal-dialog">
@@ -28,6 +30,8 @@
     </div>
   </div>
 
+
+<div class="all_content block-content">
 <!-- Information regarding payoffs -->
 <div class='left_div'>
       <p>
@@ -123,12 +127,30 @@
 <input type='hidden' name='num_draws' id='num_draws'></input>
 
 <button class="otree-btn-next btn btn-danger btn-lg" style="display: block; margin: auto;" type="button" id="draw_button">Draw</button>
-
+</div>
 
 {% endblock %}
 
 {% block styles %}
 <style>
+.stagger-visualizer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 17rem;
+  height: 17rem;
+  margin: 0 auto;
+}
+
+.stagger-visualizer div {
+  /*position: absolute;*/
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid #FFF;
+  background-color: #0053a0;
+  text-align: center;
+}
 .left_div {
   margin-right: 5%;
   padding: 10px;
@@ -164,6 +186,13 @@ th, td {
         display: none;
     }
 </style>
+
+<style>
+
+      canvas { height:100%; width:100%; }
+
+</style>
+
 {% endblock %}
 
 
@@ -191,13 +220,88 @@ end = js_vars.pop_up_end;
     });
 </script>
 
+{# AnimeJS #}
+<script src="{% static 'node_modules/anime.js/lib/anime.js' %}"></script>
+
 <script>
+const staggerVisualizerEl = document.querySelector('.stagger-visualizer');
+const fragment = document.createDocumentFragment();
+const grid = [17, 17];
+const col = grid[0];
+const row = grid[1];
+const numberOfElements = col * row;
+
+for (let i = 0; i < numberOfElements; i++) {
+  fragment.appendChild(document.createElement('div'));
+}
+
+staggerVisualizerEl.appendChild(fragment);
+
+const staggersAnimation = anime.timeline({
+  targets: '.stagger-visualizer div',
+  easing: 'easeInOutSine',
+  delay: anime.stagger(50),
+  loop: true,
+  autoplay: false
+})
+.add({
+  translateX: [
+    {value: anime.stagger('-.1rem', {grid: grid, from: 'center', axis: 'x'}) },
+    {value: anime.stagger('.1rem', {grid: grid, from: 'center', axis: 'x'}) }
+  ],
+  translateY: [
+    {value: anime.stagger('-.1rem', {grid: grid, from: 'center', axis: 'y'}) },
+    {value: anime.stagger('.1rem', {grid: grid, from: 'center', axis: 'y'}) }
+  ],
+  duration: 1000,
+  scale: .5,
+  delay: anime.stagger(100, {grid: grid, from: 'center'})
+})
+.add({
+  translateX: () => anime.random(-10, 10),
+  translateY: () => anime.random(-10, 10),
+  delay: anime.stagger(8, {from: 'last'})
+})
+.add({
+  translateX: anime.stagger('.25rem', {grid: grid, from: 'center', axis: 'x'}),
+  translateY: anime.stagger('.25rem', {grid: grid, from: 'center', axis: 'y'}),
+  rotate: 0,
+  scaleX: 2.5,
+  scaleY: .25,
+  delay: anime.stagger(4, {from: 'center'})
+})
+.add({
+  rotate: anime.stagger([90, 0], {grid: grid, from: 'center'}),
+  delay: anime.stagger(50, {grid: grid, from: 'center'})
+})
+.add({
+  translateX: 0,
+  translateY: 0,
+  scale: .5,
+  scaleX: 1,
+  rotate: 180,
+  duration: 1000,
+  delay: anime.stagger(100, {grid: grid, from: 'center'})
+})
+.add({
+  scaleY: 1,
+  scale: 1,
+  delay: anime.stagger(20, {grid: grid, from: 'center'})
+})
+staggersAnimation.play();
+</script>
+
+<script>
+function backToBasics() {
+  $('#visual').hide();
+  $('.block-content').show();
+};
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min) ) + min;
-}
+};
 function getMaxOfArray(numArray) {
   return Math.max.apply(null, numArray);
-}
+};
 document.getElementById('title').innerHTML = 'Sie haben bisher noch kein Angebot erhalten.';
 var count = 0;
 var draw_btn = document.getElementById("draw_button");
@@ -207,9 +311,17 @@ min_bound = js_vars.min;
 max_bound = js_vars.max;
 document.getElementById('lower').innerHTML = min_bound;
 document.getElementById('upper').innerHTML = max_bound;
+$('#visual').hide();
+
 draw_btn.onclick = function () {
     // Count clicks
     if (count < 20) {
+    $('#visual').show();
+    $('.block-content').hide();
+    setTimeout(function() {
+      $('#visual').hide();
+      $('.block-content').show();
+    },10000);
     count++;
     $('#num_draws').val(count);
     document.getElementById('display_num_draws').innerHTML = count;
@@ -238,4 +350,6 @@ att_btn.onclick = function (){
   $('#attention_check').val(1);
 }
 </script>
+
+
 {% endblock %}
