@@ -1,0 +1,295 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+
+{% include "global/fopen_bt.html" %}
+Ihre Bankverbindung
+{% include "global/fopen_at.html" %}
+
+<script src="{% static "iban/iban.js" %}"></script>
+
+<p>
+    Für Ihre Teilnahme an dieser Studie erhalten Sie insgesamt <b>{{ participant.payoff_plus_participation_fee }} </b>
+    <p></p>
+    </nobr> Dieser Betrag wird Ihnen innerhalb der nächsten Wochen per Banküberweisung ausgezahlt. Wir informieren Sie, sobald alle Überweisungen durchgeführt sind. Dafür benötigen wir Ihre Bankverbindung.
+</p>
+
+<p>
+    Falls Sie ihren Platz verlassen müssen um die Details Ihrer Bankverbindung nachzugucken können Sie dies gerne tun.
+</p>
+
+<p>
+    Bitte geben Sie Ihren Namen, Ihre Adresse und Ihre eigene (vorzugsweise inländische) Bankverbindung an.
+    Diese Daten werden nur für den Zweck der Auszahlung verwendet.
+</p>
+
+<div class="form-group required" style="padding-top:30px; padding-bottom:30px">
+
+    <div class="row" style="padding-bottom:15px">
+            <div class="col-sm-8">
+                <label class="control-label" for="id_iban">IBAN:</label>
+                <div class="controls field-iban">
+                    <input id="id_iban" minLength="15" maxlength="34" name="iban" type="text" style="width: 100%;" value="{{ riban }}" required/>
+                </div><!--- .controls -->
+    			{{ form.iban.errors }}
+            </div>
+            <div class="col-sm-3">
+                <label class="control-label" for="id_bic">BIC:</label>
+                <div class="controls field-bic">
+                    <input id="id_bic" minLength="8" maxlength="11" name="bic" type="text" style="width: 100%;" value="{{ rbic }}" required/>
+                </div><!--- .controls -->
+    			{{ form.bic.errors }}
+            </div>
+    </div>
+    <div class="row" style="padding-bottom:15px">
+            <div class="col-sm-6">
+                <label class="control-label" for="id_whichbank">Name der Bank:</label>
+                <div class="controls field-whichbank">
+                    <input id="id_whichbank" minLength="2" maxlength="30" name="whichbank" type="text" style="width: 100%;" value="{{ rwhichbank }}" required/>
+                </div><!--- .controls -->
+                {{ form.whichbank.errors }}
+            </div>
+    </div>
+    <!-- <div class="row">
+        <div class="col-sm-10">
+            <span class="help-block">(Sollten Sie sich unsicher über Ihre IBAN/BIC sein, können sie unter <a href="https://de.iban.com" target="new" title="Öffnet eine neue Seite.">iban.com</a> Ihre IBAN validieren und bekommen die korrekte BIC Ihres Kreditinstituts angezeigt.)</span>
+        </div>
+    </div> -->
+    <div class="row" style="padding-bottom:15px">
+        <div class="col-sm-4">
+            <label class="control-label" for="id_bankvname">Vorname:</label>
+            <div class="controls field-iban">
+                <input id="id_bankvname" minLength="2" name="bankvname" type="text" value="{{ rbankvname }}" style="width: 100%;" required/>
+            </div><!--- .controls -->
+				{{ form.bankvname.errors }}
+		</div>
+        <div class="col-sm-4">
+            <label class="control-label" for="id_bankname">Name:</label>
+            <div class="controls field-bic">
+                <input id="id_bankname" minLength="2" name="bankname" type="text" value="{{ rbankname }}" style="width: 100%;" required/>
+            </div><!--- .controls -->
+				{{ form.bankname.errors }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <label class="control-label" for="id_iban">Straße und Hausnummer:</label>
+            <div class="controls  field-iban">
+                <input id="id_street" minLength="2" name="street" type="text" value="{{ rstreet }}" style="width: 100%;" required/>
+            </div><!--- .controls -->
+				{{ form.street.errors }}
+        </div>
+        <div class="col-sm-4">
+            <label class="control-label" for="id_city">Stadt:</label>
+            <div class="controls field-bic">
+                <input id="id_city" minLength="2" name="city" type="text" value="{{ rcity }}" style="width: 100%;" required/>
+            </div><!--- .controls -->
+				{{ form.city.errors }}
+        </div>
+        <div class="col-sm-3">
+            <label class="control-label" for="id_zipcode">PLZ:</label>
+            <div class="controls field-bic">
+                <input id="id_zipcode" minLength="4" name="zipcode" type="text" value="{{ rzipcode }}" style="width: 100%;" required/>
+            </div><!--- .controls -->
+				{{ form.zipcode.errors }}
+        </div>
+    </div>
+
+</div><!--- .form-group -->
+
+<div class="consent">
+    <label class="container"> Ich bestätige die Richtigkeit meiner Angaben und dass ich Inhaber des ange&shy;ge&shy;benen Kontos bin.
+    <input type="checkbox" name="consent3" id="id_consent3" required>
+    <span class="checkmark" id="id_checkmark3" ></span>
+    </label>
+</div>
+
+<div class="consent">
+    <label class="container">Mir ist bekannt, dass Zahlungen aus Studienteilnahmen zum Beispiel im Zusammenhang mit Stipen&shy;dien, BAföG oder einer Steuererklärung meldepflichtig sein können. Ich werde mich eigenständig um eine entsprechende Prüfung kümmern.
+    <input type="checkbox" name="consent2" id="id_consent2" required>
+    <span class="checkmark" id="id_checkmark2" style="margin-top: 25px;"></span>
+    </label>
+</div>
+
+
+{% include "Iban/modal.html" %}
+
+<input type="hidden"  name="user_agent" value="" id="id_user_agent"/>
+<input type="hidden"  name="window_height" value="" id="id_window_height"/>
+<input type="hidden"  name="window_width" value="" id="id_window_width"/>
+
+<!-- Hidden input to indicate that the page has already been displayed at least once -->
+<input type="hidden" name="ibanmsgseen" id="id_ibanmsgseen"/>
+
+<button type="button" class="btn btn-large btn-primary iban_button" onclick="modalOpen()" id="modalButton">Hinweise akzeptieren und Daten abschicken</button>
+
+{% include "global/fclose.html" %}
+
+
+
+<!-- To hide the next button, use css ("display: none" on the "otree-btn-next" class) -->
+{% endblock %}
+
+
+{% block scripts %}
+
+<script>
+	$(document).keypress(
+	    function(event){
+			if (event.which == '13') {
+				event.preventDefault();
+			}
+		}
+	);
+	$(document).ready(
+		function() {
+			$("input:enabled").filter(
+				function () {
+					return this.value.trim() == "";
+				}
+			).first().focus();
+	        var x = "User-agent header sent: " + navigator.userAgent;
+	        $( '#id_user_agent' ).val(x);
+	        var winh = $(window).height();
+	        var winw = $(window).width();
+	        $( '#id_window_height' ).val(winh);
+	        $( '#id_window_width' ).val(winw);
+		    if({{ msgseen }} != 1){
+				$('#id_iban').val("");
+				$('#id_bic').val("");
+                $('#id_whichbank').val("");
+				$('#id_bankvname').val("");
+				$('#id_bankname').val("");
+				$('#id_street').val("");
+				$('#id_city').val("");
+				$('#id_zipcode').val("");
+		  	};
+			$('#id_ibanmsgseen').val(1);
+		}
+	)
+    $('#id_consent2').change(function(){
+        if ($('#id_consent2').is(':checked')) {
+            $('#id_consent2').val('1');
+        } else {
+            $('#id_consent2').val('0');
+        }
+    });
+    $('#id_consent3').change(function(){
+        if ($('#id_consent3').is(':checked')) {
+            $('#id_consent3').val('1');
+        } else {
+            $('#id_consent3').val('0');
+        }
+    });
+
+</script>
+
+{% endblock %}
+
+
+{% block styles %}
+
+<style>
+
+    .iban_button {
+        display: inline;
+    }
+	/*.modal-backdrop {
+	   background-color: #000011;
+	}*/
+	.modal-header {
+	   background-color: #2266AA;
+       font-weight:bold;
+	}
+    .modal-content {
+        /*background-color: #839ccc;*/
+        color: #fff;
+        text-align:center;
+    }
+	.modal-body {
+		padding: 20px 16px;
+		/*background-color: #FFFFFF;*/
+        background-color: #fff;
+        color: #000;
+	}
+	.modal-footer {
+		padding: 2px 16px;
+		/*background-color: #EE3311;*/
+		color: white;
+        text-align: center;
+	}
+    div.consent {
+        padding: 10px 30px;
+    }
+    /* The container */
+    label.container {
+      display: block;
+      position: relative;
+      vertical-align: middle;
+      /*padding-left: 50px;*/
+      padding-left: 55px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    /* Hide the browser's default checkbox */
+    label.container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+
+    /* Create a custom checkbox */
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      background-color: rgb(210,210,210);
+    }
+
+    /* On mouse-over, add a grey background color */
+    label.container:hover input ~ .checkmark {
+      background-color: rgb(170,170,170);
+    }
+
+    /* When the checkbox is checked, add a blue background */
+    label.container input:checked ~ .checkmark {
+      background-color: #2196F3;
+    }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+
+    /* Show the checkmark when checked */
+    label.container input:checked ~ .checkmark:after {
+      display: block;
+    }
+
+    /* Style the checkmark/indicator */
+    label.container .checkmark:after {
+      left: 9px;
+      top: 2px;
+      width: 8px;
+      height: 16px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+</style>
+
+{% endblock %}

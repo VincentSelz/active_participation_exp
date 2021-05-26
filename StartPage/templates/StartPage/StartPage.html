@@ -1,0 +1,306 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+
+{% include "global/fopen_bt.html" %}
+Herzlich willkommen zur Studie!
+{% include "global/fopen_at.html" %}
+
+<p>
+Herzlich willkommen zur Online-Studie des BonnEconLab. Bitte beachten Sie, dass Sie an dieser Studie nur teilnehmen dürfen, wenn Sie sich in unserer Teilnahmedatenbank (<a target=_blank href="https://experimente.bonneconlab.uni-bonn.de/">experimente.bonneconlab.uni-bonn.de</a>) hierfür angemeldet haben.
+</p>
+
+<p>
+Bitte geben Sie in den folgenden Feldern Ihre E-Mail-Adresse an, mit der Sie in der BonnEconLab-Teilnahmedatenbank registriert sind. Nur wenn Sie hier die richtige E-Mail-Adresse eingeben, kann auch eine Auszahlung sichergestellt werden.
+</p>
+
+<br>
+
+{% formfield player.email label="E-Mail-Adresse:" %}
+
+{% formfield player.email_validate label="E-Mail-Adresse bestätigen:" %}
+
+<br>
+<hr class="divider" width="100%">
+<br>
+
+
+<div class="d-flex justify-content-center">
+  <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#collapseExample" style="background-color: rgb(0, 123, 255); color: white;">
+      Bitte klicken Sie hier um die <b>Datenschutzerklärung</b> zu lesen.
+  </button>
+</div>
+
+<br>
+
+<div class="collapse" id="collapseExample">
+
+  <u>Wer ist verantwortlich für die Studie?</u><p></p>
+
+  Jonas Radbruch  <br>
+  Forschungsinstitut zur Zukunft der Arbeit GmbH   <br>
+  Schaumburg-Lippe-Str. 5-9  <br>
+  53113 Bonn  <br>
+  Germany  <br>
+
+
+  <p></p>
+
+  <u>Welchen Zwecken dient die Studie?</u>    <p></p>
+Das Ziel dieser Studie ist es, menschliches Verhalten in wirtschaftlich relevanten Zusammenhängen besser zu verstehen. Die Wissenschaft ist an möglichst verzerrungsfreiem, natürlichem Verhalten interessiert. Wie bei experimentalökonomischen Studien üblich, erfolgt daher vorab keine umfassende Aufklärung über den Forschungshintergrund. Sämtliche relevante Informationen werden Ihnen zu gegebener Zeit bereitgestellt.
+  <p></p>
+
+ <u>Was geschieht mit meinen Daten?</u>  <p></p>
+Alle beteiligten Mitarbeiter und Wissenschaftler arbeiten selbstverständlich nach den Vorschriften der Datenschutz-Grundverordnung, dem Bundesdatenschutzgesetz und den einschlägigen Landesdatenschutzgesetzen. Wir arbeiten für das Projekt mit anderen Forschern, Instituten und Laboren in der EU zusammen. Auch diese sind verpflichtet, den Datenschutz einzuhalten. Ihre Daten werden unmittelbar nach der Erhebung anonymisiert gespeichert und anschließend statistisch ausgewertet. Aus den Ergebnissen lassen sich anschließend keine Rückschlüsse auf Sie ziehen. Wir arbeiten für die Studie mit anderen Partnern, Universitäten und Laboren zusammen. Diese erhalten ebenfalls nur anonymisierte Daten, die keinerlei Rückschluss auf ihre Person zulassen. Selbst das Labor oder Befragungsinstitut ist nach der Durchführung der Befragung nicht mehr in der Lage, die Befragungsdaten mit Ihrem Namen zusammenzuführen. Die Daten werden auf einem Server innerhalb der EU gespeichert, der nicht vom IZA betrieben wird. Wir haben mit dem Betreiber alle notwendigen Vorkehrungen getroffen und die erforderlichen Verträge geschlossen, die für die Einhaltung des Datenschutzes notwendig sind. Wir verwenden Ihren Namen und Ihre Bankverbindungsdaten – sofern von Ihnen angegeben – um die vereinbarte Summe für die Teilnahme an Sie zu überweisen und um die Auszahlung zu dokumentieren.
+  <p></p>
+
+ <u>Welche Rechte habe ich?</u>   <p></p>
+Sie haben das Recht, Auskunft über die zu Ihrer Person gespeicherten Daten zu erhalten (Art. 15 DS-GVO). Sollten unrichtige personenbezogene Daten verarbeitet werden, steht Ihnen ein Recht auf Berichtigung zu (Art. 16 DS-GVO). Liegen die gesetzlichen Voraussetzungen vor, so können Sie die Löschung oder Einschränkung der Verarbeitung verlangen sowie Widerspruch gegen die Verarbeitung einlegen (Art. 17, 18 und 21 DS-GVO).
+  <p></p>
+
+Sie können ebenfalls Kontakt mit unserem externen Datenschutzbeauftragten aufnehmen: Herr Marco Schröder, 2B Advice GmbH, Joseph-Schumpeter-Allee 25, 53227 Bonn, E-Mail: briq@2b-advice.com.
+  <p></p>
+
+Sie haben das Recht, sich mit einer Beschwerde an die zuständige Aufsichtsbehörde für Datenschutz zu wenden.
+  <p></p>
+
+Die hier erklärte Einwilligung können Sie jederzeit mit Wirkung für die Zukunft widerrufen. Sofern Ihre Daten bereits anonymisiert wurden, können Ihnen diese aber nicht mehr zugeordnet werden. Wir können Ihre Angaben also nicht aus dem Ergebnis „herausrechnen“.
+
+
+</div>
+
+
+<br>
+
+<b>Einverständniserklärung</b>
+<div class="consent">
+    <label class="container">
+Hiermit willige ich in die Verarbeitung meiner personenbezogenen Daten für Forschungsvorhaben MEM für die Fragestellungen zum menschlichen Verhalten in wirtschaftlich relevanten Zusammenhängen ein. Die Einwilligung kann ich jederzeit widerrufen. Ich habe die Hinweise zur Verwendung meiner Daten und zu meinen Rechten in der Datenschutzerklärung zur Kenntnis genommen.
+    <input type="checkbox" name="consent1" id="id_consent1" required>
+    <span class="checkmark" id="id_checkmark1" style="margin-top: 36px;"></span>
+    </label>
+</div>
+
+
+
+<br>
+
+{% next_button %}
+
+<noscript id="jswarn">
+    <h4><b>Diese Seite benötigt JavaScript. Bitte aktivieren Sie JavaScript in Ihrem Browser.</b></h4>
+</noscript>
+
+            </p>
+        </div>
+        <div class="card-footer bg-transparent text-right">
+            <div class="card-text mt-3 mb-3">
+                <p style="color: #909085; text-align: center;">
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+<input type="hidden" name="user_agent" id="id_user_agent">
+<input type="hidden" name="window_height" id="id_window_height">
+<input type="hidden" name="window_width" id="id_window_width">
+<input type="hidden" name="is_iPad_iOS13" id="id_is_iPad_iOS13">
+
+{% include "global/fclose.html" %}
+<!-- To hide the next button, use css ("display: none" on the "otree-btn-next" class) -->
+
+{% endblock %}
+
+
+{% block styles %}
+
+<style type="text/css">
+
+    #jswarn{
+        background: -moz-linear-gradient(bottom, #ffffff 0%, #8f0222 7%, #6d0019 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(bottom, #ffffff 0%,#8f0222 7%,#6d0019 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to top, #ffffff 0%,#8f0222 7%,#6d0019 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        position: absolute;
+        left:0px;
+        right:0px;
+        top:0px;
+        width:100%;
+        text-align: center;
+        color: #fff;
+    }
+</style>
+
+<style type="text/css">
+
+    .technical_problems {
+      font-size: 18px;
+      display: inline-block;
+    }
+    .footer_left {
+        display: none;
+    }
+
+    .modal-backdrop {
+        background-color: #000011;
+    }
+    .modal-header {
+        background-color: #2266AA;
+    }
+    .modal-body {
+        padding: 20px 16px;
+        background-color: #FFFFFF;
+    }
+    .modal-footer {
+        padding: 2px 16px;
+        background-color: #EE3311;
+        color: white;
+    }
+
+<style>
+  div.consent {
+      padding: 10px 30px;
+  }
+  /* The container */
+  label.container {
+    display: block;
+    position: relative;
+    vertical-align: middle;
+    padding-left: 50px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* Hide the browser's default checkbox */
+  label.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: rgb(210,210,210);
+  }
+
+  /* On mouse-over, add a grey background color */
+  label.container:hover input ~ .checkmark {
+    background-color: rgb(170,170,170);
+  }
+
+  /* When the checkbox is checked, add a blue background */
+  label.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  /* Show the checkmark when checked */
+  label.container input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  /* Style the checkmark/indicator */
+  label.container .checkmark:after {
+    left: 9px;
+    top: 2px;
+    width: 8px;
+    height: 16px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+</style>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script>
+    $( document ).ready( function(){
+        // catch browser
+        var x = navigator.userAgent;
+        $( '#id_user_agent' ).val(x);
+        var winh = $(window).height();
+        var winw = $(window).width();
+        $( '#id_window_height' ).val(winh);
+        $( '#id_window_width' ).val(winw);
+        var mtouch = navigator.maxTouchPoints;
+        if (mtouch > 2 && x.indexOf("Macintosh") >= 0) {
+            $('#id_is_iPad_iOS13').val("True");
+        } else {
+            $('#id_is_iPad_iOS13').val("False");
+        }
+
+
+
+    });
+    // Updates checkbox value upon click on the modified checkbox.
+     $('#id_consent1').change(function(){
+         if ($('#id_consent1').is(':checked')) {
+             $('#id_consent1').val('1');
+         } else {
+             $('#id_consent1').val('0');
+         }
+     });
+
+     function modalOpen(){
+          // get values
+          var consent = $('#id_consent1').val();
+
+          if(consent == 1){
+            $('#id_next').click()
+          } else {
+                 $("#emptymodal").modal('toggle');
+                 $("div.modal-content").css({"background-color":"#cd5c5c"});
+          }
+     }
+</script>
+
+
+<script type="text/javascript">
+
+            $(document).ready(function() {
+                let key_code_to_press = 71;
+                $('#button_display').hide();
+                window.onkeydown = function(e) {
+                    if (e.keyCode ==key_code_to_press) {
+                        $('#button_display').show();
+                    }
+                };
+                window.onkeyup = function(e) {
+                    if (e.keyCode ==key_code_to_press) {
+
+                        $('#button_display').hide();
+
+                    }
+                };
+            });
+</script>
+
+{% endblock %}
