@@ -21,21 +21,36 @@ class Constants(BaseConstants):
     name_in_url = 'main_exp'
     players_per_group = 2
     num_rounds = 1
+    #total timeout
     task_timeout = 600
     cost = 1
+
     high_ability = [20,40]
     low_ability =  [10,20]
+    # Examples
+    high_example = 31
+    low_example = 16
     #total timeout
     timeout = 20
     # modal onset time before timeout So, 10 means 10 seconds before the timeout.
     pop_up_time = 10
     # How long it stays
     pop_up_duration = 5
+    # duration of the animation
+    animation_time = 30
 
 
 class Subsession(BaseSubsession):
     def creating_session(self):
         self.group_randomly()
+        for p in self.get_players():
+            if self.round_number == 1:
+                if p.id_in_group == 1:
+                    p.participant.vars['type'] = 'r1'
+                elif p.id_in_group == 2:
+                    p.participant.vars['type'] = 'r2'
+            p.type = p.participant.vars['type']
+
 
 
 class Group(BaseGroup):
@@ -53,6 +68,8 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 
+    # Type
+    type = models.StringField()
     # Draws
     draw_1 = models.IntegerField(blank=True)
     draw_2 = models.IntegerField(blank=True)

@@ -111,39 +111,23 @@
 </tr>
 </table>
 </div>
-<input type='hidden' name='attention_check' value='0' id='attention_check'></input>
-<input type='hidden' name='draw_1' id='draw_1'></input>
-<input type='hidden' name='draw_2' id='draw_2'></input>
-<input type='hidden' name='draw_3' id='draw_3'></input>
-<input type='hidden' name='draw_4' id='draw_4'></input>
-<input type='hidden' name='draw_5' id='draw_5'></input>
-<input type='hidden' name='draw_6' id='draw_6'></input>
-<input type='hidden' name='draw_7' id='draw_7'></input>
-<input type='hidden' name='draw_8' id='draw_8'></input>
-<input type='hidden' name='draw_9' id='draw_9'></input>
-<input type='hidden' name='draw_10' id='draw_10'></input>
-<input type='hidden' name='draw_11' id='draw_11'></input>
-<input type='hidden' name='draw_12' id='draw_12'></input>
-<input type='hidden' name='draw_13' id='draw_13'></input>
-<input type='hidden' name='draw_14' id='draw_14'></input>
-<input type='hidden' name='draw_15' id='draw_15'></input>
-<input type='hidden' name='draw_16' id='draw_16'></input>
-<input type='hidden' name='draw_17' id='draw_17'></input>
-<input type='hidden' name='draw_18' id='draw_18'></input>
-<input type='hidden' name='draw_19' id='draw_19'></input>
-<input type='hidden' name='draw_20' id='draw_20'></input>
-<input type='hidden' name='current_max_is' id='current_max_is'></input>
-<input type='hidden' name='num_draws' id='num_draws'></input>
-<input type="hidden" name="prompt_counter" value="0" id="prompt_counter"/>
-<input type="hidden" name="Task_warnings" value="0" id="Task_warnings"/>
 
 <button class="btn btn-danger btn-lg" style="display: block; margin: auto;" type="button" id="draw_button">Draw</button>
+
+{% next_button %}
+
 </div>
 
 {% endblock %}
 
 {% block styles %}
 <style>
+
+.otree-btn-next {
+  display: block;
+  margin: auto;
+}
+
 .stagger-visualizer {
   display: flex;
   flex-wrap: wrap;
@@ -386,39 +370,40 @@ var att_btn = document.getElementById("AttentionBtn");
 var int_array = [];
 min_bound = js_vars.min;
 max_bound = js_vars.max;
+fixed_draw = js_vars.random_draw;
 animation_time = js_vars.animation_time * 1000;
 document.getElementById('lower').innerHTML = min_bound;
 document.getElementById('upper').innerHTML = max_bound;
 $('#visual').hide();
+$('.otree-btn-next').hide();
 
 draw_btn.onclick = function () {
     // Count clicks
-    if (count < 20) {
+    if (count < 1) {
     $('#visual').show();
     $('.block-content').hide();
     $('#warning_alert_box').hide();
     setTimeout(function() {
       $('#visual').hide();
       $('.block-content').show();
+      $('#draw_button').hide();
+      $('.otree-btn-next').show();
     },animation_time);
     count++;
     $('#num_draws').val(count);
     document.getElementById('display_num_draws').innerHTML = count;
     // Draw a random number within the specified corridor.
-    random_draw = getRndInteger(min_bound, max_bound);
+    random_draw = fixed_draw;
     // get respective variable name
-    var input_var="#draw_" + count;
     var display_var="display_" + count;
     // print the number into the resp. field
     document.getElementById(display_var).innerHTML = random_draw;
-    // Store it into input field.
-    $(input_var).val(random_draw);
+
     // Change dynamic title
     document.getElementById('title').innerHTML = 'Sie haben ein Angebot über '+random_draw+' erhalten.';
     // Store draw in array and find max and print it too.
     int_array.push(random_draw);
     var current_max = getMaxOfArray(int_array);
-    document.getElementById("current_max_is").value = current_max;
     document.getElementById('display_max').innerHTML = current_max;
     } else {
     console.log('Finito');

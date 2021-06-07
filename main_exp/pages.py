@@ -2,6 +2,29 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 
+class Introduction(Page):
+    pass
+
+class Type(Page):
+    pass
+
+class Demo(Page):
+    def js_vars(self):
+        if self.player.type == 'r1':
+            random_draw=Constants.high_example
+            lower_bound=Constants.high_ability[0]
+            upper_bound=Constants.high_ability[1]
+        elif self.player.type == 'r2':
+            random_draw=Constants.low_example
+            lower_bound=Constants.low_ability[0]
+            upper_bound=Constants.low_ability[1]
+        return dict(
+            random_draw=random_draw,
+            animation_time=Constants.animation_time,
+            min=lower_bound,
+            max=upper_bound,
+        )
+
 class Task(Page):
     timeout_seconds = Constants.task_timeout
     form_model = 'player'
@@ -15,17 +38,18 @@ class Task(Page):
     def js_vars(self):
         pop_up_start=Constants.pop_up_time
         pop_up_end=(Constants.pop_up_time-Constants.pop_up_duration)
-        if self.player.id_in_group == 1:
+        if self.player.type == 'r1':
             lower_bound=Constants.high_ability[0]
             upper_bound=Constants.high_ability[1]
-        elif self.player.id_in_group == 2:
+        elif self.player.type == 'r2':
             lower_bound=Constants.low_ability[0]
             upper_bound=Constants.low_ability[1]
         return dict(
             min=lower_bound,
             max=upper_bound,
             pop_up_start=pop_up_start,
-            pop_up_end=pop_up_end
+            pop_up_end=pop_up_end,
+            animation_time=Constants.animation_time
         )
 
 class ResultsWaitPage(WaitPage):
@@ -53,6 +77,7 @@ class Total_Results(Page):
 
 
 page_sequence = [
+    Demo,
     Task,
     ResultsWaitPage,
     Individual_Results,
