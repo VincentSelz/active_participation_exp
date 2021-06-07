@@ -409,10 +409,6 @@ draw_btn.onclick = function () {
     console.log('Finito');
     }
 };
-var att_btn = document.getElementById("AttentionBtn");
-att_btn.onclick = function (){
-  $('#attention_check').val(1);
-};
 </script>
 
 <script type="text/javascript">
@@ -427,8 +423,6 @@ window.addEventListener("load", function(event) {
             // Show alert box
             $('#warning_alert_box').show();
             // count up
-            i = i +1;
-            document.getElementById( "Task_warnings").value = i;
         }
     });
 });

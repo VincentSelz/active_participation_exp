@@ -25,6 +25,9 @@ class Demo(Page):
             max=upper_bound,
         )
 
+class TrueStart(Page):
+    pass
+
 class Task(Page):
     timeout_seconds = Constants.task_timeout
     form_model = 'player'
@@ -78,6 +81,7 @@ class Total_Results(Page):
 
 page_sequence = [
     Demo,
+    TrueStart,
     Task,
     ResultsWaitPage,
     Individual_Results,
