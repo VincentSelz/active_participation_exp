@@ -14,6 +14,18 @@ SESSION_CONFIGS = [
         num_demo_participants=2,
         app_sequence=['survey'],
     ),
+    dict(
+        name='StartPage',
+        display_name='Start Page',
+        num_demo_participants=2,
+        app_sequence=['StartPage'],
+    ),
+    dict(
+        name='Iban',
+        display_name='IBAN Module',
+        num_demo_participants=2,
+        app_sequence=['Iban'],
+    ),
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
