@@ -26,6 +26,12 @@ SESSION_CONFIGS = [
         num_demo_participants=2,
         app_sequence=['Iban'],
     ),
+    dict(
+        name='Allin1',
+        display_name='All apps',
+        num_demo_participants=2,
+        app_sequence=['StartPage','main_exp','survey','Iban'],
+    ),
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
@@ -51,10 +57,15 @@ ROOMS = [
         display_name='Econ 101 class',
         participant_label_file='_rooms/econ101.txt',
     ),
+    dict(
+        name='experiment',
+        display_name='Experiment',
+        participant_label_file='_rooms/real_exp.txt',
+    ),
     dict(name='live_demo', display_name='Room for live demo (no participant labels)'),
 ]
 
-ADMIN_USERNAME = 'admin'
+ADMIN_USERNAME = 'adminweb56'
 # for security, best to set admin password in an environment variable
 ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
 
