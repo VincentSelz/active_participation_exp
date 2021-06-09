@@ -22,22 +22,22 @@ class Constants(BaseConstants):
     players_per_group = 2
     num_rounds = 1
     #total timeout
-    task_timeout = 600
+    task_timeout = 120
     cost = 1
 
-    high_ability = [20,40]
-    low_ability =  [10,20]
+    high_ability = [35,100]
+    low_ability =  [0,65]
     # Examples
-    high_example = 31
-    low_example = 16
+    high_example = 68
+    low_example = 33
     #total timeout
     timeout = 20
     # modal onset time before timeout So, 10 means 10 seconds before the timeout.
-    pop_up_time = 10
+    pop_up_time = 40
     # How long it stays
     pop_up_duration = 5
     # duration of the animation
-    animation_time = 30
+    animation_time = 20
 
 
 class Subsession(BaseSubsession):
