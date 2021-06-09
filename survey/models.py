@@ -48,102 +48,6 @@ class Player(BasePlayer):
 
     income = models.IntegerField(label='Wie viel Geld haben Sie monatlich zur Verfügung? (in Euro)', min=0, max=99999)
 
-    pers1 = models.IntegerField(
-        choices=[1, 2, 3, 4, 5, 6, 7],
-        label='gründlich arbeitet',
-        widget=widgets.RadioSelectHorizontal
-    )
-
-    pers2 = models.IntegerField(
-        choices=[1, 2, 3, 4, 5, 6, 7],
-        label='kommunikativ, gesprächig ist',
-        widget=widgets.RadioSelectHorizontal
-    )
-
-    pers3 = models.IntegerField(
-        choices=[1, 2, 3, 4, 5, 6, 7],
-        label='manchmal etwas grob zu anderen ist',
-        widget=widgets.RadioSelectHorizontal
-    )
-
-    pers4 = models.IntegerField(
-        choices=[1, 2, 3, 4, 5, 6, 7],
-        label='originell ist, neue Ideen einbringt',
-        widget=widgets.RadioSelectHorizontal
-    )
-
-    pers5 = models.IntegerField(
-        choices=[1, 2, 3, 4, 5, 6, 7],
-        label='sich oft Sorgen macht',
-        widget=widgets.RadioSelectHorizontal
-    )
-
-    pers6 = models.IntegerField(
-        choices=[1, 2, 3, 4, 5, 6, 7],
-        label='verzeihen kann',
-        widget=widgets.RadioSelectHorizontal
-    )
-
-    pers7 = models.IntegerField(
-        choices=[1, 2, 3, 4, 5, 6, 7],
-        label='eher faul ist',
-        widget=widgets.RadioSelectHorizontal
-    )
-
-    pers8 = models.IntegerField(
-        choices=[1, 2, 3, 4, 5, 6, 7],
-        label='aus sich herausgehen kann, gesellig ist',
-        widget=widgets.RadioSelectHorizontal
-    )
-
-    pers9 = models.IntegerField(
-        choices=[1, 2, 3, 4, 5, 6, 7],
-        label='künstlerische, ästhestische Erfahrungen schätzt',
-        widget=widgets.RadioSelectHorizontal
-    )
-
-    pers10 = models.IntegerField(
-        choices=[1, 2, 3, 4, 5, 6, 7],
-        label='leicht nervös wird',
-        widget=widgets.RadioSelectHorizontal
-    )
-
-    pers11 = models.IntegerField(
-        choices=[1, 2, 3, 4, 5, 6, 7],
-        label='Aufgaben wirksam und effizient erledigt',
-        widget=widgets.RadioSelectHorizontal
-    )
-
-    pers12 = models.IntegerField(
-        choices=[1, 2, 3, 4, 5, 6, 7],
-        label='zurückhaltend ist',
-        widget=widgets.RadioSelectHorizontal
-    )
-
-    pers13 = models.IntegerField(
-        choices=[1, 2, 3, 4, 5, 6, 7],
-        label='rücksichtsvoll und freundlich mit anderen umgeht',
-        widget=widgets.RadioSelectHorizontal
-    )
-
-    pers14 = models.IntegerField(
-        choices=[1, 2, 3, 4, 5, 6, 7],
-        label='eine lebhafte Phantasie, Vorstellungen hat',
-        widget=widgets.RadioSelectHorizontal
-    )
-
-    pers15 = models.IntegerField(
-        choices=[1, 2, 3, 4, 5, 6, 7],
-        label='entspannt ist, mit Stress gut umgehen kann',
-        widget=widgets.RadioSelectHorizontal
-    )
-
-    pers_rely = models.IntegerField(
-        choices=[1, 2, 3, 4, 5, 6, 7],
-        label='Meine Antworten sind zuverlässig',
-        widget=widgets.RadioSelectHorizontal
-    )
-
     risk = models.IntegerField(
         choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
         label='Wie sehr sind Sie bereit oder nicht bereit, Risiken einzugehen.',
@@ -158,13 +62,13 @@ class Player(BasePlayer):
 
     punish_you = models.IntegerField(
         choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        label='Wie sehr wären Sie bereit, jemanden zu bestrafen, der <b> Sie </b> unfair behandelt, selbst wenn dies für Sie negative Konsequenzen haben würde?',
+        label='Wie sehr wären Sie bereit, jemanden zu bestrafen, der "Sie" unfair behandelt, selbst wenn dies für Sie negative Konsequenzen haben würde?',
         widget=widgets.RadioSelectHorizontal
     )
 
     punish_other = models.IntegerField(
         choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        label='Wie sehr wären Sie bereit, jemanden zu bestrafen, der <b> andere </b> unfair behandelt, selbst wenn dies für Sie Kosten verursachen würde?',
+        label='Wie sehr wären Sie bereit, jemanden zu bestrafen, der "andere" unfair behandelt, selbst wenn dies für Sie Kosten verursachen würde?',
         widget=widgets.RadioSelectHorizontal
     )
 

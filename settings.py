@@ -27,10 +27,16 @@ SESSION_CONFIGS = [
         app_sequence=['Iban'],
     ),
     dict(
+        name='bigfive',
+        display_name='Big Five',
+        num_demo_participants=2,
+        app_sequence=['bigfive'],
+    ),
+    dict(
         name='Allin1',
         display_name='All apps',
         num_demo_participants=2,
-        app_sequence=['StartPage','main_exp','survey','Iban'],
+        app_sequence=['StartPage','main_exp','survey', 'bigfive','Iban'],
     ),
 ]
 
@@ -76,4 +82,4 @@ Here are some oTree games.
 
 SECRET_KEY = '$t7t4i*%#f6%#)639kf*wkj_ig*l8o^6w&kpr%j$yv*li4arlm'
 
-INSTALLED_APPS = ['otree']
+INSTALLED_APPS = ['otree', 'radiogrid']
