@@ -7,7 +7,7 @@ from radiogrid import RadioGridField
 author = 'Philipp Chapkovski, chapkovski@gmail.com'
 
 doc = """
-Big Five 10-item inventory
+Big Five 15-item inventory
 
 Rammstedt, B., & John, O. P. (2007). Measuring personality in one minute or less: A 10-item short version of the 
 Big Five Inventory in English and German. Journal of research in Personality, 41(1), 203-212.
@@ -57,13 +57,13 @@ ROWS = (
 )
 
 VALUES = (
-    (1, "trifft überhaupt nicht zu"),
-    (2, " "),
-    (3, " "),
-    (4, " "),
-    (5, " "),
-    (6, " "),
-    (7, "trifft voll zu"),
+    (1, "1"),
+    (2, "2"),
+    (3, "3"),
+    (4, "4"),
+    (5, "5"),
+    (6, "6"),
+    (7, "7"),
 )
 
 
