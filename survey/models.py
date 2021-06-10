@@ -15,6 +15,16 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
 
+    # number of levels
+    n = 10
+
+    # Levels of scale for self-assessment
+    levels = [str(j) for j in range(n + 1)]
+
+    # Choices
+    choices = [[str(j), ''] for j in range(n + 1)]
+
+
 
 class Subsession(BaseSubsession):
     pass
@@ -48,64 +58,64 @@ class Player(BasePlayer):
 
     income = models.IntegerField(label='Wie viel Geld haben Sie monatlich zur Verfügung? (in Euro)', min=0, max=99999)
 
-    risk = models.IntegerField(
-        choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        label='Wie sehr sind Sie bereit oder nicht bereit, Risiken einzugehen.',
-        widget=widgets.RadioSelectHorizontal
+    risk = models.StringField(
+        choices=Constants.choices,
+        label='Wie sehr sind Sie bereit oder nicht bereit, Risiken einzugehen?',
+        widget=widgets.RadioSelect
     )
 
-    patience = models.IntegerField(
-        choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    patience = models.StringField(
+        choices=Constants.choices,
         label='Wie sehr wären Sie bereit auf etwas, das für Sie heute Nutzen bringt, zu verzichten, um dadurch in Zukunft mehr zu profitieren?',
-        widget=widgets.RadioSelectHorizontal
+        widget=widgets.RadioSelect
     )
 
-    punish_you = models.IntegerField(
-        choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    punish_you = models.StringField(
+        choices=Constants.choices,
         label='Wie sehr wären Sie bereit, jemanden zu bestrafen, der "Sie" unfair behandelt, selbst wenn dies für Sie negative Konsequenzen haben würde?',
-        widget=widgets.RadioSelectHorizontal
+        widget=widgets.RadioSelect
     )
 
-    punish_other = models.IntegerField(
-        choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    punish_other = models.StringField(
+        choices=Constants.choices,
         label='Wie sehr wären Sie bereit, jemanden zu bestrafen, der "andere" unfair behandelt, selbst wenn dies für Sie Kosten verursachen würde?',
-        widget=widgets.RadioSelectHorizontal
+        widget=widgets.RadioSelect
     )
 
-    alturism = models.IntegerField(
-        choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    alturism = models.StringField(
+        choices=Constants.choices,
         label='Wie sehr wären Sie bereit, für einen guten Zweck zu geben, ohne etwas als Gegenleistung zu erwarten.',
-        widget=widgets.RadioSelectHorizontal
+        widget=widgets.RadioSelect
     )
 
-    pos_res = models.IntegerField(
-        choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    pos_res = models.StringField(
+        choices=Constants.choices,
         label='Wenn mir jemanden einen Gefallen tut, bin ich bereit ihn zu erwidern.',
-        widget=widgets.RadioSelectHorizontal
+        widget=widgets.RadioSelect
     )
 
-    neg_res = models.IntegerField(
-        choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    neg_res = models.StringField(
+        choices=Constants.choices,
         label='Wenn ich sehr ungerecht behandelt werde, räche ich mich bei der ersten Gelegenheit, selbst wenn Kosten entstehen, um das zu tun.',
-        widget=widgets.RadioSelectHorizontal
+        widget=widgets.RadioSelect
     )
 
-    trust = models.IntegerField(
-        choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    trust = models.StringField(
+        choices=Constants.choices,
         label='Ich vermute, dass Leute nur die besten Absichten haben.',
-        widget=widgets.RadioSelectHorizontal
+        widget=widgets.RadioSelect
     )
 
-    math = models.IntegerField(
-        choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    math = models.StringField(
+        choices=Constants.choices,
         label='Ich bin gut in Mathematik.',
-        widget=widgets.RadioSelectHorizontal
+        widget=widgets.RadioSelect
     )
 
-    control = models.IntegerField(
-        choices=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    control = models.StringField(
+        choices=Constants.choices,
         label='Ich neige dazu, Aufgaben zu verschieben, auch wenn ich weiß, dass es besser wäre sie gleich zu tun.',
-        widget=widgets.RadioSelectHorizontal
+        widget=widgets.RadioSelect
     )
 
 

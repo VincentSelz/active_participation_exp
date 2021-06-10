@@ -1,19 +1,27 @@
 {% extends "global/Page.html" %}
 {% load otree %}
 
-{% block title %}
-    Vorlieben
+
+{% block styles %}
+  <link href="{% static 'willingness_to_act/css/style_will.css' %}" rel="stylesheet">
 {% endblock %}
+
+
+{% block title %}
+     
+{% endblock %}
+
 
 {% block content %}
 
+<div class="container">
     <p>
         Wir fragen Sie nun nach Ihrer Bereitschaft sich in einer bestimmten Art zu verhalten. Bitte
 verwenden Sie wieder eine Skala von 0 bis 10.
     </p>
 
     <p>
- <b> 0 </b> bedeutet <i>‘überhaupt nicht bereit, dies zu tun’</i> <br>
+ <b> 0 </b> bedeutet <i>‘überhaupt nicht bereit, dies zu tun.’</i> <br>
 <b> 10 </b> bedeutet <i>‘sehr bereit, dies zu tun.’</i> 
     </p>
 
@@ -23,9 +31,55 @@ verwenden, um anzugeben, wo sie sich auf der Skala sehen, in dem Sie (die Zahlen
 2, 3, 4, 5, 6, 7, 8, 9, oder 10 verwenden.
 
     </p>
+</div>
 
-    {% formfields %}
+  <div id="overflow-table">
+  <table class="table" style="margin-bottom:0px">
+  <thead>
+
+  {# Wording of level 0 and 10 of the scale #}
+  <tr style="border-top-style:hidden; border-left-style:hidden; border-right-style:hidden;">
+      <th style="border-right: 1px solid #dee2e6;">
+      </th>
+
+      <th class="scale-left">überhaupt nicht bereit, dies zu tun</th>
+
+      <th colspan="9"></th>
+
+      <th class="scale-right">sehr bereit, dies zu tun</th>
+  </tr>
+  </thead>
+
+  {# Creating the 10 levels of the scale #}
+  <tr>
+          <th>
+          </th>
+          {% for i in levels %}
+          <td>
+              {{ i }}
+          </td>
+          {% endfor %}
+      </tr>
+
+
+  {# Creating the questions #}
+
+     {% for field in form %}
+      <tr>
+          <th>
+              {{ field.label }}
+          </th>
+         {% for choice in field %}
+          <td>
+              {{ choice }}
+              {% endfor %}
+          </td>
+      </tr>
+      {% endfor %}
+  </table>
+</div>
 
     {% next_button %}
 
-{% endblock %}
+    {% endblock %}
+

@@ -15,7 +15,7 @@
 {# ****************************************************************************************************************** #}
 
 {% block title %}
-     
+    
 {% endblock %}
 
 
@@ -26,25 +26,16 @@
 {% block content %}
 <div class="container">
     <p>
-        Wie gut beschreibt jede der nachfolgenden Aussagen Sie als Person? Bitte verwenden Sie eine
-Skala von 0 bis 10. 
-    </p>
-
-    <p>
-<b> 0 </b> bedeutet <i>‘beschreibt mich überhaupt nicht’</i> <br>
-<b> 10 </b> bedeutet <i>‘beschreibt mich perfekt’</i>
-    </p>
-
-    <p>
-
-Sie können auch jede Zahl zwischen 0 und 10 verwenden, um anzugeben, wo sie sich auf der
-Skala sehen, in dem Sie (die Zahlen) 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, oder 10 verwenden.
-
+        Bitte sagen Sie mir ganz allgemein, wie sehr sind Sie bereit oder nicht bereit, Risiken
+einzugehen. Bitte verwenden Sie eine Skala von 0 bis 10, auf der 0 bedeutet <i>'überhaupt nicht
+bereit, Risiken einzugehen'</i> und 10 bedeutet <i>`sehr bereit, Risiken einzugehen'</i>. Sie können auch
+jede Zahl zwischen 0 und 10 verwenden, um anzugeben, wo sie sich auf der Skala sehen, in
+dem Sie (die Zahlen) 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 oder 10 verwenden.
     </p>
 </div>
 
 <div id="overflow-table">
-<table class="table" style="margin-bottom:0px;">
+<table class="table" style="margin-bottom:0px">
 <thead>
 
 {# Wording of level 0 and 10 of the scale #}
@@ -52,11 +43,11 @@ Skala sehen, in dem Sie (die Zahlen) 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, oder 10 verwe
     <th style="border-right: 1px solid #dee2e6;">
     </th>
 
-    <th class="scale-left">beschreibt mich überhaupt nicht</th>
+    <th class="scale-left">Überhaupt nicht bereit, Risiken einzugehen</th>
 
     <th colspan="9"></th>
 
-    <th class="scale-right">beschreibt mich perfekt</th>
+    <th class="scale-right">Sehr bereit, Risiken einzugehen</th>
 </tr>
 </thead>
 
@@ -92,4 +83,3 @@ Skala sehen, in dem Sie (die Zahlen) 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, oder 10 verwe
 {% next_button %}
 
 {% endblock %}
-
