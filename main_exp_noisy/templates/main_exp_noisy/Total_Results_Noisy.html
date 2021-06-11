@@ -1,0 +1,34 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Deine Auszahlung beträgt {{my_payoff}}.
+{% endblock %}
+
+{% block content %}
+{% if player.type == 'r1' %}
+<p> Ihre individuelle Leistung: <b> {{my_performance}}</b>.</p>
+  <br>
+<p> Die Leistung Ihres Partners:<b> {{noise}}</b></p>
+  <br>
+<p> Die Leistung Ihrer Gruppe:<b> {{total_performance}}</b></p>
+  <br>
+<p> Ihre Gesamtkosten betragen: <b> {{my_costs}}</b></p>
+<br>
+<p> Ihre Auszahlung beträgt: <b> {{total_performance}}</b> - <b>{{my_costs}}</b> = <b>{{my_payoff}}</b>
+{% elif player.type == 'r2' %}
+<p> The computer has randomly chosen <b> {{noise}} </b> as your individual performance. Results are below. </p>
+  <br>
+<p> Ihre individuelle Leistung: <b> {{noise}}</b>.</p>
+  <br>
+<p> Die Leistung Ihres Partners:<b> {{other_performance}}</b></p>
+  <br>
+<p> Die Leistung Ihrer Gruppe:<b> {{total_performance}}</b></p>
+  <br>
+<p> Ihre Gesamtkosten betragen: <b> {{my_costs}}</b></p>
+<br>
+<p> Ihre Auszahlung beträgt: <b> {{total_performance}}</b> - <b>{{my_costs}}</b> = <b>{{my_payoff}}</b>
+<br>
+{% endif %}
+    {% next_button %}
+{% endblock %}

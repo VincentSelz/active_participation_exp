@@ -18,7 +18,7 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'main_exp'
+    name_in_url = 'main_exp_noisy'
     players_per_group = 2
     num_rounds = 1
     #total timeout
@@ -31,13 +31,15 @@ class Constants(BaseConstants):
     high_example = 68
     low_example = 33
     #total timeout
-    timeout = 2000
+    timeout = 600
     # modal onset time before timeout So, 10 means 10 seconds before the timeout.
-    pop_up_time = 10
+    pop_up_time = 15
     # How long it stays
     pop_up_duration = 5
     # duration of the animation
-    animation_time = 5
+    animation_time = 10
+    # Probability of noise (in pct points)
+    prob_noise = 90
 
 
 class Subsession(BaseSubsession):
@@ -54,17 +56,32 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
+    # set noisy case
+    is_noisy = models.IntegerField()
+    noise = models.IntegerField(initial=random.randint(Constants.low_ability[0], Constants.low_ability[1] + 1))
+    total_performance = models.IntegerField()
+
     def set_payoffs(self):
         p1 = self.get_player_by_id(1)
         p2 = self.get_player_by_id(2)
-        total_performance = max(p1.current_max_is,p2.current_max_is)
+        if self.is_noisy:
+            self.total_performance = max(p1.current_max_is,self.noise)
+        else:
+            self.total_performance = max(p1.current_max_is,p2.current_max_is)
         for sub in [p1,p2]:
             if sub.attention_check == 1:
                 sub.total_costs = (Constants.cost * sub.num_draws)
-                sub.payoff = c(total_performance - sub.total_costs)
+                sub.payoff = c(self.total_performance - sub.total_costs)
             else:
                 #sub.total_costs = 0
                 sub.payoff = c(0)
+        #noisy choice
+        random_number_for_noisy = random.randint(1,101)
+        if random_number_for_noisy <= Constants.prob_noise:
+            self.is_noisy = 1
+        else:
+            self.is_noisy = 0
+
 
 class Player(BasePlayer):
 
