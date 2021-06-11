@@ -1,0 +1,23 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Instructions
+{% endblock %}
+
+{% block content %}
+
+    <p>
+    In this task you are going to find a forth word which is realted to the all three words presented. 
+    </p>
+    <p>
+    For example, an answer for Wand-Armband-Zeit would be Uhr. <br>
+    Similarly, an answer for Melone-Wabe-Wiebe would be Honig.
+    </p>
+    <p>
+    You can continue when you are ready.
+    </p>
+
+    {% next_button %}
+
+{% endblock %}

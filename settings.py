@@ -33,6 +33,12 @@ SESSION_CONFIGS = [
         app_sequence=['bigfive'],
     ),
     dict(
+        name='rat',
+        display_name='Remote Associates Test',
+        num_demo_participants=2,
+        app_sequence=['rat'],
+    ),
+    dict(
         name='Allin1',
         display_name='All apps',
         num_demo_participants=2,
@@ -54,7 +60,7 @@ SESSION_CONFIG_DEFAULTS = dict(
 LANGUAGE_CODE = 'de'
 
 # e.g. EUR, GBP, CNY, JPY
-REAL_WORLD_CURRENCY_CODE = 'USD'
+REAL_WORLD_CURRENCY_CODE = 'EUR'
 USE_POINTS = True
 
 ROOMS = [
