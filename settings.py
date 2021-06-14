@@ -15,6 +15,12 @@ SESSION_CONFIGS = [
         app_sequence=['main_exp_noisy'],
     ),
     dict(
+        name='main_exp_computer',
+        display_name='Main Experiment - Computer',
+        num_demo_participants=2,
+        app_sequence=['main_exp_computer'],
+    ),
+    dict(
         name='survey',
         display_name='Survey',
         num_demo_participants=2,
@@ -45,10 +51,22 @@ SESSION_CONFIGS = [
         app_sequence=['rat'],
     ),
     dict(
-        name='Allin1',
+        name='social_treatment',
         display_name='All apps',
         num_demo_participants=2,
         app_sequence=['StartPage','main_exp','survey', 'bigfive','Iban'],
+    ),
+    dict(
+        name='noisy_treatment',
+        display_name='All apps',
+        num_demo_participants=2,
+        app_sequence=['StartPage','main_exp_noisy','survey', 'bigfive','Iban'],
+    ),
+    dict(
+        name='computer_treatment',
+        display_name='All apps',
+        num_demo_participants=2,
+        app_sequence=['StartPage','main_exp_computer','survey', 'bigfive','Iban'],
     ),
 ]
 
@@ -58,7 +76,7 @@ SESSION_CONFIGS = [
 # e.g. self.session.config['participation_fee']
 
 SESSION_CONFIG_DEFAULTS = dict(
-    real_world_currency_per_point=1.00, participation_fee=0.00, doc=""
+    real_world_currency_per_point=0.10, participation_fee=5.00, doc=""
 )
 
 # ISO-639 code

@@ -18,8 +18,8 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'main_exp_noisy'
-    players_per_group = 2
+    name_in_url = 'main_exp_computer'
+    players_per_group = None
     num_rounds = 1
     #total timeout
     task_timeout = 40
@@ -27,66 +27,30 @@ class Constants(BaseConstants):
 
     high_ability = [35,100]
     low_ability =  [0,65]
+    high_threshold = 90
     # Examples
     high_example = 68
     low_example = 33
     #total timeout
-    timeout = 600
+    timeout = 2000
     # modal onset time before timeout So, 10 means 10 seconds before the timeout.
-    pop_up_time = 15
+    pop_up_time = 10
     # How long it stays
     pop_up_duration = 5
     # duration of the animation
-    animation_time = 10
-    # Probability of noise (in pct points)
-    prob_noise = 90
+    animation_time = 5
 
 
 class Subsession(BaseSubsession):
-    def creating_session(self):
-        self.group_randomly()
-        for p in self.get_players():
-            if self.round_number == 1:
-                if p.id_in_group == 1:
-                    p.participant.vars['type'] = 'r1'
-                elif p.id_in_group == 2:
-                    p.participant.vars['type'] = 'r2'
-            p.type = p.participant.vars['type']
-
+    pass
 
 
 class Group(BaseGroup):
-    # set noisy case
-    is_noisy = models.IntegerField()
-    noise = models.IntegerField(initial=random.randint(Constants.low_ability[0], Constants.low_ability[1]))
-    total_performance = models.IntegerField()
-
-    def set_payoffs(self):
-        p1 = self.get_player_by_id(1)
-        p2 = self.get_player_by_id(2)
-        if self.is_noisy:
-            self.total_performance = max(p1.current_max_is,self.noise)
-        else:
-            self.total_performance = max(p1.current_max_is,p2.current_max_is)
-        for sub in [p1,p2]:
-            if sub.attention_check == 1:
-                sub.total_costs = (Constants.cost * sub.num_draws)
-                sub.payoff = c(self.total_performance - sub.total_costs)
-            else:
-                #sub.total_costs = 0
-                sub.payoff = c(0)
-        #noisy choice
-        random_number_for_noisy = random.randint(1,101)
-        if random_number_for_noisy <= Constants.prob_noise:
-            self.is_noisy = 1
-        else:
-            self.is_noisy = 0
-
+    pass
 
 class Player(BasePlayer):
-
     # Type
-    type = models.StringField()
+    type = models.StringField(initial='r2')
     # Draws
     draw_1 = models.IntegerField(blank=True)
     draw_2 = models.IntegerField(blank=True)
@@ -116,3 +80,17 @@ class Player(BasePlayer):
     # Prompt Counter
     prompt_counter = models.IntegerField()
     Task_warnings = models.FloatField()
+
+    # set computer performance
+    computer_performance = models.IntegerField(initial=random.randint(Constants.high_threshold, Constants.high_ability[1]))
+    total_performance = models.IntegerField()
+
+    def set_payoffs(self):
+        total_performance = max(self.current_max_is,self.computer_performance)
+        if self.attention_check == 1:
+            self.total_costs = (Constants.cost * self.num_draws)
+            self.payoff = c(total_performance - self.total_costs)
+        else:
+            #self.total_costs = 0
+            self.payoff = c(0)
+
