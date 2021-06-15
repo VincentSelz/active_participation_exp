@@ -1,0 +1,42 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+<text style="font-size: large">Puzzle 4 of 8</text><hr>
+{% endblock %}
+
+{% block content %}
+
+                <p><img align="middle" width=50%
+                        src="{% static "raven_test/Raven4.jpg" %}"/></p>
+                <br>
+
+Which of the eight items best completes the pattern above?
+<br><br>
+{% formfield player.raven_4 %}
+<br>
+
+ <div style="text-align: right;">
+    {% next_button %}
+</div>
+
+{% endblock %}
+
+{% block styles %}
+<style>
+    .otree-title{
+        background: white;
+        position: absolute;
+        top: 0px;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 20px;
+        padding-bottom: 0;
+        width: 100%;
+        height: 80px;
+    }
+    .otree-body{
+        margin-top: 110px;
+    }
+</style>
+{% endblock %}

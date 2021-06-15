@@ -51,22 +51,28 @@ SESSION_CONFIGS = [
         app_sequence=['rat'],
     ),
     dict(
-        name='social_treatment',
-        display_name='All apps',
+        name='raven',
+        display_name='Raven IQ Test',
         num_demo_participants=2,
-        app_sequence=['StartPage','main_exp','survey', 'bigfive','Iban'],
+        app_sequence=['raven_test'],
+    ),
+    dict(
+        name='social_treatment',
+        display_name='Social Treatment',
+        num_demo_participants=2,
+        app_sequence=['StartPage','main_exp','survey', 'bigfive','raven_test','rat','Iban'],
     ),
     dict(
         name='noisy_treatment',
-        display_name='All apps',
+        display_name='Noisy Tretment',
         num_demo_participants=2,
-        app_sequence=['StartPage','main_exp_noisy','survey', 'bigfive','Iban'],
+        app_sequence=['StartPage','main_exp_noisy','survey', 'bigfive','raven_test','rat','Iban'],
     ),
     dict(
         name='computer_treatment',
-        display_name='All apps',
+        display_name='Computer Treatment',
         num_demo_participants=2,
-        app_sequence=['StartPage','main_exp_computer','survey', 'bigfive','Iban'],
+        app_sequence=['StartPage','main_exp_computer','survey', 'bigfive','raven_test','rat','Iban'],
     ),
 ]
 
