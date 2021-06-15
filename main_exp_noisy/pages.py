@@ -64,8 +64,71 @@ class Individual_Results(Page):
         me = self.player
         return dict(
             my_performance=me.current_max_is,
-            my_costs=me.total_costs
+            my_costs=Constants.cost * me.num_draws
         )
+
+class Hypothetical1(Page):
+    form_model = 'player'
+    form_fields = ['strategy']
+
+class Hypothetical2(Page):
+    form_model = 'player'
+    form_fields = ['altcost']
+
+    def vars_for_template(self):
+        return dict(
+            cost=Constants.cost,
+            cost_alt=Constants.cost_alt
+        )
+
+
+class Hypothetical3(Page):
+    form_model = 'player'
+    form_fields = ['altbound']
+
+    def vars_for_template(self):
+        if self.player.type == 'r1':
+            lower_bound=Constants.high_ability[0]
+            upper_bound=Constants.high_ability[1]
+            lower_alt=Constants.high_ability_alt[0]
+            upper_alt=Constants.high_ability_alt[1]
+        elif self.player.type == 'r2':
+            lower_bound=Constants.low_ability[0]
+            upper_bound=Constants.low_ability[1]
+            lower_alt=Constants.low_ability_alt[0]
+            upper_alt=Constants.low_ability_alt[1]
+        return dict(
+            min=lower_bound,
+            max=upper_bound,
+            min_alt=lower_alt,
+            max_alt=upper_alt,
+        )
+
+
+class Hypothetical4(Page):
+    form_model = 'player'
+    form_fields = ['belief']
+
+    def vars_for_template(self):
+        if self.player.type == 'r1':
+            lower_opp=Constants.low_ability[0]
+            upper_opp=Constants.low_ability[1]
+        elif self.player.type == 'r2':
+            lower_opp=Constants.high_ability[0]
+            upper_opp=Constants.high_ability[1]
+        return dict(
+            min_opp=lower_opp,
+            max_opp=upper_opp,
+        )
+
+class Hypothetical5(Page):
+    form_model = 'player'
+    form_fields = ['expectation']
+
+class Hypothetical6(Page):
+    form_model = 'player'
+    form_fields = ['ideal']
+
 
 class Total_Results(Page):
     def vars_for_template(self):
@@ -106,6 +169,12 @@ page_sequence = [
     TrueStart,
     Task,
     Individual_Results,
+    Hypothetical1,
+    Hypothetical2,
+    Hypothetical3,
+    Hypothetical4,
+    Hypothetical5,
+    Hypothetical6,
     ResultsWaitPage,
     Total_Results,
     Total_Results_Noisy]
