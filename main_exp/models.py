@@ -38,6 +38,10 @@ class Constants(BaseConstants):
     pop_up_duration = 5
     # duration of the animation
     animation_time = 5
+    # for hypothetical questions
+    high_ability_alt = [35,85]
+    low_ability_alt = [0,85]
+    cost_alt = 3
 
 
 class Subsession(BaseSubsession):
@@ -99,3 +103,23 @@ class Player(BasePlayer):
     # Prompt Counter
     prompt_counter = models.IntegerField()
     Task_warnings = models.FloatField()
+
+    # Hypothetical questions
+    strategy = models.LongStringField(label="Ihre Antwort:")
+    altcost = models.LongStringField(label="Ihre Antwort:")
+    altbound = models.LongStringField(label="Ihre Antwort:")
+    belief = models.IntegerField(label="Ihre Antwort:")
+    # dynamically adjust limits
+    def belief_max(self):
+        if self.type=='r1':
+            return Constants.low_ability[1]
+        elif self.type=='r2':
+            return Constants.high_ability[1]
+    def belief_min(self):
+        if self.type=='r1':
+            return Constants.low_ability[0]
+        elif self.type=='r2':
+            return Constants.high_ability[0]
+
+    expectation = models.LongStringField(label="Ihre Antwort:")
+    ideal = models.LongStringField(label="Ihre Antwort:")
