@@ -2,10 +2,29 @@
 {% load otree static %}
 
 {% block title %}
-    Dein Typ
+    Ihr Typ
 {% endblock %}
 
 {% block content %}
+{% if player.type == 'r1' %}
+    <p> Your type randomly determined as <text style="color:green";> GRÜN </text>.<br>
+     You are matched with a person with type <text style="color:blue";> BLAU </text>.</p>
+      <br>
+    <p> Your draws will be between 35 and 100.<br>
+     Your partners draws will be between 0 and 65.</p>
+      <br>
+{% elif player.type == 'r2' %}
+    <p> Your type randomly determined as  <text style="color:blue";> BLAU </text>.<br>
+     You are matched with a person with type <text style="color:green";> GRÜN </text>.</p>
+      <br>
+    <p> Your draws will be between 0 and 65.<br>
+     Your partners draws will be between 35 and 100.</p>
+      <br>
+{% endif %}
+
+    <p> The search period will last 10 minutes. <br>
+     Click next to begin.</p>
+
 
     {% next_button %}
 {% endblock %}
