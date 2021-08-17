@@ -5,6 +5,12 @@ from .models import Constants
 class Instructions(Page):
     pass
 
+class Instructions2(Page):
+    pass
+
+class DemoIntro(Page):
+    pass
+
 class Type(Page):
     pass
 
@@ -166,8 +172,10 @@ class Total_Results_Noisy(Page):
 
 page_sequence = [
     Instructions,
+    Instructions2,
     Type,
-#    Demo,
+    DemoIntro,
+    Demo,
     TrueStart,
     Task,
     Individual_Results,

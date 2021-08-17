@@ -7,23 +7,23 @@
 
 {% block content %}
 {% if player.type == 'r1' %}
-    <p> Your type randomly determined as <text style="color:green";> GRÜN </text>.<br>
-     You are matched with a person with type <text style="color:blue";> BLAU </text>.</p>
+    <p> Sie wurden zufällig als <text style="color:green";> GRÜNER </text> Spieler bestimmt. <br>
+     Sie werden mit einem <text style="color:blue";> BLAUEN </text> Spieler zusammengebracht.</p>
       <br>
-    <p> Your draws will be between 35 and 100.<br>
-     Your partners draws will be between 0 and 65.</p>
-      <br>
+    <p> Ihre Angebote für eine Suchanfrage werden zwischen 35 und 100 Punkten liegen
+    Die Angebote, die Ihr Partner für eine Angebotsanfrage erhält, werden zwischen 0 und 65 liegen.
+    </p>
 {% elif player.type == 'r2' %}
-    <p> Your type randomly determined as  <text style="color:blue";> BLAU </text>.<br>
-     You are matched with a person with type <text style="color:green";> GRÜN </text>.</p>
+    <p> Sie wurden zufällig als <text style="color:blue";> BLAUER </text> Spieler bestimmt. <br>
+     Sie werden mit einem <text style="color:green";> GRÜNEN </text> Spieler zusammengebracht.</p>
       <br>
-    <p> Your draws will be between 0 and 65.<br>
-     Your partners draws will be between 35 and 100.</p>
-      <br>
+    <p> Ihre Angebote für eine Suchanfrage werden zwischen 0 und 65 Punkten liegen
+    Die Angebote, die Ihr Partner für eine Angebotsanfrage erhält, werden zwischen 35 und 100 liegen.
+    </p>
 {% endif %}
 
-    <p> The search period will last 10 minutes. <br>
-     Click next to begin.</p>
+    <p> Der Zeitraum, in dem Sie Angebote anfragen können, wird 10 Minuten betragen. <br>
+     Klicken Sie auf Weiter, um zu beginnen.</p>
 
 
     {% next_button %}

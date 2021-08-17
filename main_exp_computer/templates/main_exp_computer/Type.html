@@ -7,23 +7,27 @@
 
 {% block content %}
 {% if player.type == 'r1' %}
-    <p> Your type randomly determined as <text style="color:green";> GRÜN </text>.<br>
-     You are matched with a person with type <text style="color:blue";> BLAU </text>.</p>
-      <br>
-    <p> Your draws will be between 35 and 100.<br>
-     Your partners draws will be between 0 and 65.</p>
+    <p> Sie wurden zufällig als <text style="color:green";> GRÜNER </text> Spieler bestimmt. <br>
+     Sie werden mit einem "Computerbot" zusammengebracht, der die Rolle des <text style="color:blue";> BLAUEN </text> Spielers übernimmt.</p>
+
+    <p> Der Computer-Bot ist ein Algorithmus. Er spielt nach der optimalen Strategie, um den erwarteten Gewinn zu maximieren. </p>
+
+    <p> Ihre Angebote werden zwischen 35 und 100 Punkten liegen.<br>
+     Die Angebote des Computerroboters werden zwischen 0 und 65 liegen.</p>
       <br>
 {% elif player.type == 'r2' %}
-    <p> Your type randomly determined as  <text style="color:blue";> BLAU </text>.<br>
-     You are matched with a person with type <text style="color:green";> GRÜN </text>.</p>
-      <br>
-    <p> Your draws will be between 0 and 65.<br>
-     Your partners draws will be between 35 and 100.</p>
+    <p> Sie wurden zufällig als <text style="color:blue";> BLAUER </text> Spieler bestimmt. <br>
+     Sie werden mit einem "Computerbot" zusammengebracht, der die Rolle des <text style="color:green";> GRÜNEN </text> Spielers übernimmt.</p>
+
+    <p> Der Computer-Bot ist ein Algorithmus. Er spielt nach der optimalen Strategie, um den erwarteten Gewinn zu maximieren. </p>
+
+    <p> Ihre Angebote werden zwischen 0 und 65 Punkten liegen.<br>
+     Die Angebote des Computerroboters werden zwischen 35 und 100 liegen.</p>
       <br>
 {% endif %}
 
-    <p> The search period will last 10 minutes. <br>
-     Click next to begin.</p>
+    <p> Der Zeitraum, in dem Sie Angebote anfragen können, wird 10 Minuten betragen.  <br>
+     Klicken Sie zum Starten auf Weiter. </p>
 
 
     {% next_button %}

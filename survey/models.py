@@ -45,13 +45,13 @@ class Player(BasePlayer):
     )
 
     educ = models.StringField(
-        choices=[['HS', 'Highschool'], ['BA', 'BA'], ['MA', 'Master'], ['more', 'More']],
+        choices=[['HS', 'Abitur'], ['BA', 'Grundstudium'], ['MA', 'Master'], ['more', 'höher, nämlich']],
         label='Was ist der höchste Abschluss, den Sie abgeschlossen haben?',
         widget=widgets.RadioSelect,
     )
 
     work = models.StringField(
-        choices=[['student', 'Studierende'], ['worker', 'Arbeitnehmer'], ['retired', 'Pensioniert'], ['other', 'Andere']],
+        choices=[['student', 'Studierende'], ['worker', 'Arbeitnehmer'], ['retired', 'Pensioniert'], ['other', 'Anderse']],
         label='Wie ist Ihr aktueller Status?',
         widget=widgets.RadioSelect,
     )
