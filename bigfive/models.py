@@ -24,9 +24,17 @@ class Constants(BaseConstants):
                    agreeableness=[2, 6, 12],
                    conscientiousness=[7, 0, 11],
                    neuroticism=[14, 4, 10],
-                   openness=[3, 9, 13],
-                   reliability=[15, 15, 15])
+                   openness=[3, 9, 13])
     bigfive_categories = bigfive.keys()
+
+    # number of levels for reliability
+    n = 10
+
+    # Levels of scale for self-assessment
+    levels = [str(j) for j in range(n + 1)]
+
+    # Choices
+    choices = [[str(j), ''] for j in range(n + 1)]
 
 
 class Subsession(BaseSubsession):
@@ -53,7 +61,6 @@ ROWS = (
     (13, ' rücksichtsvoll und freundlich mit anderen umgeht'),
     (14, ' eine lebhafte Phantasie, Vorstellungen hat'),
     (15, ' entspannt ist, mit Stress gut umgehen kann'),
-    (16, ' Meine Antworten sind zuverlässig'),
 )
 
 VALUES = (
@@ -77,13 +84,15 @@ class Player(BasePlayer):
     conscientiousness = models.FloatField()
     neuroticism = models.FloatField()
     openness = models.FloatField()
-    reliability = models.FloatField()
+    reliability = models.FloatField(
+        choices=Constants.choices,
+        label='Meine Antworten in der Befragung waren zuverlässig.',
+        widget=widgets.RadioSelect
+    )
 
     def conversion(self, method):
         i, j, k = Constants.bigfive[method]
         if i == 3:
             return (int(self.bigfive[i]) + int(self.bigfive[j]) + int(self.bigfive[k]))/3
-        elif i == 15:
-            return int(self.bigfive[i])
         else:
             return (8 - int(self.bigfive[i]) + int(self.bigfive[j]) + int(self.bigfive[k]))/3

@@ -10,20 +10,22 @@
     <p> Sie wurden zufällig als <text style="color:green";> GRÜNER </text> Spieler bestimmt. <br>
      Sie werden mit einem <text style="color:blue";> BLAUEN </text> Spieler zusammengebracht.</p>
       <br>
-    <p> Ihre Angebote für eine Suchanfrage werden zwischen 35 und 100 Punkten liegen
+    <p> Ihre Angebote für eine Suchanfrage werden zwischen 35 und 100 Punkten liegen. <br>
     Die Angebote, die Ihr Partner für eine Angebotsanfrage erhält, werden zwischen 0 und 65 liegen.
     </p>
 {% elif player.type == 'r2' %}
     <p> Sie wurden zufällig als <text style="color:blue";> BLAUER </text> Spieler bestimmt. <br>
      Sie werden mit einem <text style="color:green";> GRÜNEN </text> Spieler zusammengebracht.</p>
       <br>
-    <p> Ihre Angebote für eine Suchanfrage werden zwischen 0 und 65 Punkten liegen
+    <p> Ihre Angebote für eine Suchanfrage werden zwischen 0 und 65 Punkten liegen. <br>
     Die Angebote, die Ihr Partner für eine Angebotsanfrage erhält, werden zwischen 35 und 100 liegen.
     </p>
+<p>
+Mit 90%iger Wahrscheinlichkeit wird der Computer Ihre individuelle Leistung am Ende der Hauptaufgabe mit einer Zufallszahl zwischen 0 und 65 ersetzen. Mit der verbleibenden 10%igen Wahrscheinlichkeit bleibt Ihre individuelle Leistung erhalten. Der <text style="color:green";> GRÜNE </text> Spieler wird nur Ihr Endergebnis erfahren, nicht aber, wie es zustande gekommen ist.
+</p>
 {% endif %}
 
-    <p> Der Zeitraum, in dem Sie Angebote anfragen können, wird 10 Minuten betragen. <br>
-     Klicken Sie auf Weiter, um zu beginnen.</p>
+    <p> Klicken Sie auf Weiter, um zu beginnen.</p>
 
 
     {% next_button %}

@@ -8,6 +8,9 @@ class Instructions(Page):
 class Instructions2(Page):
     pass
 
+class Popup(Page):
+    pass
+
 class DemoIntro(Page):
     pass
 
@@ -150,6 +153,7 @@ class Total_Results(Page):
 page_sequence = [
     Instructions,
     Instructions2,
+    Popup,
     Type,
     DemoIntro,
     Demo,

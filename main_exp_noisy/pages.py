@@ -8,6 +8,9 @@ class Instructions(Page):
 class Instructions2(Page):
     pass
 
+class Popup(Page):
+    pass
+
 class DemoIntro(Page):
     pass
 

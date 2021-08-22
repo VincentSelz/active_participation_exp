@@ -22,7 +22,7 @@ class Constants(BaseConstants):
     players_per_group = 2
     num_rounds = 1
     #total timeout
-    task_timeout = 40
+    task_timeout = 60
     cost = 1
 
     high_ability = [35,100]

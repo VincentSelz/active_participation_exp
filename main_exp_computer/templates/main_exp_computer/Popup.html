@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Pop Up
+{% endblock %}
+
+{% block content %}
+                <p><img align="middle" width=50%
+                        src="{% static "popup/pop-up.png" %}"/></p>
+                <br>
+
+<p> Das obige Pop-up-Fenster wird zu einem bestimmten Zeitpunkt des Experiments angezeigt. Wenn es auftaucht, <b>haben Sie 5 Sekunden Zeit</b>, um auf die Schaltfläche zu klicken. Wenn Sie das nicht tun, erhalten Sie <b>€0</b> für das Suchspiel. Für den Abschluss des Experiments erhalten Sie trotzdem €2. </p>
+
+<p> Klicken Sie auf „Weiter“, wenn Sie mit dem Experiment beginnen möchten. </p>
+
+
+    {% next_button %}
+{% endblock %}

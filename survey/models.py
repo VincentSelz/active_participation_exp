@@ -45,13 +45,13 @@ class Player(BasePlayer):
     )
 
     educ = models.StringField(
-        choices=[['HS', 'Abitur'], ['BA', 'Grundstudium'], ['MA', 'Master'], ['more', 'höher, nämlich']],
+        choices=[['HS', 'Abitur'], ['BA', 'Bachelor'], ['MA', 'Master'], ['more', 'höher']],
         label='Was ist der höchste Abschluss, den Sie abgeschlossen haben?',
         widget=widgets.RadioSelect,
     )
 
     work = models.StringField(
-        choices=[['student', 'Studierende'], ['worker', 'Arbeitnehmer'], ['retired', 'Pensioniert'], ['other', 'Anderse']],
+        choices=[['student', 'Student*in'], ['worker', 'Arbeitnehmer*in'], ['retired', 'Pensioniert'], ['other', 'Anderse']],
         label='Wie ist Ihr aktueller Status?',
         widget=widgets.RadioSelect,
     )
@@ -60,7 +60,7 @@ class Player(BasePlayer):
 
     risk = models.StringField(
         choices=Constants.choices,
-        label='Wie sehr sind Sie bereit oder nicht bereit, Risiken einzugehen?',
+        label='Sind Sie im allgemeinen ein risikobereiter Mensch oder versuchen Sie, Risiken zu vermeiden?',
         widget=widgets.RadioSelect
     )
 

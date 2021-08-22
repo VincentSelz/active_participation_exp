@@ -22,7 +22,7 @@ class Constants(BaseConstants):
     players_per_group = 2
     num_rounds = 1
     #total timeout
-    task_timeout = 40
+    task_timeout = 60
     cost = 1
 
     high_ability = [35,100]
@@ -37,7 +37,7 @@ class Constants(BaseConstants):
     # How long it stays
     pop_up_duration = 5
     # duration of the animation
-    animation_time = 5
+    animation_time = 10
     # for hypothetical questions
     high_ability_alt = [35,85]
     low_ability_alt = [0,85]
