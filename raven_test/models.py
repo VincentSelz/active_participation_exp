@@ -37,6 +37,7 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     """Contains player-level objects of the current experiment app."""
 
+    expiry = models.FloatField()
 
     raven_1 = models.PositiveIntegerField(
         initial=None,

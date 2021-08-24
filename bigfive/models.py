@@ -84,7 +84,7 @@ class Player(BasePlayer):
     conscientiousness = models.FloatField()
     neuroticism = models.FloatField()
     openness = models.FloatField()
-    reliability = models.FloatField(
+    reliability = models.StringField(
         choices=Constants.choices,
         label='Meine Antworten in der Befragung waren zuverlässig.',
         widget=widgets.RadioSelect
