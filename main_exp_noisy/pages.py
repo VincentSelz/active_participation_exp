@@ -176,6 +176,7 @@ class Total_Results_Noisy(Page):
 page_sequence = [
     Instructions,
     Instructions2,
+    Popup,
     Type,
     DemoIntro,
     Demo,
