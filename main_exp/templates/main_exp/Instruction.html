@@ -1,0 +1,155 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+   
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{% static 'back_button_v2/js/prev_next_button.js' %}"></script>
+
+{% endblock %}
+
+
+{% block styles %}
+
+<link href="{% static 'back_button_v2/css/custom.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Tab navigation -->
+<ul class="nav nav-tabs fixed-top navbar-light bg-light justify-content-center " id="myTab" role="tablist">
+  
+
+  <li class="nav-item" >
+    <a class="nav-link active" id="part1-tab" data-toggle="tab" href="#part1" role="tab" aria-controls="part1" onclick="topFunction()"> Instruktionen 1
+</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="part2-tab" data-toggle="tab" href="#part2" role="tab" aria-controls="part2" onclick="topFunction()">Instruktionen 2</a>
+  </li>
+
+
+<li class="nav-item">
+    <a class="nav-link" id="part3-tab" data-toggle="tab" href="#part3" role="tab" aria-controls="part3" onclick="topFunction()">Instruktionen 3</a>
+  </li>
+
+</ul>
+<br>
+<br>
+
+
+<!-- Tab content -->
+<div class="tab-content" id="myTabContent">
+
+  <div class="tab-pane show active" id="part1" role="tabpanel" aria-labelledby="part1-tab">
+
+
+<div class="card-header bg-transparent mainheader" >
+ <h3 class="card-title font-weight-bold"> Instruktionen 1 
+ </h3>
+  </div>
+<br>
+
+<p> Vielen Dank für Ihr Interesse an der heutigen Studie! Die Studie besteht aus zwei Teilen, einem Entscheidungsexperiment und einer kurzen Befragung. Wenn Sie beide Teile vollständig abschließen, erhalten Sie eine Vergütung von  €2, <b> Zusätzlich können Sie während des Entscheidungsexperimemnts Geld verdienen,</b> indem Sie Punkte sammeln. Die Anzahl der Punkte, die Sie während des Experiments erhalten, hängt vom Zufall und von Ihren Entscheidungen ab. Alle Punkte, die Sie im Experiment sammeln, werden am Ende des Experiments in Euro umgerechnet. Hierbei gilt: </p>
+
+<center> <b> 10 Punkte = € 1 </b> </center>
+
+<p> <b> Der Geldbetrag, den Sie im Verlauf des Experiments verdient haben, und zusätzlich die Vergütung von €2 werden auf Ihr Konto überwiesen.</b> Am Ende des Experiments können Sie angeben, auf welches Konto der Gesamtbetrag überwiesen werden soll. </p>
+
+<p> Die Entscheidungen, die Sie während des Experiments treffen, und die Angaben, die Sie in der Befragung machen, werden niemals mit Ihrem Namen in Verbindung gebracht. Niemand wird wissen, wie viel Sie verdienen. Alle Daten, d.h. Informationen zu Ihren Entscheidungen und Daten aus Beragung werden anonymisiert und nur als anonymisierte Daten analysiert. </p>
+
+<p> Im Entscheidungsexperiment, welches später genau erklärt wird, werden Sie zufällig einem anderen Teilnehmer zugeordnet. Jedes Mitglied einer 2er-Gruppe kann in einem Zeitraum von 10 Minuten nach Angeboten suchen. Jede Suchanfrage führt zu einem Angebot und kostet jeweils einen fixen Betrag. Sie können innerhalb der 10 Minuten so viele Suchanfragen machen, wie Sie wollen, oder Sie können sich entscheiden, keine Suchanfrage zu machen. Die Anzahl der Punkte, die Sie in diesem Entscheidungsexperiment erhalten, hängt vom Sucherfolg der Gruppe ab. </p>
+
+<p> Bitte räumen Sie jetzt alle potentiellen Hilfsmittel wie Stifte, Papier, Taschenrechner, Handy und dergleichen weg. Beachten Sie bitte auch, dass während des gesamten Experiments ein striktes Kommunikationsverbot besteht. Zudem weisen wir Sie darauf hin, dass Sie am Computer nur diejenigen Funktionen bedienen dürfen, die für den Ablauf des Experiments bestimmt sind. <b> Die Nutzung von Hilfsmitteln, Kommunikation mit anderen Personen als dem Studienleiter oder das Herumspielen am Computer sind nicht erlaubt.</b> Wenn Sie gegen diese Regeln verstoßen, werden Sie von der Studie und allen Bezahlungen ausgeschlossen. Bitte lassen Sie während des Experiments Ihre <b> Kameras eingeschaltet und Mikrofone ausgeschaltet.</b> </p>
+
+<p> Sollten Sie zu irgendeinem Zeitpunkt Fragen haben, können Sie sich jederzeit an den Studienleiter wenden. Verwenden Sie dazu den Button "Ask for help", den Sie in der Werkzeugleiste unten im Breakout-Room finden. Bitte beachten Sie, dass Sie den Breakout-Room während des Experiments nicht verlassen können. Nur der Leiter der Studie kann Sie wieder in den Hauptraum zurückholen. Bitte klicken Sie während des Experiments niemals auf den Button "Leave Meeting". Wenn Sie das Zoom-Meeting vor Ablauf des Experiments verlassen, warden Sie von allen Zahlungen ausgeschlossen. </p>
+
+<button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Weiter</button>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="tab-pane" id="part2" role="tabpanel" aria-labelledby="part2-tab">
+
+
+<div class="card-header bg-transparent mainheader" >
+ <h3 class="card-title font-weight-bold"> Instruktionen 2 </h3>
+  </div>
+<br>
+
+<p> Sie führen das Entscheidungsexperiment in 2er-Gruppen aus. Jedes Mitglied der Gruppe kann Angebote erhalten, indem es eine Suchanfrage macht und dafür einen fixen Betrag bezahlt. Der Preis für eine Suchanfrage beträgt 1 Punkt. </p>
+
+<p> Sie können so viele Angebote anfragen, wie Sie wollen, oder Sie können wählen, kein Angebot anzufragen. Das höchste Angebot, das Sie haben, wird Ihre individuelle Leistung sein. </p>
+
+<p> In jeder Gruppe gibt es einen <text style="color:blue";> BLAUEN </text> Spieler und einen <text style="color:green";> GRÜNEN </text> Spieler. <br>
+Die Angebote des <text style="color:blue";> BLAUEN </text> Spielers werden zwischen 0 und 65 Punkten liegen. <br>
+Die Angebote des <text style="color:green";> GRÜNEN </text> Spielers liegen zwischen 35 und 100 Punkten. <br>
+</p>
+
+<p> Nachdem Sie ein Angebot angefragt haben, wird vom Computer eine Punktzahl aus dem für Interval, das für den jeweiligen Spieler gilt, gezogen. Bitte beachten Sie, dass dabei jede Zahl aus dem Intervall mit derselben Wahrscheinlichkeit gezogen wird. </p>
+
+<p> Die zufällige Ziehung des Computers wird 10 Sek unden dauern. Danach wird Ihnen die Punktzahl Ihres Angebots angezeigt. Sie können sich dann entscheiden, ob Sie ein weiteres Angebot anfragen möchten oder nicht. Die Einzelleistung eines Gruppenmitglieds in dieser Aufgabe ist jeweils sein höchstes Angebot. </p>
+
+<p> Insgesamt steht Ihnen ein Zeitraum von 10 Minuten für die Anfrage von Angeboten zur Verfügung. Nach dieser Zeit wird berechnet, wie viele Punkte Sie und das andere Guppenmitglied erhalten. </p>
+
+<p> Die Entlohnung in Punkten hängt von den Leistungen der Gruppenmitglieder und den individuellen Kosten für Angebotsanfragen ab. Die Gruppenleistung ist die höchste von zwei Einzelleistungen in der Gruppe. Die individuellen Kosten eines Gruppenmitglieds sind der Betrag, den es individuell für alle seine eigenen Suchanfragen bezahlen muss. Die Anzahl der Punkte, die ein Gruppenmitglied für diese Aufgabe erhält ist die  Gruppenleistung abzüglich seiner individuellen Kosten. </p>
+
+<p> Somit ergibt sich für Sie folgende Entlohung in Punkten: <br>
+Punktzahl des höchsten Angebots in Ihrer Gruppe – Anzahl Ihrer eigenen Suchanfragen. </p>
+
+<p> Klicken Sie auf „Weiter“, wenn Sie die Instruktionen gelesen haben. </p>
+
+
+    <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zürück</button>
+<button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Weiter</button>
+  </div>
+
+
+
+
+
+  <div class="tab-pane" id="part3" role="tabpanel" aria-labelledby="part3-tab">
+ 
+
+<div class="card-header bg-transparent mainheader" >
+ <h3 class="card-title font-weight-bold">Instruktionen 3 </h3>
+  </div>
+<br>
+    
+
+                <p><img align="middle" width=50%
+                        src="{% static "popup/pop-up.png" %}"/></p>
+                <br>
+
+<p> Das obige Pop-up-Fenster wird zu einem bestimmten Zeitpunkt des Experiments angezeigt. Wenn es auftaucht, <b>haben Sie 5 Sekunden Zeit</b>, um auf die Schaltfläche zu klicken. Wenn Sie das nicht tun, erhalten Sie <b>€0</b> für das Suchspiel. Für den Abschluss des Experiments erhalten Sie trotzdem €2. </p>
+
+<p> Klicken Sie auf „Weiter“, wenn Sie mit dem Experiment beginnen möchten. </p>
+
+
+    <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zürück</button>
+<button class="nexttab btn-primary btn next">Weiter</button>
+  </div>
+
+
+</div>
+
+</body>
+
+
+{% endblock %}
+
+
+

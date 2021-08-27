@@ -2,6 +2,9 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 
+class Instruction(Page):
+    pass
+
 class Instructions(Page):
     pass
 
@@ -174,9 +177,9 @@ class Total_Results_Noisy(Page):
 
 
 page_sequence = [
-    Instructions,
-    Instructions2,
-    Popup,
+    Instruction,
+#    Instructions2,
+#    Popup,
     Type,
     DemoIntro,
     Demo,
