@@ -51,7 +51,7 @@ class Player(BasePlayer):
     )
 
     work = models.StringField(
-        choices=[['student', 'Student*in'], ['worker', 'Arbeitnehmer*in'], ['retired', 'Pensioniert'], ['other', 'Anderse']],
+        choices=[['student', 'Student*in'], ['worker', 'Arbeitnehmer*in'], ['retired', 'Pensioniert'], ['other', 'Andere']],
         label='Wie ist Ihr aktueller Status?',
         widget=widgets.RadioSelect,
     )
@@ -60,7 +60,7 @@ class Player(BasePlayer):
 
     risk = models.StringField(
         choices=Constants.choices,
-        label='Sind Sie im allgemeinen ein risikobereiter Mensch oder versuchen Sie, Risiken zu vermeiden?',
+        label='Sind Sie im Allgemeinen ein risikobereiter Mensch oder versuchen Sie, Risiken zu vermeiden?',
         widget=widgets.RadioSelect
     )
 
@@ -84,13 +84,13 @@ class Player(BasePlayer):
 
     alturism = models.StringField(
         choices=Constants.choices,
-        label='Wie sehr wären Sie bereit, für einen guten Zweck zu geben, ohne etwas als Gegenleistung zu erwarten.',
+        label='Wie sehr wären Sie bereit, etwas für einen guten Zweck zu geben, ohne etwas als Gegenleistung zu erwarten?',
         widget=widgets.RadioSelect
     )
 
     pos_res = models.StringField(
         choices=Constants.choices,
-        label='Wenn mir jemanden einen Gefallen tut, bin ich bereit ihn zu erwidern.',
+        label='Wenn mir jemanden einen Gefallen tut, bin ich bereit, ihn zu erwidern.',
         widget=widgets.RadioSelect
     )
 

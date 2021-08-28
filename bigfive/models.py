@@ -59,7 +59,7 @@ ROWS = (
     (11, ' Aufgaben wirksam und effizient erledigt'),
     (12, ' zurückhaltend ist'),
     (13, ' rücksichtsvoll und freundlich mit anderen umgeht'),
-    (14, ' eine lebhafte Phantasie, Vorstellungen hat'),
+    (14, ' eine lebhafte Phantasie und Vorstellungen hat'),
     (15, ' entspannt ist, mit Stress gut umgehen kann'),
 )
 

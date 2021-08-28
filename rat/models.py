@@ -33,7 +33,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 
-    q1 = models.CharField(label='Teller - Kasper - Gemüse') #suppe
+    q1 = models.CharField(label='Teller - Kaiser - Gemüse') #suppe
     q2 = models.CharField(label='Fisch - Mine - Barren') #gold
     q3 = models.CharField(label='Anzug - Kapsel - Welt') #raum
     q4 = models.CharField(label='Wein - Körper - Tür') #glas
