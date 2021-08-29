@@ -24,6 +24,8 @@ class Constants(BaseConstants):
     #total timeout
     task_timeout = 60*10
     cost = 1
+    # payment to inattentive subjects (usually =participation fee)
+    pay_inattention = 3
 
     high_ability = [35,100]
     low_ability =  [0,65]
@@ -63,12 +65,22 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     # set noisy case
     is_noisy = models.IntegerField()
-    noise = models.IntegerField(initial=random.randint(Constants.low_ability[0], Constants.low_ability[1]))
+    noise = models.IntegerField()
     total_performance = models.IntegerField()
 
     def set_payoffs(self):
+        #noisy choice
+        random_number_for_noisy = random.randint(1,101)
+        if random_number_for_noisy <= Constants.prob_noise:
+            self.is_noisy = 1
+        else:
+            self.is_noisy = 0
+
+        # calculate payoffs
         p1 = self.get_player_by_id(1)
         p2 = self.get_player_by_id(2)
+        self.noise = random.randint(Constants.low_ability[0], Constants.low_ability[1])
+
         if self.is_noisy:
             self.total_performance = max(p1.current_max_is,self.noise)
         else:
@@ -80,12 +92,6 @@ class Group(BaseGroup):
             else:
                 #sub.total_costs = 0
                 sub.payoff = c(0)
-        #noisy choice
-        random_number_for_noisy = random.randint(1,101)
-        if random_number_for_noisy <= Constants.prob_noise:
-            self.is_noisy = 1
-        else:
-            self.is_noisy = 0
 
 
 class Player(BasePlayer):

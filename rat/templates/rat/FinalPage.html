@@ -1,0 +1,19 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+
+
+{% block title %}
+        Vielen Dank für die Teilnahme an der Studie!
+{% endblock %}
+
+{% block content %}
+    <p>
+
+    Die Studie ist jetzt beendet. Sie können nun den Browser schließen und das Zoom-Meeting verlassen, indem Sie auf "Leave Breakout Room" und dann auf "Leave Meeting" klicken.
+  </p>
+
+    {% next_button %}
+
+
+{% endblock %}

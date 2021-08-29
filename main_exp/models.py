@@ -24,6 +24,8 @@ class Constants(BaseConstants):
     #total timeout
     task_timeout = 60*10
     cost = 1
+    # payment to inattentive subjects (usually =participation fee)
+    pay_inattention = 3
 
     high_ability = [35,100]
     low_ability =  [0,65]

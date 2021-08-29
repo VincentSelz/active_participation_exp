@@ -8,6 +8,9 @@ import time
 class Intro(Page):
     pass
 
+class FinalPage(Page):
+    pass
+
 
 class RatPage(Page):
     form_model = 'player'
@@ -17,4 +20,4 @@ class RatPage(Page):
         return 180
 
 
-page_sequence = [Intro, RatPage]
+page_sequence = [Intro, RatPage, FinalPage]

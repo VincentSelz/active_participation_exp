@@ -75,7 +75,8 @@ class Individual_Results(Page):
         me = self.player
         return dict(
             my_performance=me.current_max_is,
-            my_costs=Constants.cost * me.num_draws
+            my_costs=Constants.cost * me.num_draws,
+            pay_inattent=Constants.pay_inattention
         )
 
 class Hypothetical1(Page):
@@ -149,7 +150,8 @@ class Total_Results(Page):
             my_costs=me.total_costs,
             my_payoff=me.payoff,
             other_performance=opponent.current_max_is,
-            total_performance=max(me.current_max_is,opponent.current_max_is)
+            total_performance=max(me.current_max_is,opponent.current_max_is),
+            pay_inattent=Constants.pay_inattention
         )
 
 

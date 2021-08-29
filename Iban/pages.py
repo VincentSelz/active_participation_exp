@@ -41,12 +41,7 @@ class Iban(Page):
         }
 
 
-class FinalPage(Page):
-
-    pass
 
 
-page_sequence = [
-    Iban,
-    FinalPage
-]
+
+page_sequence = [Iban]

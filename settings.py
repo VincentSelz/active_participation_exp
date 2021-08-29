@@ -3,6 +3,24 @@ from os import environ
 
 SESSION_CONFIGS = [
     dict(
+        name='social_treatment',
+        display_name='Social Treatment',
+        num_demo_participants=2,
+        app_sequence=['StartPage','Iban','main_exp','survey', 'bigfive','raven_test','rat'],
+    ),
+    dict(
+        name='noisy_treatment',
+        display_name='Noisy Tretment',
+        num_demo_participants=2,
+        app_sequence=['StartPage','Iban','main_exp_noisy','survey', 'bigfive','raven_test','rat'],
+    ),
+    dict(
+        name='computer_treatment',
+        display_name='Computer Treatment',
+        num_demo_participants=2,
+        app_sequence=['StartPage','Iban','main_exp_computer','survey', 'bigfive','raven_test','rat'],
+    ),
+    dict(
         name='main_exp',
         display_name='Main Experiment',
         num_demo_participants=2,
@@ -56,24 +74,6 @@ SESSION_CONFIGS = [
         num_demo_participants=2,
         app_sequence=['raven_test'],
     ),
-    dict(
-        name='social_treatment',
-        display_name='Social Treatment',
-        num_demo_participants=2,
-        app_sequence=['StartPage','main_exp','survey', 'bigfive','raven_test','rat','Iban'],
-    ),
-    dict(
-        name='noisy_treatment',
-        display_name='Noisy Tretment',
-        num_demo_participants=2,
-        app_sequence=['StartPage','main_exp_noisy','survey', 'bigfive','raven_test','rat','Iban'],
-    ),
-    dict(
-        name='computer_treatment',
-        display_name='Computer Treatment',
-        num_demo_participants=2,
-        app_sequence=['StartPage','main_exp_computer','survey', 'bigfive','raven_test','rat','Iban'],
-    ),
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
@@ -82,7 +82,7 @@ SESSION_CONFIGS = [
 # e.g. self.session.config['participation_fee']
 
 SESSION_CONFIG_DEFAULTS = dict(
-    real_world_currency_per_point=0.10, participation_fee=2.00, doc=""
+    real_world_currency_per_point=0.10, participation_fee=3.00, doc=""
 )
 
 # ISO-639 code
