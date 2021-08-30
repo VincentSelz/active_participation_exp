@@ -400,7 +400,7 @@ draw_btn.onclick = function () {
     document.getElementById(display_var).innerHTML = random_draw;
 
     // Change dynamic title
-    document.getElementById('title').innerHTML = 'Sie haben ein Los über '+random_draw+' gekauft.';
+    document.getElementById('title').innerHTML = 'Ihr gerade erworbenes Los hat eine Punktzahl von '+random_draw+'';
     // Store draw in array and find max and print it too.
     int_array.push(random_draw);
     var current_max = getMaxOfArray(int_array);

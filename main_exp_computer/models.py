@@ -22,7 +22,7 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
     #total timeout
-    task_timeout = 60*0.5
+    task_timeout = 60*1
     cost = 1
     # payment to inattentive subjects (usually =participation fee)
     pay_inattention = 3
