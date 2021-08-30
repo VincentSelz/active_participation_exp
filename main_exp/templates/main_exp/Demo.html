@@ -44,25 +44,25 @@
 <!-- Information regarding payoffs -->
 <div class='left_div'>
       <p>
-        Jede Ziehung ist eine zufällige Zahl zwischen: <br>
+        Jedes Los hat eine zufällige Punktzahl zwischen: <br>
         <b><span id='lower'></span></b> und <b><span id='upper'></span></b>.
       </p> <br>
       <br>
       <br>
       <p>
-        Jede Ziehung kostet: <br>
+        Jedes Los kostet: <br>
         <b>{{ Constants.cost}}</b>
       </p> <br>
       <br>
       <br>
       <p>
-        Deine Leistung (höchstes Angebot): <br>
+        Ihr Los mit der höchsten Punktzahl: <br>
         <b><span id='display_max'></span>  </b>
       </p> <br>
       <br>
       <p>
-        Du hast gezogen: <br>
-        <b><span id='display_num_draws'></span></b> mal.
+        Anzahl gekaufter Lose: <br>
+        <b><span id='display_num_draws'></span></b>
       </p><br>
       <br>
       <br>
@@ -70,7 +70,7 @@
 
 <!-- Search history -->
 <div class='right_div'>
-      <p><b>Dein Suchverlauf:</b></p><br>
+      <p><b>Ihre Loskäufe:</b></p><br>
       <table style="width:100%;text-align:center;align:center">
  <tr>
    <td><span id='display_1'></span></td>
@@ -112,7 +112,7 @@
 </table>
 </div>
 
-<button class="btn btn-danger btn-lg" style="display: block; margin: auto;" type="button" id="draw_button">Angebot</button>
+<button class="btn btn-danger btn-lg" style="display: block; margin: auto;" type="button" id="draw_button">Los kaufen</button>
 
 {% next_button %}
 
@@ -363,7 +363,7 @@ function getRndInteger(min, max) {
 function getMaxOfArray(numArray) {
   return Math.max.apply(null, numArray);
 };
-document.getElementById('title').innerHTML = 'Sie haben bisher noch kein Angebot erhalten.';
+document.getElementById('title').innerHTML = 'Sie haben bisher noch kein Los gekauft.';
 var count = 0;
 var draw_btn = document.getElementById("draw_button");
 var att_btn = document.getElementById("AttentionBtn");
@@ -400,7 +400,7 @@ draw_btn.onclick = function () {
     document.getElementById(display_var).innerHTML = random_draw;
 
     // Change dynamic title
-    document.getElementById('title').innerHTML = 'Sie haben ein Angebot über '+random_draw+' erhalten.';
+    document.getElementById('title').innerHTML = 'Sie haben ein Los über '+random_draw+' gekauft.';
     // Store draw in array and find max and print it too.
     int_array.push(random_draw);
     var current_max = getMaxOfArray(int_array);

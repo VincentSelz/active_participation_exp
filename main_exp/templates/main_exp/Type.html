@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-    Ihr Typ
+    Ihre Zweiergruppe
 {% endblock %}
 
 {% block content %}
@@ -10,15 +10,15 @@
     <p> Sie wurden zufällig als <text style="color:green";> GRÜNER </text> Spieler bestimmt. <br>
      Sie werden mit einem <text style="color:blue";> BLAUEN </text> Spieler zusammengebracht.</p>
       <br>
-    <p> Ihre Angebote für eine Suchanfrage werden zwischen 35 und 100 Punkten liegen. <br>
-    Die Angebote, die Ihr Partner für eine Angebotsanfrage erhält, werden zwischen 0 und 65 liegen.
+    <p> Die Punktzahl Ihrer Lose wird zwischen 35 und 100 Punkten liegen. <br>
+    Die Punktzahl der Lose Ihres Partners wird zwischen 0 und 65 liegen.
     </p>
 {% elif player.type == 'r2' %}
     <p> Sie wurden zufällig als <text style="color:blue";> BLAUER </text> Spieler bestimmt. <br>
      Sie werden mit einem <text style="color:green";> GRÜNEN </text> Spieler zusammengebracht.</p>
       <br>
-    <p> Ihre Angebote für eine Suchanfrage werden zwischen 0 und 65 Punkten liegen. <br>
-    Die Angebote, die Ihr Partner für eine Angebotsanfrage erhält, werden zwischen 35 und 100 liegen.
+    <p> Die Punktzahl Ihrer Lose wird zwischen 0 und 65 Punkten liegen. <br>
+    Die Punktzahl der Lose Ihres Partners wird zwischen 35 und 100 liegen.
     </p>
 {% endif %}
 

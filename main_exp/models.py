@@ -99,7 +99,7 @@ class Player(BasePlayer):
     draw_20 = models.IntegerField(blank=True)
     attention_check = models.IntegerField()
     current_max_is = models.IntegerField()
-    num_draws = models.IntegerField()
+    num_draws = models.IntegerField(initial=0)
     total_costs = models.IntegerField()
 
     # Prompt Counter

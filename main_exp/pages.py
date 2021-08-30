@@ -3,7 +3,10 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 class Instruction(Page):
-    pass
+    def vars_for_template(self):
+        return dict(
+            pay_inattent=Constants.pay_inattention
+        )
 
 class Instructions(Page):
     pass

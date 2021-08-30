@@ -46,7 +46,7 @@ class Player(BasePlayer):
 
     educ = models.StringField(
         choices=[['HS', 'Abitur'], ['BA', 'Bachelor'], ['MA', 'Master'], ['more', 'höher']],
-        label='Was ist der höchste Abschluss, den Sie abgeschlossen haben?',
+        label='Was ist Ihr höchster Bildungsabschluss?',
         widget=widgets.RadioSelect,
     )
 
