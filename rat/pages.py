@@ -10,7 +10,7 @@ class Intro(Page):
 
 class FinalPage(Page):
     def vars_for_template(self):
-        me = self.player
+        me = self.participant
         return dict(
             my_payoff=me.payoff,
             my_payoff_real_money=me.payoff.to_real_world_currency(self.session),
