@@ -156,6 +156,7 @@ class Total_Results(Page):
             my_performance=me.current_max_is,
             my_costs=me.total_costs,
             my_payoff=me.payoff,
+            my_payoff_real_money=me.payoff.to_real_world_currency(self.session),
             other_performance=me.computer_performance,
             total_performance=max(me.current_max_is,me.computer_performance),
             pay_inattent=Constants.pay_inattention

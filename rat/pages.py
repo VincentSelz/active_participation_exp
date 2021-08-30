@@ -9,7 +9,13 @@ class Intro(Page):
     pass
 
 class FinalPage(Page):
-    pass
+    def vars_for_template(self):
+        me = self.player
+        return dict(
+            my_payoff=me.payoff,
+            my_payoff_real_money=me.payoff.to_real_world_currency(self.session),
+            part_fee=self.session.config['participation_fee']
+        )
 
 
 class RatPage(Page):

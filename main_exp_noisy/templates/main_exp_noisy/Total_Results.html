@@ -2,18 +2,18 @@
 {% load otree static %}
 
 {% block title %}
-    Deine Auszahlung beträgt {{my_payoff}}.
+    Ihre Auszahlung für diesen Teil des Experiments ist {{my_payoff}}, d.h. {{my_payoff_real_money}}.
 {% endblock %}
 
 {% block content %}
 {% if player.attention_check == 1 %}
-<p> Ihre individuelle Leistung: <b> {{my_performance}}</b>.</p>
+<p> Ihr Loserfolg: <b> {{my_performance}}</b>.</p>
   <br>
-<p> Die Leistung Ihres Partners:<b> {{other_performance}}</b></p>
+<p> Der Loserfolg Ihres Partners:<b> {{other_performance}}</b></p>
   <br>
-<p> Die Leistung Ihrer Gruppe:<b> {{total_performance}}</b></p>
+<p> Der Loserfolg Ihrer Gruppe:<b> {{total_performance}}</b></p>
   <br>
-<p> Ihre Gesamtkosten betragen: <b> {{my_costs}}</b></p>
+<p> Die Gesamtkosten für Ihre Loskäufe betragen: <b> {{my_costs}}</b></p>
 <br>
 <p> Ihre Auszahlung beträgt: <b> {{total_performance}}</b> - <b>{{my_costs}}</b> = <b>{{my_payoff}}</b>
 {% elif player.attention_check == 0 %}

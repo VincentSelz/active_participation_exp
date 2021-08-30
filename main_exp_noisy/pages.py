@@ -154,6 +154,7 @@ class Total_Results(Page):
             my_performance=me.current_max_is,
             my_costs=me.total_costs,
             my_payoff=me.payoff,
+            my_payoff_real_money=me.payoff.to_real_world_currency(self.session),
             other_performance=opponent.current_max_is,
             total_performance=me.group.total_performance,
             pay_inattent=Constants.pay_inattention
@@ -171,6 +172,7 @@ class Total_Results_Noisy(Page):
             my_performance=me.current_max_is,
             my_costs=me.total_costs,
             my_payoff=me.payoff,
+            my_payoff_real_money=me.payoff.to_real_world_currency(self.session),
             other_performance=opponent.current_max_is,
             total_performance=me.group.total_performance,
             noise=me.group.noise,
