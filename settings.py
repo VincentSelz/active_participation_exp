@@ -100,9 +100,16 @@ ROOMS = [
         participant_label_file='_rooms/econ101.txt',
     ),
     dict(
-        name='experiment',
-        display_name='Experiment',
-        participant_label_file='_rooms/real_exp.txt',
+        name='experiments',
+        display_name='ExperimentS',
+    ),
+    dict(
+        name='experimentn',
+        display_name='ExperimentN',
+    ),
+    dict(
+        name='experimentc',
+        display_name='ExperimentC',
     ),
     dict(name='live_demo', display_name='Room for live demo (no participant labels)'),
 ]
