@@ -33,7 +33,7 @@ class Constants(BaseConstants):
     high_example = 68
     low_example = 33
     #total timeout
-    timeout = 600
+    timeout = 4000
     # modal onset time before timeout So, 10 means 10 seconds before the timeout.
     pop_up_time = 15
     # How long it stays
