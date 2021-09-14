@@ -6,22 +6,7 @@
 {% endblock %}
 
 {% block content %}
-{% if player.attention_check == 1 %}
-<p> Ihr Loserfolg: <b> {{my_performance}}</b>.</p>
-  <br>
-<p> Der Loserfolg Ihres Partners:<b> {{other_performance}}</b></p>
-  <br>
-<p> Der Loserfolg Ihrer Gruppe:<b> {{total_performance}}</b></p>
-  <br>
-<p> Die Gesamtkosten für Ihre Loskäufe betragen: <b> {{my_costs}}</b></p>
-<br>
-<p> Ihre Auszahlung beträgt: <b> {{total_performance}}</b> - <b>{{my_costs}}</b> = <b>{{my_payoff}}</b>
-{% elif player.attention_check == 0 %}
-<p> Leider waren Sie nicht aufmerksam genug und haben es verpasst, den Button im Pop-up-Mitteilung zu klicken! Daher
-  bekommen Sie für diesen Teil keine Auszahlung. Selbstverständlich bekommen Sie jedoch die Teilnahmegebühr von {{pay_inattent}}€,
-  wenn Sie die Studie beenden.
-</p>
-<br>
-{% endif %}
+{% include "global/main/gr_result.html" %}
+
     {% next_button %}
 {% endblock %}
