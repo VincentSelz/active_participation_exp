@@ -6,7 +6,7 @@ SESSION_CONFIGS = [
         name='social_treatment',
         display_name='Social Treatment',
         num_demo_participants=2,
-        app_sequence=['StartPage','Iban','main_exp','survey', 'bigfive','raven_test','rat'],
+        app_sequence=['StartPage','Iban','Instructions','main_exp','survey', 'bigfive','raven_test','rat'],
     ),
     dict(
         name='noisy_treatment',
@@ -18,7 +18,7 @@ SESSION_CONFIGS = [
         name='computer_treatment',
         display_name='Computer Treatment',
         num_demo_participants=2,
-        app_sequence=['StartPage','Iban','main_exp_computer','survey', 'bigfive','raven_test','rat'],
+        app_sequence=['StartPage','Iban','Instructions','main_exp_computer','survey', 'bigfive','raven_test','rat'],
     ),
     dict(
         name='main_exp',
@@ -43,6 +43,12 @@ SESSION_CONFIGS = [
         display_name='Survey',
         num_demo_participants=2,
         app_sequence=['survey'],
+    ),
+    dict(
+        name='Instructions',
+        display_name='Instructions (for social&computer)',
+        num_demo_participants=2,
+        app_sequence=['Instructions'],
     ),
     dict(
         name='StartPage',
