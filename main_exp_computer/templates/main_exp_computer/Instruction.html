@@ -7,16 +7,17 @@
 
 {% block scripts %}
 
-<script src="{% static 'back_button_v2/js/prev_next_button.js' %}"></script>
+<script src="{% static 'back_button_v3/js/prev_next_button.js' %}"></script>
 
 {% endblock %}
 
 
 {% block styles %}
 
-<link href="{% static 'back_button_v2/css/custom.css' %}" rel="stylesheet">
+<link href="{% static 'back_button_v3/css/custom.css' %}" rel="stylesheet">
 
 {% endblock %}
+
 
 
 {% block content %}
@@ -46,6 +47,10 @@
     <a class="nav-link" id="part5-tab" data-toggle="tab" href="#part5" role="tab" aria-controls="part5" onclick="topFunction()">Instruktionen 5</a>
   </li>
 
+<li class="nav-item">
+    <a class="nav-link" id="part6-tab" data-toggle="tab" href="#part6" role="tab" aria-controls="part6" onclick="topFunction()">Verständnistest</a>
+  </li>
+
 </ul>
 <br>
 <br>
@@ -63,18 +68,7 @@
   </div>
 <br>
 
-<p> Vielen Dank für Ihr Interesse an der heutigen Studie! Die Studie besteht aus zwei Teilen: einem Entscheidungsexperiment und einer kurzen Befragung. Wenn Sie beide Teile vollständig abschließen, erhalten Sie eine Vergütung von  €{{pay_inattent}}. <b> Zusätzlich können Sie während des Entscheidungsexperiments Geld verdienen,</b> indem Sie Punkte sammeln. Die Anzahl der Punkte, die Sie während des Experiments erhalten, hängt von Ihren Entscheidungen, den Entscheidungen anderer Teilnehmer im Experiment sowie vom Zufall ab. Alle Punkte, die Sie im Experiment sammeln, werden am Ende des Experiments in Euro umgerechnet. Hierbei gilt: </p>
-
-<center> <b> 10 Punkte = € 1 </b> </center>
-
-<p> </p>
-
-<p> <b> Der Geldbetrag, den Sie im Verlauf des Experiments verdienen, und zusätzlich die Vergütung von €{{pay_inattent}} werden auf Ihr Konto überwiesen.</b>  </p>
-
-<p> Die Entscheidungen, die Sie während des Experiments treffen, und die Angaben, die Sie in der Befragung machen, werden nur in anonymisierter Form ausgewertet, d.h. bei der Datenauswertung werden Ihre Angaben niemals mit Ihrem Namen in Verbindung gebracht werden. Persönliche Angaben, wie Namen und Bankverbindungen werden in diesem Datensatz nicht gespeichert, sondern werden ausschließlich für die Abwicklung der Auszahlung verwendet. </p>
-
-<p> Im Experiment werden Sie unter Umständen mit einem anderen Teilnehmer interagieren. Niemand wird aber die Identität des jeweils anderen Teilnehmers erfahren. Somit wird kein anderer Teilnehmer am Ende wissen, welche Auszahlung Sie bekommen. </p>
-
+{% include "global/main/inst1.html" %}
 
 <button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Weiter</button>
   </div>
@@ -97,19 +91,7 @@
   </div>
 <br>
 
-<p> Im Entscheidungsexperiment werden Sie zufällig einem anderen Teilnehmer zugeordnet. Jedes Mitglied einer 2er-Gruppe kann unabhängig voneinander Lose kaufen. Dazu haben beide Gruppenmitglieder 10 Minuten Zeit.  </p>
-
-<p> Jeder Loskauf führt zum Erwerb von einem Los und kostet den Käufer einen Punkt. Jedes Mal wenn ein Gruppenmitglied ein Los gekauft hat, zieht der Computer aus einem vorgegebenen Intervall eine Punktzahl. </p>
-
-<p> Am Ende zählt das Los mit der höchsten Punktzahl in Ihrer 2er-Gruppe. Jedes Gruppenmitglied kann innerhalb der 10 Minuten so viele Lose kaufen, wie es möchte und zeitlich möglich ist, oder sich entscheiden, keine Lose zu kaufen.
- </p>
-
-<p> Am Ende der 10 Minuten werden Sie über den Loserfolg des anderen Gruppenmitglieds informiert. Danach wird Ihre persönliche Auszahlung festgelegt. <br>
-Dabei gilt: <br>
-Ihre Auszahlung in Punkten = Punktzahl des Loses mit der höchsten Punktzahl in Ihrer 2er-Gruppe – Anzahl Ihrer eigenen Loskäufe.  </p>
-
-<p> Klicken Sie auf „Weiter“, wenn Sie die Instruktionen gelesen haben. </p>
-
+{% include "global/main/inst2.html" %}
 
     <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
 <button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Weiter</button>
@@ -125,13 +107,7 @@ Ihre Auszahlung in Punkten = Punktzahl des Loses mit der höchsten Punktzahl in 
 <br>
 
 
-<p> Bitte räumen Sie jetzt alle potentiellen Hilfsmittel wie Stifte, Papier, Taschenrechner, Handy und dergleichen weg. Beachten Sie bitte auch, dass während des gesamten Experiments ein striktes Kommunikationsverbot besteht. Zudem weisen wir Sie darauf hin, dass Sie am Computer nur diejenigen Funktionen bedienen dürfen, die für den Ablauf des Experiments bestimmt sind. <b> Die Nutzung von Hilfsmitteln, Kommunikation mit anderen Personen als dem Studienleiter oder das Herumspielen am Computer sind nicht erlaubt.</b> Wenn Sie gegen diese Regeln verstoßen, werden Sie von der Studie und allen Bezahlungen ausgeschlossen. Bitte lassen Sie während des Experiments Ihre <b> Kameras eingeschaltet und Mikrofone ausgeschaltet.</b> </p>
-
-<p> Sollten Sie zu irgendeinem Zeitpunkt Fragen haben, können Sie sich jederzeit an den Studienleiter wenden. Verwenden Sie dazu den Button "Ask for help", den Sie in der Werkzeugleiste unten im Breakout-Room finden. Bitte beachten Sie, dass Sie den Breakout-Room während des Experiments nicht verlassen können. Nur der Leiter der Studie kann Sie wieder in den Hauptraum zurückholen. Bitte klicken Sie während des Experiments niemals auf den Button "Leave Meeting". Wenn Sie das Zoom-Meeting vor Ablauf des Experiments verlassen, werden Sie von allen Zahlungen ausgeschlossen. </p>
-
-
-<p> Klicken Sie auf „Weiter“, wenn Sie die Instruktionen gelesen haben. </p>
-
+{% include "global/main/inst3.html" %}
 
     <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
 <button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Weiter</button>
@@ -147,26 +123,7 @@ Ihre Auszahlung in Punkten = Punktzahl des Loses mit der höchsten Punktzahl in 
 <br>
 
 
-<p> Im folgenden Entscheidungsexperiment wird Ihnen vom Computer zufällig ein anderer Teilnehmer zugeordnet, mit dem Sie eine 2er-Gruppe bilden.  </p>
-
-<p> Jedes Mitglied einer 2er-Gruppe kann unabhängig voneinander Lose kaufen. Dazu haben beide Gruppenmitglieder 10 Minuten Zeit.  </p>
-
-<p> Jeder Loskauf führt zum Erwerb von einem Los und kostet dem Käufer einen Punkt. Jedesmal wenn ein Gruppenmitglied ein Los gekauft hat, zieht der Computer aus einem vorgegebenen Intervall eine Punktzahl. </p>
-
-<p> In jeder Gruppe gibt es einen <text style="color:blue";> BLAUEN </text> Spieler und einen <text style="color:green";> GRÜNEN </text> Spieler. <br>
-Die Punktzahl der Lose des <text style="color:blue";> BLAUEN </text> Spielers werden zwischen 0 und 65 Punkten liegen. <br>
-Die Punktzahl der Lose des <text style="color:green";> GRÜNEN </text> Spielers werden zwischen 35 und 100 Punkten liegen.
- </p>
-
-<p> Die zufällige Ziehung des Computers wird 10 Sekunden dauern. Danach wird Ihnen die Punktzahl Ihres Loses angezeigt. Sie können sich dann entscheiden, ob Sie ein weiteres Los kaufen möchten oder nicht. Ihr Loserfolg ist gleich der höchsten gezogenen Punktzahl. </p>
-
-<p> Am Ende der 10 Minuten werden Sie über den Loserfolg des anderen Gruppenmitglieds informiert. Für die Auszahlung zählt das Los mit der höchsten Punktzahl aller Gruppenmitglieder. Ihre persönliche Auszahlung wird wie folgt festgelegt:
- </p>
-
-<p> Ihre Auszahlung in Punkten = Punktzahl des Loses mit der höchsten Punktzahl in Ihrer 2er-Gruppe – Anzahl Ihrer eigenen Loskäufe </p>
-
-<p> Klicken Sie auf „Weiter“, wenn Sie die Instruktionen gelesen haben. </p>
-
+{% include "global/main/inst4.html" %}
 
     <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
 <button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Weiter</button>
@@ -175,9 +132,8 @@ Die Punktzahl der Lose des <text style="color:green";> GRÜNEN </text> Spielers 
 
 
 
-
   <div class="tab-pane" id="part5" role="tabpanel" aria-labelledby="part5-tab">
- 
+
 
 <div class="card-header bg-transparent mainheader" >
  <h3 class="card-title font-weight-bold">Instruktionen 5 </h3>
@@ -192,6 +148,38 @@ Die Punktzahl der Lose des <text style="color:green";> GRÜNEN </text> Spielers 
 
 
 <p> Klicken Sie auf „Weiter“, wenn Sie mit dem Experiment beginnen möchten. </p>
+
+
+    <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
+<button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Weiter</button>
+  </div>
+
+
+
+
+
+  <div class="tab-pane" id="part6" role="tabpanel" aria-labelledby="part6-tab">
+ 
+
+<div class="card-header bg-transparent mainheader" >
+ <h3 class="card-title font-weight-bold">Verständnistest </h3>
+  </div>
+<br>
+    
+{% include "global/main/comprehension_1.html" %}
+
+{% formfield player.q1 %}
+
+{% formfield player.q2 %}
+
+
+{% include "global/main/comprehension_2.html" %}
+
+{% formfield player.q3 %}
+
+{% formfield player.q4 %}
+
+
 
 
     <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
