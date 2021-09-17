@@ -56,8 +56,6 @@ class Task(Page):
             animation_time=Constants.animation_time
         )
 
-    def before_next_page(self):
-        self.player.set_payoffs()
 
 
 class ResultsWaitPage(WaitPage):
@@ -134,6 +132,14 @@ class Hypothetical6(Page):
     form_model = 'player'
     form_fields = ['ideal']
 
+class Bonus(Page):
+    form_model = 'player'
+    form_fields = ['bonusq']
+
+    # calculate payoffs here
+    def before_next_page(self):
+        self.player.set_payoffs()
+
 
 class Total_Results(Page):
     def vars_for_template(self):
@@ -141,6 +147,8 @@ class Total_Results(Page):
         return dict(
             my_performance=me.current_max_is,
             my_costs=me.total_costs,
+            my_task_earning=me.task_earning,
+            my_bonus_earning=me.bonus_earning,
             my_payoff=me.payoff,
             my_payoff_real_money=me.payoff.to_real_world_currency(self.session),
             other_performance=me.computer_performance,
@@ -163,6 +171,7 @@ page_sequence = [
     Hypothetical4,
     Hypothetical5,
     Hypothetical6,
+    Bonus,
 #    ResultsWaitPage,
     Total_Results,
 ]

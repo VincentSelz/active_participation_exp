@@ -45,6 +45,7 @@ class Constants(BaseConstants):
     high_ability_alt = [35,85]
     low_ability_alt = [0,85]
     cost_alt = 3
+    bonus_points = 10
 
 
 
@@ -84,20 +85,25 @@ class Player(BasePlayer):
     current_max_is = models.IntegerField()
     num_draws = models.IntegerField()
     total_costs = models.IntegerField()
+    task_earning = models.IntegerField()
+    bonus_earning = models.IntegerField()
 
     # Prompt Counter
     prompt_counter = models.IntegerField()
     Task_warnings = models.FloatField()
 
     # set computer performance
-    computer_performance = models.IntegerField(initial=random.randint(Constants.high_threshold, Constants.high_ability[1]))
+    computer_performance = models.IntegerField()
     total_performance = models.IntegerField()
 
     def set_payoffs(self):
+        self.computer_performance = random.randint(Constants.high_threshold, Constants.high_ability[1])
         total_performance = max(self.current_max_is,self.computer_performance)
         if self.attention_check == 1:
             self.total_costs = (Constants.cost * self.num_draws)
-            self.payoff = c(total_performance - self.total_costs)
+            self.task_earning = total_performance - self.total_costs
+            self.bonus_earning = Constants.bonus_points*(self.bonusq==0)
+            self.payoff = c(total_performance - self.total_costs + 10*(self.bonusq==0))
         else:
             #self.total_costs = 0
             self.payoff = c(0)
@@ -121,5 +127,6 @@ class Player(BasePlayer):
 
     expectation = models.LongStringField(label="Ihre Antwort:")
     ideal = models.LongStringField(label="Ihre Antwort:")
+    bonusq = models.IntegerField(label="Ihre Antwort:")
 
 

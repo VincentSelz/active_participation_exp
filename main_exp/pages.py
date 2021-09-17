@@ -130,6 +130,14 @@ class Hypothetical6(Page):
     form_model = 'player'
     form_fields = ['ideal']
 
+class Bonus(Page):
+    form_model = 'player'
+    form_fields = ['bonusq']
+
+class Type(Page):
+    pass
+
+
 class Total_Results(Page):
     def vars_for_template(self):
         me = self.player
@@ -137,6 +145,8 @@ class Total_Results(Page):
         return dict(
             my_performance=me.current_max_is,
             my_costs=me.total_costs,
+            my_task_earning=me.task_earning,
+            my_bonus_earning=me.bonus_earning,
             my_payoff=me.payoff,
             my_payoff_real_money=me.payoff.to_real_world_currency(self.session),
             other_performance=opponent.current_max_is,
@@ -159,6 +169,7 @@ page_sequence = [
     Hypothetical4,
     Hypothetical5,
     Hypothetical6,
+    Bonus,
     ResultsWaitPage,
     Total_Results,
 ]

@@ -1,13 +1,16 @@
 {% if player.attention_check == 1 %}
-<p> Ihr Loserfolg: <b> {{my_performance}}</b>.</p>
+<p> Ihre höchste gezogene Punktzahl: <b> {{my_performance}}</b>.</p>
   <br>
-<p> Der Loserfolg Ihres Partners:<b> {{other_performance}}</b></p>
+<p> Die höchste gezogene Punktzahl Ihres Partners:<b> {{other_performance}}</b></p>
   <br>
-<p> Der Loserfolg Ihrer Gruppe:<b> {{total_performance}}</b></p>
+<p> Der Gruppenerfolg:<b> {{total_performance}}</b></p>
   <br>
 <p> Die Gesamtkosten für Ihre Loskäufe betragen: <b> {{my_costs}}</b></p>
 <br>
-<p> Ihre Auszahlung beträgt: <b> {{total_performance}}</b> - <b>{{my_costs}}</b> = <b>{{my_payoff}}</b>
+<p> Ihre Auszahlung aus der Aufgabe beträgt: <b> {{total_performance}}</b> - <b>{{my_costs}}</b> = <b>{{my_task_earning}}</b> Punkte</p>
+<br>
+<p> Sie haben {{my_bonus_earning}} Punkte aus der Bonusfrage verdient.</p>
+<br>
 {% elif player.attention_check == 0 %}
 <p> Leider waren Sie nicht aufmerksam genug und haben es verpasst, den Button im Pop-up-Mitteilung zu klicken! Daher
   bekommen Sie für diesen Teil keine Auszahlung. Selbstverständlich bekommen Sie jedoch die Teilnahmegebühr von {{pay_inattent}}€,

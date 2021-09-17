@@ -44,6 +44,7 @@ class Constants(BaseConstants):
     high_ability_alt = [35,85]
     low_ability_alt = [0,85]
     cost_alt = 3
+    bonus_points = 10
 
 
 class Subsession(BaseSubsession):
@@ -67,7 +68,9 @@ class Group(BaseGroup):
         for sub in [p1,p2]:
             if sub.attention_check == 1:
                 sub.total_costs = (Constants.cost * sub.num_draws)
-                sub.payoff = c(total_performance - sub.total_costs)
+                sub.task_earning = total_performance - sub.total_costs
+                sub.bonus_earning = Constants.bonus_points*(sub.bonusq==0)
+                sub.payoff = c(total_performance - sub.total_costs + 10*(sub.bonusq==0))
             else:
                 #sub.total_costs = 0
                 sub.payoff = c(0)
@@ -101,6 +104,8 @@ class Player(BasePlayer):
     current_max_is = models.IntegerField()
     num_draws = models.IntegerField(initial=0)
     total_costs = models.IntegerField()
+    task_earning = models.IntegerField()
+    bonus_earning = models.IntegerField()
 
     # Prompt Counter
     prompt_counter = models.IntegerField()
@@ -125,3 +130,5 @@ class Player(BasePlayer):
 
     expectation = models.LongStringField(label="Ihre Antwort:")
     ideal = models.LongStringField(label="Ihre Antwort:")
+    bonusq = models.IntegerField(label="Ihre Antwort:")
+

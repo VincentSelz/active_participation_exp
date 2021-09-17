@@ -37,10 +37,10 @@ class Group(BaseGroup):
 class Player(BasePlayer):
 
     # Comprehension Questions
-    q1 = models.IntegerField(label="Die Auszahlung für Spieler 1 beträgt:")
-    q2 = models.IntegerField(label="Die Auszahlung für Spieler 2 beträgt:")
-    q3 = models.IntegerField(label="Die Auszahlung für Spieler 1 beträgt:")
-    q4 = models.IntegerField(label="Die Auszahlung für Spieler 2 beträgt:")
+    q1 = models.IntegerField(label="Die Auszahlung für 1. Gruppenmitglied beträgt:")
+    q2 = models.IntegerField(label="Die Auszahlung für 2. Gruppenmitglied beträgt:")
+    q3 = models.IntegerField(label="Die Auszahlung für 1. Gruppenmitglied beträgt:")
+    q4 = models.IntegerField(label="Die Auszahlung für 2. Gruppenmitglied beträgt:")
 
     def set_error_message(self,value):
         correct_answers = {
