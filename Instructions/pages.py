@@ -11,6 +11,8 @@ class Instruction(Page):
     def error_message(self, value):
         return self.player.set_error_message(value)
 
+
+class Popup(Page):
     def vars_for_template(self):
         return dict(
             pay_inattent=Constants.pay_inattention,
@@ -18,5 +20,6 @@ class Instruction(Page):
         )
 
 page_sequence = [
-    Instruction
+    Instruction,
+    Popup
 ]

@@ -7,14 +7,49 @@
 
 {% block scripts %}
 
-<script src="{% static 'back_button_v3/js/prev_next_button.js' %}"></script>
+<script src="{% static 'Instructions/back_button_v3/js/prev_next_button.js' %}"></script>
+
+{% if player.show_tab == 8 %}
+<script>
+  $(function () {
+    $('#myTab li:nth-child(8) a').tab('show')
+  })
+</script>
+{% elif player.show_tab == 9 %}
+<script>
+  $(function () {
+    $('#myTab li:nth-child(9) a').tab('show')
+  })
+</script>
+{% endif %}
 
 {% endblock %}
 
 
 {% block styles %}
 
-<link href="{% static 'back_button_v3/css/custom.css' %}" rel="stylesheet">
+<link href="{% static 'Instructions/back_button_v3/css/custom.css' %}" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
 
 {% endblock %}
 
@@ -27,28 +62,40 @@
   
 
   <li class="nav-item" >
-    <a class="nav-link active" id="part1-tab" data-toggle="tab" href="#part1" role="tab" aria-controls="part1" onclick="topFunction()"> Instruktionen 1
-</a>
+    <a class="nav-link active" id="part1-tab" data-toggle="tab" href="#part1" role="tab" aria-controls="part1" onclick="topFunction()"> Allgemeine Hinweise</a>
   </li>
+
   <li class="nav-item">
-    <a class="nav-link" id="part2-tab" data-toggle="tab" href="#part2" role="tab" aria-controls="part2" onclick="topFunction()">Instruktionen 2</a>
+    <a class="nav-link" id="part2-tab" data-toggle="tab" href="#part2" role="tab" aria-controls="part2" onclick="topFunction()">Ablauf des Experiments</a>
   </li>
 
 
 <li class="nav-item">
-    <a class="nav-link" id="part3-tab" data-toggle="tab" href="#part3" role="tab" aria-controls="part3" onclick="topFunction()">Instruktionen 3</a>
+    <a class="nav-link" id="part3-tab" data-toggle="tab" href="#part3" role="tab" aria-controls="part3" onclick="topFunction()">Das Entscheidungsexperiment</a>
   </li>
 
 <li class="nav-item">
-    <a class="nav-link" id="part4-tab" data-toggle="tab" href="#part4" role="tab" aria-controls="part4" onclick="topFunction()">Instruktionen 4</a>
+    <a class="nav-link" id="part4-tab" data-toggle="tab" href="#part4" role="tab" aria-controls="part4" onclick="topFunction()">Zusammensetzung der Gruppe</a>
   </li>
 
 <li class="nav-item">
-    <a class="nav-link" id="part5-tab" data-toggle="tab" href="#part5" role="tab" aria-controls="part5" onclick="topFunction()">Instruktionen 5</a>
+    <a class="nav-link" id="part5-tab" data-toggle="tab" href="#part5" role="tab" aria-controls="part5" onclick="topFunction()">Bestimmung der Auszahlung</a>
   </li>
 
 <li class="nav-item">
-    <a class="nav-link" id="part6-tab" data-toggle="tab" href="#part6" role="tab" aria-controls="part6" onclick="topFunction()">Verständnistest</a>
+    <a class="nav-link" id="part6-tab" data-toggle="tab" href="#part6" role="tab" aria-controls="part6" onclick="topFunction()">Beispiel 1</a>
+  </li>
+
+<li class="nav-item">
+    <a class="nav-link" id="part7-tab" data-toggle="tab" href="#part7" role="tab" aria-controls="part7" onclick="topFunction()">Beispiel 2</a>
+  </li>
+
+<li class="nav-item">
+    <a class="nav-link" id="part8-tab" data-toggle="tab" href="#part8" role="tab" aria-controls="part8" onclick="topFunction()">Szenario 1</a>
+  </li>
+
+<li class="nav-item">
+    <a class="nav-link" id="part9-tab" data-toggle="tab" href="#part9" role="tab" aria-controls="part9" onclick="topFunction()">Szenario 2</a>
   </li>
 
 </ul>
@@ -63,7 +110,7 @@
 
 
 <div class="card-header bg-transparent mainheader" >
- <h3 class="card-title font-weight-bold"> Instruktionen 1 
+ <h3 class="card-title font-weight-bold mt-3 mb-3"> Allgemeine Hinweise 
  </h3>
   </div>
 <br>
@@ -88,7 +135,7 @@
 
 
 <div class="card-header bg-transparent mainheader" >
- <h3 class="card-title font-weight-bold"> Instruktionen 2 </h3>
+ <h3 class="card-title font-weight-bold mt-3 mb-3"> Ablauf des Experiments </h3>
   </div>
 <br>
 
@@ -114,7 +161,7 @@
 
 
 <div class="card-header bg-transparent mainheader" >
- <h3 class="card-title font-weight-bold"> Instruktionen 3 </h3>
+ <h3 class="card-title font-weight-bold mt-3 mb-3"> Das Entscheidungsexperiment </h3>
   </div>
 <br>
 
@@ -122,26 +169,16 @@
 <p> Jetzt erklären wir das Experiment! </p>
 
 <p> <b> Die Gruppen:</b> <br>
-Im Entscheidungsexperiment werden Sie zufällig einem anderen Teilnehmer zugeordnet.Sie werden die Aufgabe mit diesem Teilnehmer als Team bearbeiten.  </p>
+Im Entscheidungsexperiment werden Sie zufällig einem anderen Teilnehmer zugeordnet. Sie werden die Aufgabe mit diesem Teilnehmer als Team bearbeiten.  </p>
 
 <p> <b> Die Gruppenaufgabe:</b> <br>
-Die Aufgabe besteht darin, durch Loskäufe Punkte zu erwerben. Diese Punkte bestimmen Ihre Auszahlung. Jedes Mitglied einer 2er-Gruppe kann während einer 10-minütigen Kaufphase Lose kaufen. Während der Kaufphase erfahren Sie nicht, ob und wie viele Lose das andere Gruppenmitglied kauft.  </p>
+Die Aufgabe der Gruppe besteht darin, durch Loskäufe Punkte zu erwerben. Das Los mit der höchsten Punktzahl, das von einem der beiden Gruppenmitglieder gezogen wurde, bestimmt Ihre Auszahlung. Jedes Mitglied einer 2er-Gruppe kann während einer 10-minütigen Kaufphase Lose kaufen. Während der Kaufphase erfahren Sie nicht, ob und wie viele Lose das andere Gruppenmitglied kauft. Über die höchste vom anderen Gruppenmitglied gezogene Punktzahl werden Sie erst am Ende Kaufphase informiert.  </p>
 
 <p> <b> Die Kaufphase:</b> <br>
 Zunächst fragt das System Sie (und das andere Gruppenmitglied), ob Sie ein Los kaufen möchten. Sie können sich für den Kauf eines Loses entscheiden, indem Sie auf den Button "Los kaufen" klicken. Jeder Loskauf kostet den Käufer einen Punkt. Die Kosten für Loskäufe werden später nur dem Käufer in Rechnung gestellt. <br> <br>
 Sobald Sie ein Los gekauft haben, zieht der Computer aus einem vorgegebenen Intervall eine Punktzahl. Diese Punktzahl wird Ihnen sofort nach der Ziehung mitgeteilt, dem anderen Gruppenmitglied aber nicht. Jede Ziehung dauert etwa 10 Sekunden. <br> <br>
 Sie können sich danach entscheiden, ob Sie ein weiteres Los kaufen möchten oder nicht. Jedes Gruppenmitglied kann so viele Lose kaufen, wie es möchte und zeitlich möglich ist, oder sich entscheiden, keine Lose zu kaufen. Insgesamt steht ein Kaufzeitraum von 10 Minuten zu Verfügung. Während dieses Zeitraums können Sie entweder Lose kaufen oder die Zeit verstreichen lassen. Es ist nicht möglich, die Kaufphase früher zu beenden.  </p>
 
-<p> <b> Die Gruppenerfolg:</b> <br>
-Der Erfolg der 2er-Gruppe wird nur durch ein Los bestimmt, nämlich dem Los mit der höchsten Punktzahl in der 2er-Gruppe, unabhängig davon welches Gruppenmitglied dieses Los gezogen hat. <br> <br>
-Bitte beachten Sie, dass Sie während der Kaufphase nur Ihre eigene Punktzahl kennen. Über die höchste vom anderen Gruppenmitglied gezogene Punktzahl werden Sie erst am Ende Kaufphase informiert. </p>
-
-<p> <b> Auszahlungen:</b> <br>
-Am Ende der 10-minütigen Kaufphase wird Ihre persönliche Auszahlung festgelegt. Die Auszahlung richtet sich nach dem Gruppenerfolg – also nach dem Los mit der höchsten Punktzahl, das von einem der beiden Gruppenmitglieder gezogen wurde – und den Kosten für eigene Loskäufe. Während jedes Mitglied dieselbe Punktzahl für den Loserfolg der Gruppe erhält, werden die Kosten für Loskäufe nur jeweils den Gruppenmitgliedern in Rechnung gestellt, die diese Kosten verursacht haben. <br> <br>
-<b>Für Ihre Auszahlung gilt:</b> <br>
-Ihre Auszahlung in Punkten = Punktzahl des Loses mit der höchsten Punktzahl in Ihrer 2er-Gruppe – Anzahl Ihrer eigenen Loskäufe  </p>
-
-<p> Bitte beachten Sie, dass bis auf das Los mit der höchsten Punktzahl in der Gruppe alle anderen Lose für die Auszahlung irrelevant sind. Sie zahlen dennoch die Kosten für alle von Ihnen gekauften Lose.  </p>
 
     <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
 <button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Weiter</button>
@@ -155,7 +192,7 @@ Ihre Auszahlung in Punkten = Punktzahl des Loses mit der höchsten Punktzahl in 
 
 
 <div class="card-header bg-transparent mainheader" >
- <h3 class="card-title font-weight-bold"> Instruktionen 4 </h3>
+ <h3 class="card-title font-weight-bold mt-3 mb-3"> Zusammensetzung der Gruppe </h3>
   </div>
 <br>
 
@@ -171,25 +208,7 @@ Jedes Gruppenmitglied zieht somit aus einem anderen Lostopf.  </p>
 In jedem Lostopf ist jede Punktzahl gleich wahrscheinlich, d.h. jede Zahl aus dem entsprechenden Intervall befindet sich darin gleich häufig. Nach jeder Ziehung wird das gezogene Los wieder in den Lostopf zurückgelegt. <br> <br>
 Bitte beachten Sie, dass der grüne Spieler aus einem Lostopf zieht, der Lose mit höheren Punktzahlen enthält.  </p>
 
-<p> <b> Beispiel 1:</b> <br> 
-Das 1. Gruppenmitglied kauft 3 Lose und das 2. Gruppenmitglied kauft 8 Lose. Nehmen Sie an, dass in diesem Beispiel das Los mit der höchsten Punktzahl des 1. Gruppenmitglieds 40 ist und das Los mit der höchsten Punktzahl des 2. Gruppenmitglieds 60 ist. Dann ergäbe sich: <br>
-Los mit höchster Punktzahl des 1. Gruppenmitglieds: 40 Punkte <br>
-Los mit höchster Punktzahl des 2. Gruppenmitglieds : 60 Punkte <br>
-Die Gesamtkosten der Loskäufe des 1. Gruppenmitglieds : 3 Punkte <br>
-Die Gesamtkosten der Loskäufe des 2. Gruppenmitglieds : 8 Punkte <br> <br>
-Die Auszahlung für das 1. Gruppenmitglied  beträgt: 60 - 3 = 57 Punkte <br>
-Die Auszahlung für das 2. Gruppenmitglied  beträgt: 60 - 8 = 52 Punkte
- </p>
 
-<p> <b> Beispiel 2:</b> <br> 
-Das 1. Gruppenmitglied kauft 6 Lose und das 2. Gruppenmitglied kauft keine Lose. Nehmen Sie an, dass in diesem Beispiel das Los mit der höchsten Punktzahl des 1. Gruppenmitglieds 50 ist. Das 2. Gruppenmitglied hat kein Los gekauft und damit einen Loserfolg von 0 Punkten erzielt. Dann ergäbe sich: <br>
-Los mit höchster Punktzahl des 1. Gruppenmitglieds: 50 Punkte <br>
-Los mit höchster Punktzahl des 2. Gruppenmitglieds : 0 Punkte <br>
-Die Gesamtkosten der Loskäufe des 1. Gruppenmitglieds : 6 Punkte <br>
-Die Gesamtkosten der Loskäufe des 2. Gruppenmitglieds : 0 Punkte <br> <br>
-Die Auszahlung für das 1. Gruppenmitglied  beträgt: 50 - 6 = 44 Punkte <br>
-Die Auszahlung für das 2. Gruppenmitglied  beträgt: 50 - 0 = 50 Punkte
- </p>
 
 
     <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
@@ -203,18 +222,16 @@ Die Auszahlung für das 2. Gruppenmitglied  beträgt: 50 - 0 = 50 Punkte
 
 
 <div class="card-header bg-transparent mainheader" >
- <h3 class="card-title font-weight-bold">Instruktionen 5 </h3>
+ <h3 class="card-title font-weight-bold mt-3 mb-3">Bestimmung der Auszahlung</h3>
   </div>
 <br>
     
-<p> Um Ihre Aufmerksamkeit zu überprüfen, kann zu jedem beliebigen Zeitpunkt während des Experiments ein Pop-up Fenster erscheinen, das wie unten abgebildet aussieht. Das Pop-up Fenster hat eine rote Schaltfläche. Wenn es auftaucht, <b>haben Sie {{popup_duration}} Sekunden Zeit</b>, um auf die Schaltfläche zu klicken. Wenn Sie das nicht tun, erhalten Sie <b>€0</b> als Auszahlung für das Entscheidungsexperiment. Für das Abschließen des Experiments mit der anschließenden Befragung erhalten Sie dann insgesamt €{{pay_inattent}}. </p>
- <br>
-                <p><center><img align="middle" width=50%
-                        src="{% static "popup/pop-up.png" %}"/></center></p> 
-                <br>
+<p> <b> Auszahlungen:</b> <br>
+Am Ende der 10-minütigen Kaufphase wird Ihre persönliche Auszahlung festgelegt. Die Auszahlung richtet sich nach dem Los mit der höchsten Punktzahl, das von einem der beiden Gruppenmitglieder gezogen wurde, und den Kosten für eigene Loskäufe. Während jedes Mitglied dieselbe Punktzahl für den Loserfolg der Gruppe erhält, werden die Kosten für Loskäufe nur jeweils den Gruppenmitgliedern in Rechnung gestellt, die diese Kosten verursacht haben. <br> <br>
+<b>Für Ihre Auszahlung gilt:</b> <br>
+Ihre Auszahlung in Punkten = Punktzahl des Loses mit der höchsten Punktzahl in Ihrer 2er-Gruppe – Anzahl Ihrer eigenen Loskäufe  </p>
 
-
-<p> Klicken Sie auf "Weiter", wenn Sie mit dem Experiment beginnen möchten. </p>
+<p> Bitte beachten Sie, dass bis auf das Los mit der höchsten Punktzahl in der Gruppe alle anderen Lose für die Auszahlung irrelevant sind. Sie zahlen dennoch die Kosten für alle von Ihnen gekauften Lose.  </p>
 
 
     <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
@@ -229,10 +246,75 @@ Die Auszahlung für das 2. Gruppenmitglied  beträgt: 50 - 0 = 50 Punkte
  
 
 <div class="card-header bg-transparent mainheader" >
- <h3 class="card-title font-weight-bold">Bitte berechnen Sie die Auszahlungen für folgende Szenarien </h3>
+ <h3 class="card-title font-weight-bold mt-3 mb-3">Beispiel 1 </h3>
   </div>
 <br>
     
+<div class="row">
+  <div class="column">
+    <b>1. Gruppenmitglied</b>
+    <p>Los mit höchster Punktzahl: 40 Punkte <br>
+    Die Gesamtkosten der Loskäufe: 3 Punkte</p>
+  </div>
+  <div class="column">
+    <b>2. Gruppenmitglied</b>
+    <p>Los mit höchster Punktzahl: 60 Punkte <br>
+    Die Gesamtkosten der Loskäufe: 8 Punkte</p>
+  </div>
+</div>
+
+<p> Die Auszahlung für das 1. Gruppenmitglied  beträgt: 60 - 3 = 57 Punkte <br>
+Die Auszahlung für das 2. Gruppenmitglied  beträgt: 60 - 8 = 52 Punkte </p>
+
+
+
+    <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
+<button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Weiter</button>
+  </div>
+
+
+  <div class="tab-pane" id="part7" role="tabpanel" aria-labelledby="part7-tab">
+
+
+<div class="card-header bg-transparent mainheader" >
+ <h3 class="card-title font-weight-bold mt-3 mb-3">Beispiel 2 </h3>
+  </div>
+<br>
+ 
+<div class="row">
+  <div class="column">
+    <b>1. Gruppenmitglied</b>
+    <p>Los mit höchster Punktzahl: 50 Punkte <br>
+    Die Gesamtkosten der Loskäufe: 6 Punkte</p>
+  </div>
+  <div class="column">
+    <b>2. Gruppenmitglied</b>
+    <p>Los mit höchster Punktzahl: 0 Punkte <br>
+    Die Gesamtkosten der Loskäufe: 0 Punkte</p>
+  </div>
+</div>
+
+<p> Die Auszahlung für das 1. Gruppenmitglied  beträgt: 50 - 6 = 44 Punkte <br>
+Die Auszahlung für das 2. Gruppenmitglied  beträgt: 50 - 0 = 50 Punkte </p>
+
+
+
+
+    <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
+<button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Weiter</button>
+  </div>
+
+
+  <div class="tab-pane" id="part8" role="tabpanel" aria-labelledby="part8-tab">
+
+
+<div class="card-header bg-transparent mainheader" >
+ <h3 class="card-title font-weight-bold mt-3 mb-3">Bitte berechnen Sie die Auszahlungen </h3>
+  </div>
+<br>
+    
+<p> Im folgenden bitten wir Sie, für 2 hypothetische Szenarien Auszahlungen zu berechnen. </p> <br>
+   
 <p> <b> Szenario 1:</b> <br> 
 Die höchste gezogene Punktzahl des 1. Gruppenmitglieds beträgt: 85 Punkte <br>
 Die höchste gezogene Punktzahl des 2. Gruppenmitglieds beträgt: 30 Punkte <br>
@@ -246,6 +328,21 @@ Ihre Antwort:
 {% formfield player.q2 %}
 
 
+
+
+    <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
+<button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Weiter</button>
+  </div>
+
+
+  <div class="tab-pane" id="part9" role="tabpanel" aria-labelledby="part9-tab">
+
+
+<div class="card-header bg-transparent mainheader" >
+ <h3 class="card-title font-weight-bold mt-3 mb-3">Bitte berechnen Sie die Auszahlungen </h3>
+  </div>
+<br>
+    
 <p> <b> Szenario 2:</b> <br> 
 Die höchste gezogene Punktzahl des 1. Gruppenmitglieds beträgt: 45 Punkte <br>
 Die höchste gezogene Punktzahl des 2. Gruppenmitglieds beträgt: 90 Punkte <br>
@@ -260,13 +357,13 @@ Ihre Antwort:
 
 
 
-
     <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
 <button class="nexttab btn-primary btn next">Weiter</button>
   </div>
 
 
 </div>
+
 
 </body>
 
