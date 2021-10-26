@@ -19,7 +19,11 @@ class Popup(Page):
             popup_duration=Constants.pop_up_duration
         )
 
+class Correct(Page):
+    pass
+
 page_sequence = [
     Instruction,
+    Correct,
     Popup
 ]
