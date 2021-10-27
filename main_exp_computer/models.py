@@ -81,7 +81,7 @@ class Player(BasePlayer):
     draw_18 = models.IntegerField(blank=True)
     draw_19 = models.IntegerField(blank=True)
     draw_20 = models.IntegerField(blank=True)
-    attention_check = models.IntegerField()
+    attention_check = models.IntegerField(initial=0)
     current_max_is = models.IntegerField()
     num_draws = models.IntegerField()
     total_costs = models.IntegerField()
@@ -91,6 +91,11 @@ class Player(BasePlayer):
     # Prompt Counter
     prompt_counter = models.IntegerField()
     Task_warnings = models.FloatField()
+
+    # Attention check livepage
+    def live_attention(self, data):
+        if data==1:
+            self.attention_check = 1
 
     # set computer performance
     computer_performance = models.IntegerField()

@@ -111,7 +111,7 @@
 </tr>
 </table>
 </div>
-<input type='hidden' name='attention_check' value='0' id='attention_check'></input>
+
 <input type='hidden' name='draw_1' id='draw_1'></input>
 <input type='hidden' name='draw_2' id='draw_2'></input>
 <input type='hidden' name='draw_3' id='draw_3'></input>
@@ -426,7 +426,7 @@ draw_btn.onclick = function () {
 };
 var att_btn = document.getElementById("AttentionBtn");
 att_btn.onclick = function (){
-  $('#attention_check').val(1);
+  liveSend(1)
 };
 </script>
 
