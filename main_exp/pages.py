@@ -140,6 +140,14 @@ class Animation(Page):
     def is_displayed(self):
         return get_timeout_seconds(self) > 3
 
+class Popup(Page):
+    timeout_seconds = 5
+    def before_next_page(self):
+        if self.timeout_happened == False:
+            me = self.player
+            me.attention_check = 1
+
+
 class Task0(Page):
     get_timeout_seconds = get_timeout_seconds
     def is_displayed(self):
@@ -671,6 +679,7 @@ page_sequence = [
     Task19,
     Animation,
     Task20,
+    Popup,
     Individual_Results,
     Hypothetical1,
     Hypothetical2,
