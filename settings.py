@@ -22,19 +22,19 @@ SESSION_CONFIGS = [
     ),
     dict(
         name='main_exp',
-        display_name='Main Experiment',
+        display_name='Main Task',
         num_demo_participants=2,
         app_sequence=['main_exp'],
     ),
     dict(
         name='main_exp_noisy',
-        display_name='Main Experiment - Noisy',
+        display_name='Main Task - Noisy',
         num_demo_participants=2,
         app_sequence=['main_exp_noisy'],
     ),
     dict(
         name='main_exp_computer',
-        display_name='Main Experiment - Computer',
+        display_name='Main Task - Computer',
         num_demo_participants=2,
         app_sequence=['main_exp_computer'],
     ),

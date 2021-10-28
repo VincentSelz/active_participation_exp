@@ -70,7 +70,7 @@ class Group(BaseGroup):
 
     def set_payoffs(self):
         #noisy choice
-        random_number_for_noisy = random.randint(1,101)
+        random_number_for_noisy = random.randint(1,100)
         if random_number_for_noisy <= Constants.prob_noise:
             self.is_noisy = 1
         else:

@@ -79,6 +79,8 @@ class Player(BasePlayer):
 
     # Type
     type = models.StringField()
+    lowerbound=models.IntegerField()
+    upperbound=models.IntegerField()
     # Draws
     draw_1 = models.IntegerField(blank=True)
     draw_2 = models.IntegerField(blank=True)
@@ -101,24 +103,11 @@ class Player(BasePlayer):
     draw_19 = models.IntegerField(blank=True)
     draw_20 = models.IntegerField(blank=True)
     attention_check = models.IntegerField(initial=0)
-    current_max_is = models.IntegerField()
+    current_max_is = models.IntegerField(initial=0)
     num_draws = models.IntegerField(initial=0)
     total_costs = models.IntegerField()
     task_earning = models.IntegerField()
     bonus_earning = models.IntegerField()
-
-    # Prompt Counter
-    prompt_counter = models.IntegerField()
-    Task_warnings = models.FloatField()
-
-    # Attention check livepage
-    def live_attention(self, data):
-        if data==[0,1]:
-            self.attention_check = 1
-        else:
-            varname = "draw_"+str(data[0])
-            setattr(self, varname, data[1])
-        print(data)
 
     # Hypothetical questions
     strategy = models.LongStringField(label="Ihre Antwort:")
