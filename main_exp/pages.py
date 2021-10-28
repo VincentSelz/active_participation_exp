@@ -159,9 +159,9 @@ class Total_Results(Page):
 
 page_sequence = [
 #    Instruction,
-    Type,
-    DemoIntro,
-    Demo,
+#    Type,
+#    DemoIntro,
+#    Demo,
     TrueStart,
     Task,
     Individual_Results,

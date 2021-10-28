@@ -113,8 +113,12 @@ class Player(BasePlayer):
 
     # Attention check livepage
     def live_attention(self, data):
-        if data==1:
+        if data==[0,1]:
             self.attention_check = 1
+        else:
+            varname = "draw_"+str(data[0])
+            setattr(self, varname, data[1])
+        print(data)
 
     # Hypothetical questions
     strategy = models.LongStringField(label="Ihre Antwort:")

@@ -413,6 +413,7 @@ draw_btn.onclick = function () {
     document.getElementById(display_var).innerHTML = random_draw;
     // Store it into input field.
     $(input_var).val(random_draw);
+    liveSend([count,random_draw]);
     // Change dynamic title
     document.getElementById('title').innerHTML = 'Ihr gerade erworbenes Los hat eine Punktzahl von '+random_draw+'';
     // Store draw in array and find max and print it too.
@@ -426,7 +427,7 @@ draw_btn.onclick = function () {
 };
 var att_btn = document.getElementById("AttentionBtn");
 att_btn.onclick = function (){
-  liveSend(1)
+  liveSend([0,1])
 };
 </script>
 
