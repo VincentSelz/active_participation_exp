@@ -2,6 +2,15 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 
+import random as random
+
+def get_timeout_seconds(self):
+    participant = self.participant
+    import time
+    return participant.vars['expiry'] - time.time()
+
+class DemoIntro(Page):
+    pass
 
 class Type(Page):
     pass
@@ -27,37 +36,10 @@ class Demo(Page):
         )
 
 class TrueStart(Page):
-    pass
-
-class Task(Page):
-    timeout_seconds = Constants.task_timeout
-    form_model = 'player'
-    live_method = 'live_attention'
-
-    form_fields = [
-        'draw_1','draw_2','draw_3','draw_4','draw_5','draw_6',
-        'draw_7','draw_8','draw_9','draw_10','draw_11','draw_12',
-        'draw_13','draw_14','draw_15','draw_16','draw_17','draw_18',
-        'draw_19','draw_20','current_max_is','num_draws',
-        'prompt_counter','Task_warnings'
-    ]
-    def js_vars(self):
-        pop_up_start=Constants.pop_up_time
-        pop_up_end=(Constants.pop_up_time-Constants.pop_up_duration)
-        if self.player.type == 'r1':
-            lower_bound=Constants.high_ability[0]
-            upper_bound=Constants.high_ability[1]
-        elif self.player.type == 'r2':
-            lower_bound=Constants.low_ability[0]
-            upper_bound=Constants.low_ability[1]
-        return dict(
-            min=lower_bound,
-            max=upper_bound,
-            pop_up_start=pop_up_start,
-            pop_up_end=pop_up_end,
-            animation_time=Constants.animation_time
-        )
-
+    def before_next_page(self):
+        participant = self.participant
+        import time
+        participant.vars['expiry'] = time.time() + Constants.task_timeout
 
 
 class ResultsWaitPage(WaitPage):
@@ -158,14 +140,549 @@ class Total_Results(Page):
             pay_inattent=Constants.pay_inattention
         )
 
+class Animation(Page):
+    timeout_seconds = 10
+    def is_displayed(self):
+        return get_timeout_seconds(self) > 3
+
+class Popup(Page):
+    timeout_seconds = 5
+    def before_next_page(self):
+        if self.timeout_happened == False:
+            me = self.player
+            me.attention_check = 1
+
+
+class Task0(Page):
+    get_timeout_seconds = get_timeout_seconds
+    def is_displayed(self):
+        return get_timeout_seconds(self) > 3
+
+    def vars_for_template(self):
+        me = self.player
+        if me.type == 'r1':
+            me.lowerbound=Constants.high_ability[0]
+            me.upperbound=Constants.high_ability[1]
+        elif self.player.type == 'r2':
+            me.lowerbound=Constants.low_ability[0]
+            me.upperbound=Constants.low_ability[1]
+        return dict(
+            lower=me.lowerbound,
+            upper=me.upperbound,
+            my_max=0,
+            my_num_draws=0,
+        )
+
+    def before_next_page(self):
+        if self.timeout_happened == False:
+            me = self.player
+            me.draw_1 = random.randint(me.lowerbound,me.upperbound)
+            self.participant.vars['draws']=[0,me.draw_1,]
+            me.num_draws = 1
+            me.current_max_is = max(self.participant.vars['draws'])
+
+class Task1(Page):
+    get_timeout_seconds = get_timeout_seconds
+    def is_displayed(self):
+        return get_timeout_seconds(self) > 3
+
+    def vars_for_template(self):
+        me = self.player
+        return dict(
+            lower=me.lowerbound,
+            upper=me.upperbound,
+            my_max=me.current_max_is,
+            my_num_draws=me.num_draws,
+            my_last=self.participant.vars['draws'][-1],
+        )
+        
+    def before_next_page(self):
+        if self.timeout_happened == False:
+            me = self.player
+            me.draw_2 = random.randint(me.lowerbound,me.upperbound)
+            self.participant.vars['draws'].append(me.draw_2)
+            me.num_draws = me.num_draws + 1
+            me.current_max_is = max(self.participant.vars['draws'])
+
+class Task2(Page):
+    get_timeout_seconds = get_timeout_seconds
+    def is_displayed(self):
+        return get_timeout_seconds(self) > 3
+
+    def vars_for_template(self):
+        me = self.player
+        return dict(
+            lower=me.lowerbound,
+            upper=me.upperbound,
+            my_max=me.current_max_is,
+            my_num_draws=me.num_draws,
+            my_last=self.participant.vars['draws'][-1],
+        )
+        
+    def before_next_page(self):
+        if self.timeout_happened == False:
+            me = self.player
+            me.draw_3 = random.randint(me.lowerbound,me.upperbound)
+            self.participant.vars['draws'].append(me.draw_3)
+            me.num_draws = me.num_draws + 1
+            me.current_max_is = max(self.participant.vars['draws'])
+
+class Task3(Page):
+    get_timeout_seconds = get_timeout_seconds
+    def is_displayed(self):
+        return get_timeout_seconds(self) > 3
+
+    def vars_for_template(self):
+        me = self.player
+        return dict(
+            lower=me.lowerbound,
+            upper=me.upperbound,
+            my_max=me.current_max_is,
+            my_num_draws=me.num_draws,
+            my_last=self.participant.vars['draws'][-1],
+        )
+        
+    def before_next_page(self):
+        if self.timeout_happened == False:
+            me = self.player
+            me.draw_4 = random.randint(me.lowerbound,me.upperbound)
+            self.participant.vars['draws'].append(me.draw_4)
+            me.num_draws = me.num_draws + 1
+            me.current_max_is = max(self.participant.vars['draws'])
+
+
+class Task4(Page):
+    get_timeout_seconds = get_timeout_seconds
+    def is_displayed(self):
+        return get_timeout_seconds(self) > 3
+
+    def vars_for_template(self):
+        me = self.player
+        return dict(
+            lower=me.lowerbound,
+            upper=me.upperbound,
+            my_max=me.current_max_is,
+            my_num_draws=me.num_draws,
+            my_last=self.participant.vars['draws'][-1],
+        )
+        
+    def before_next_page(self):
+        if self.timeout_happened == False:
+            me = self.player
+            me.draw_5 = random.randint(me.lowerbound,me.upperbound)
+            self.participant.vars['draws'].append(me.draw_5)
+            me.num_draws = me.num_draws + 1
+            me.current_max_is = max(self.participant.vars['draws'])
+
+class Task5(Page):
+    get_timeout_seconds = get_timeout_seconds
+    def is_displayed(self):
+        return get_timeout_seconds(self) > 3
+
+    def vars_for_template(self):
+        me = self.player
+        return dict(
+            lower=me.lowerbound,
+            upper=me.upperbound,
+            my_max=me.current_max_is,
+            my_num_draws=me.num_draws,
+            my_last=self.participant.vars['draws'][-1],
+        )
+        
+    def before_next_page(self):
+        if self.timeout_happened == False:
+            me = self.player
+            me.draw_6 = random.randint(me.lowerbound,me.upperbound)
+            self.participant.vars['draws'].append(me.draw_6)
+            me.num_draws = me.num_draws + 1
+            me.current_max_is = max(self.participant.vars['draws'])
+
+class Task6(Page):
+    get_timeout_seconds = get_timeout_seconds
+    def is_displayed(self):
+        return get_timeout_seconds(self) > 3
+
+    def vars_for_template(self):
+        me = self.player
+        return dict(
+            lower=me.lowerbound,
+            upper=me.upperbound,
+            my_max=me.current_max_is,
+            my_num_draws=me.num_draws,
+            my_last=self.participant.vars['draws'][-1],
+        )
+        
+    def before_next_page(self):
+        if self.timeout_happened == False:
+            me = self.player
+            me.draw_7 = random.randint(me.lowerbound,me.upperbound)
+            self.participant.vars['draws'].append(me.draw_7)
+            me.num_draws = me.num_draws + 1
+            me.current_max_is = max(self.participant.vars['draws'])
+
+class Task7(Page):
+    get_timeout_seconds = get_timeout_seconds
+    def is_displayed(self):
+        return get_timeout_seconds(self) > 3
+
+    def vars_for_template(self):
+        me = self.player
+        return dict(
+            lower=me.lowerbound,
+            upper=me.upperbound,
+            my_max=me.current_max_is,
+            my_num_draws=me.num_draws,
+            my_last=self.participant.vars['draws'][-1],
+        )
+        
+    def before_next_page(self):
+        if self.timeout_happened == False:
+            me = self.player
+            me.draw_8 = random.randint(me.lowerbound,me.upperbound)
+            self.participant.vars['draws'].append(me.draw_8)
+            me.num_draws = me.num_draws + 1
+            me.current_max_is = max(self.participant.vars['draws'])
+
+class Task8(Page):
+    get_timeout_seconds = get_timeout_seconds
+    def is_displayed(self):
+        return get_timeout_seconds(self) > 3
+
+    def vars_for_template(self):
+        me = self.player
+        return dict(
+            lower=me.lowerbound,
+            upper=me.upperbound,
+            my_max=me.current_max_is,
+            my_num_draws=me.num_draws,
+            my_last=self.participant.vars['draws'][-1],
+        )
+        
+    def before_next_page(self):
+        if self.timeout_happened == False:
+            me = self.player
+            me.draw_9 = random.randint(me.lowerbound,me.upperbound)
+            self.participant.vars['draws'].append(me.draw_9)
+            me.num_draws = me.num_draws + 1
+            me.current_max_is = max(self.participant.vars['draws'])
+
+class Task9(Page):
+    get_timeout_seconds = get_timeout_seconds
+    def is_displayed(self):
+        return get_timeout_seconds(self) > 3
+
+    def vars_for_template(self):
+        me = self.player
+        return dict(
+            lower=me.lowerbound,
+            upper=me.upperbound,
+            my_max=me.current_max_is,
+            my_num_draws=me.num_draws,
+            my_last=self.participant.vars['draws'][-1],
+        )
+        
+    def before_next_page(self):
+        if self.timeout_happened == False:
+            me = self.player
+            me.draw_10 = random.randint(me.lowerbound,me.upperbound)
+            self.participant.vars['draws'].append(me.draw_10)
+            me.num_draws = me.num_draws + 1
+            me.current_max_is = max(self.participant.vars['draws'])
+
+class Task10(Page):
+    get_timeout_seconds = get_timeout_seconds
+    def is_displayed(self):
+        return get_timeout_seconds(self) > 3
+
+    def vars_for_template(self):
+        me = self.player
+        return dict(
+            lower=me.lowerbound,
+            upper=me.upperbound,
+            my_max=me.current_max_is,
+            my_num_draws=me.num_draws,
+            my_last=self.participant.vars['draws'][-1],
+        )
+        
+    def before_next_page(self):
+        if self.timeout_happened == False:
+            me = self.player
+            me.draw_11 = random.randint(me.lowerbound,me.upperbound)
+            self.participant.vars['draws'].append(me.draw_11)
+            me.num_draws = me.num_draws + 1
+            me.current_max_is = max(self.participant.vars['draws'])
+
+
+class Task11(Page):
+    get_timeout_seconds = get_timeout_seconds
+    def is_displayed(self):
+        return get_timeout_seconds(self) > 3
+
+    def vars_for_template(self):
+        me = self.player
+        return dict(
+            lower=me.lowerbound,
+            upper=me.upperbound,
+            my_max=me.current_max_is,
+            my_num_draws=me.num_draws,
+            my_last=self.participant.vars['draws'][-1],
+        )
+        
+    def before_next_page(self):
+        if self.timeout_happened == False:
+            me = self.player
+            me.draw_12 = random.randint(me.lowerbound,me.upperbound)
+            self.participant.vars['draws'].append(me.draw_12)
+            me.num_draws = me.num_draws + 1
+            me.current_max_is = max(self.participant.vars['draws'])
+
+class Task12(Page):
+    get_timeout_seconds = get_timeout_seconds
+    def is_displayed(self):
+        return get_timeout_seconds(self) > 3
+
+    def vars_for_template(self):
+        me = self.player
+        return dict(
+            lower=me.lowerbound,
+            upper=me.upperbound,
+            my_max=me.current_max_is,
+            my_num_draws=me.num_draws,
+            my_last=self.participant.vars['draws'][-1],
+        )
+        
+    def before_next_page(self):
+        if self.timeout_happened == False:
+            me = self.player
+            me.draw_13 = random.randint(me.lowerbound,me.upperbound)
+            self.participant.vars['draws'].append(me.draw_13)
+            me.num_draws = me.num_draws + 1
+            me.current_max_is = max(self.participant.vars['draws'])
+
+class Task13(Page):
+    get_timeout_seconds = get_timeout_seconds
+    def is_displayed(self):
+        return get_timeout_seconds(self) > 3
+
+    def vars_for_template(self):
+        me = self.player
+        return dict(
+            lower=me.lowerbound,
+            upper=me.upperbound,
+            my_max=me.current_max_is,
+            my_num_draws=me.num_draws,
+            my_last=self.participant.vars['draws'][-1],
+        )
+        
+    def before_next_page(self):
+        if self.timeout_happened == False:
+            me = self.player
+            me.draw_14 = random.randint(me.lowerbound,me.upperbound)
+            self.participant.vars['draws'].append(me.draw_14)
+            me.num_draws = me.num_draws + 1
+            me.current_max_is = max(self.participant.vars['draws'])
+
+class Task14(Page):
+    get_timeout_seconds = get_timeout_seconds
+    def is_displayed(self):
+        return get_timeout_seconds(self) > 3
+
+    def vars_for_template(self):
+        me = self.player
+        return dict(
+            lower=me.lowerbound,
+            upper=me.upperbound,
+            my_max=me.current_max_is,
+            my_num_draws=me.num_draws,
+            my_last=self.participant.vars['draws'][-1],
+        )
+        
+    def before_next_page(self):
+        if self.timeout_happened == False:
+            me = self.player
+            me.draw_15 = random.randint(me.lowerbound,me.upperbound)
+            self.participant.vars['draws'].append(me.draw_15)
+            me.num_draws = me.num_draws + 1
+            me.current_max_is = max(self.participant.vars['draws'])
+
+class Task15(Page):
+    get_timeout_seconds = get_timeout_seconds
+    def is_displayed(self):
+        return get_timeout_seconds(self) > 3
+
+    def vars_for_template(self):
+        me = self.player
+        return dict(
+            lower=me.lowerbound,
+            upper=me.upperbound,
+            my_max=me.current_max_is,
+            my_num_draws=me.num_draws,
+            my_last=self.participant.vars['draws'][-1],
+        )
+        
+    def before_next_page(self):
+        if self.timeout_happened == False:
+            me = self.player
+            me.draw_16 = random.randint(me.lowerbound,me.upperbound)
+            self.participant.vars['draws'].append(me.draw_16)
+            me.num_draws = me.num_draws + 1
+            me.current_max_is = max(self.participant.vars['draws'])
+
+class Task16(Page):
+    get_timeout_seconds = get_timeout_seconds
+    def is_displayed(self):
+        return get_timeout_seconds(self) > 3
+
+    def vars_for_template(self):
+        me = self.player
+        return dict(
+            lower=me.lowerbound,
+            upper=me.upperbound,
+            my_max=me.current_max_is,
+            my_num_draws=me.num_draws,
+            my_last=self.participant.vars['draws'][-1],
+        )
+        
+    def before_next_page(self):
+        if self.timeout_happened == False:
+            me = self.player
+            me.draw_17 = random.randint(me.lowerbound,me.upperbound)
+            self.participant.vars['draws'].append(me.draw_17)
+            me.num_draws = me.num_draws + 1
+            me.current_max_is = max(self.participant.vars['draws'])
+
+class Task17(Page):
+    get_timeout_seconds = get_timeout_seconds
+    def is_displayed(self):
+        return get_timeout_seconds(self) > 3
+
+    def vars_for_template(self):
+        me = self.player
+        return dict(
+            lower=me.lowerbound,
+            upper=me.upperbound,
+            my_max=me.current_max_is,
+            my_num_draws=me.num_draws,
+            my_last=self.participant.vars['draws'][-1],
+        )
+        
+    def before_next_page(self):
+        if self.timeout_happened == False:
+            me = self.player
+            me.draw_18 = random.randint(me.lowerbound,me.upperbound)
+            self.participant.vars['draws'].append(me.draw_18)
+            me.num_draws = me.num_draws + 1
+            me.current_max_is = max(self.participant.vars['draws'])
+
+class Task18(Page):
+    get_timeout_seconds = get_timeout_seconds
+    def is_displayed(self):
+        return get_timeout_seconds(self) > 3
+
+    def vars_for_template(self):
+        me = self.player
+        return dict(
+            lower=me.lowerbound,
+            upper=me.upperbound,
+            my_max=me.current_max_is,
+            my_num_draws=me.num_draws,
+            my_last=self.participant.vars['draws'][-1],
+        )
+        
+    def before_next_page(self):
+        if self.timeout_happened == False:
+            me = self.player
+            me.draw_19 = random.randint(me.lowerbound,me.upperbound)
+            self.participant.vars['draws'].append(me.draw_19)
+            me.num_draws = me.num_draws + 1
+            me.current_max_is = max(self.participant.vars['draws'])
+
+class Task19(Page):
+    get_timeout_seconds = get_timeout_seconds
+    def is_displayed(self):
+        return get_timeout_seconds(self) > 3
+
+    def vars_for_template(self):
+        me = self.player
+        return dict(
+            lower=me.lowerbound,
+            upper=me.upperbound,
+            my_max=me.current_max_is,
+            my_num_draws=me.num_draws,
+            my_last=self.participant.vars['draws'][-1],
+        )
+        
+    def before_next_page(self):
+        if self.timeout_happened == False:
+            me = self.player
+            me.draw_20 = random.randint(me.lowerbound,me.upperbound)
+            self.participant.vars['draws'].append(me.draw_20)
+            me.num_draws = me.num_draws + 1
+            me.current_max_is = max(self.participant.vars['draws'])
+
+class Task20(Page):
+    get_timeout_seconds = get_timeout_seconds
+    def is_displayed(self):
+        return get_timeout_seconds(self) > 3
+
+    def vars_for_template(self):
+        me = self.player
+        return dict(
+            lower=me.lowerbound,
+            upper=me.upperbound,
+            my_max=me.current_max_is,
+            my_num_draws=me.num_draws,
+            my_last=self.participant.vars['draws'][-1],
+        )
+
 
 page_sequence = [
-#    Instruction,
     Type,
     DemoIntro,
     Demo,
     TrueStart,
-    Task,
+    Task0,
+    Animation,
+    Task1,
+    Animation,
+    Task2,
+    Animation,
+    Task3,
+    Animation,
+    Task4,
+    Animation,
+    Task5,
+    Animation,
+    Task6,
+    Animation,
+    Task7,
+    Animation,
+    Task8,
+    Animation,
+    Task9,
+    Animation,
+    Task10,
+    Animation,
+    Task11,
+    Animation,
+    Task12,
+    Animation,
+    Task13,
+    Animation,
+    Task14,
+    Animation,
+    Task15,
+    Animation,
+    Task16,
+    Animation,
+    Task17,
+    Animation,
+    Task18,
+    Animation,
+    Task19,
+    Animation,
+    Task20,
+    Popup,
     Individual_Results,
     Hypothetical1,
     Hypothetical2,

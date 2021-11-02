@@ -633,10 +633,9 @@ class Task20(Page):
 
 
 page_sequence = [
-#    Instruction,
-#    Type,
-#    DemoIntro,
-#    Demo,
+    Type,
+    DemoIntro,
+    Demo,
     TrueStart,
     Task0,
     Animation,

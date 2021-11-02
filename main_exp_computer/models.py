@@ -60,6 +60,8 @@ class Player(BasePlayer):
 
     # Type
     type = models.StringField(initial='r2')
+    lowerbound=models.IntegerField()
+    upperbound=models.IntegerField()
     # Draws
     draw_1 = models.IntegerField(blank=True)
     draw_2 = models.IntegerField(blank=True)
@@ -82,8 +84,8 @@ class Player(BasePlayer):
     draw_19 = models.IntegerField(blank=True)
     draw_20 = models.IntegerField(blank=True)
     attention_check = models.IntegerField(initial=0)
-    current_max_is = models.IntegerField()
-    num_draws = models.IntegerField()
+    current_max_is = models.IntegerField(initial=0)
+    num_draws = models.IntegerField(initial=0)
     total_costs = models.IntegerField()
     task_earning = models.IntegerField()
     bonus_earning = models.IntegerField()
