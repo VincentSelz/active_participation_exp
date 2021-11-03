@@ -70,10 +70,11 @@ class Group(BaseGroup):
                 sub.total_costs = (Constants.cost * sub.num_draws)
                 sub.task_earning = total_performance - sub.total_costs
                 sub.bonus_earning = Constants.bonus_points*(sub.bonusq==0)
-                sub.payoff = c(total_performance - sub.total_costs + 10*(sub.bonusq==0))
+                sub.payoff = c(total_performance - sub.total_costs + Constants.bonus_points*(sub.bonusq==0))
             else:
                 #sub.total_costs = 0
-                sub.payoff = c(0)
+                sub.bonus_earning = Constants.bonus_points*(sub.bonusq==0)
+                sub.payoff = c(Constants.bonus_points*(sub.bonusq==0))
 
 class Player(BasePlayer):
 

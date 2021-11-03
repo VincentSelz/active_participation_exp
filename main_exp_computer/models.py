@@ -110,10 +110,11 @@ class Player(BasePlayer):
             self.total_costs = (Constants.cost * self.num_draws)
             self.task_earning = total_performance - self.total_costs
             self.bonus_earning = Constants.bonus_points*(self.bonusq==0)
-            self.payoff = c(total_performance - self.total_costs + 10*(self.bonusq==0))
+            self.payoff = c(total_performance - self.total_costs + Constants.bonus_points*(self.bonusq==0))
         else:
             #self.total_costs = 0
-            self.payoff = c(0)
+            self.bonus_earning = Constants.bonus_points*(self.bonusq==0)
+            self.payoff = c(Constants.bonus_points*(self.bonusq==0))
 
     # Hypothetical questions
     strategy = models.LongStringField(label="Ihre Antwort:")
