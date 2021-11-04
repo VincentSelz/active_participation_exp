@@ -332,7 +332,23 @@ Ihre Antwort:
 
 {% formfield player.q2 %}
 
+<div class="d-flex justify-content-center">
+  <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#collapseExample" style="background-color: rgb(175, 175, 175); color: white;">
+      Bitte klicken Sie hier, um die Instruktionen zu lesen.
+  </button>
+</div>
 
+<br>
+
+<div class="collapse" id="collapseExample">
+
+{% include "global/main/collapsed_inst.html" %}
+ <br>
+                <p><center><img align="middle" width=90%
+                        src="{% static "Instructions/diagram/diagram.png" %}"/></center></p> 
+                <br>
+
+</div>
 
 
     <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
@@ -360,7 +376,23 @@ Ihre Antwort:
 
 {% formfield player.q4 %}
 
+<div class="d-flex justify-content-center">
+  <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#collapseExample" style="background-color: rgb(175, 175, 175); color: white;">
+      Bitte klicken Sie hier, um die Instruktionen zu lesen.
+  </button>
+</div>
 
+<br>
+
+<div class="collapse" id="collapseExample">
+
+{% include "global/main/collapsed_inst.html" %}
+ <br>
+                <p><center><img align="middle" width=90%
+                        src="{% static "Instructions/diagram/diagram.png" %}"/></center></p> 
+                <br>
+
+</div>
 
     <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
 <button class="nexttab btn-primary btn next">Weiter</button>
