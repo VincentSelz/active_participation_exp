@@ -66,13 +66,13 @@ class Player(BasePlayer):
 
     patience = models.StringField(
         choices=Constants.choices,
-        label='Wie sehr wären Sie bereit auf etwas, das für Sie heute Nutzen bringt, zu verzichten, um dadurch in Zukunft mehr zu profitieren?',
+        label='Wie sehr wären Sie bereit, auf etwas, das für Sie heute Nutzen bringt, zu verzichten, um dadurch in Zukunft mehr zu profitieren?',
         widget=widgets.RadioSelect
     )
 
     punish_you = models.StringField(
         choices=Constants.choices,
-        label='Wie sehr wären Sie bereit, jemanden zu bestrafen, der "Sie" unfair behandelt, selbst wenn dies für Sie negative Konsequenzen haben würde?',
+        label='Wie sehr wären Sie bereit, jemanden zu bestrafen, der "Sie" unfair behandelt, selbst wenn dies für Sie negative Konsequenzen hätte?',
         widget=widgets.RadioSelect
     )
 
@@ -90,7 +90,7 @@ class Player(BasePlayer):
 
     pos_res = models.StringField(
         choices=Constants.choices,
-        label='Wenn mir jemanden einen Gefallen tut, bin ich bereit, ihn zu erwidern.',
+        label='Wenn mir jemand einen Gefallen tut, bin ich bereit, ihn zu erwidern.',
         widget=widgets.RadioSelect
     )
 
@@ -114,7 +114,7 @@ class Player(BasePlayer):
 
     control = models.StringField(
         choices=Constants.choices,
-        label='Ich neige dazu, Aufgaben zu verschieben, auch wenn ich weiß, dass es besser wäre sie gleich zu tun.',
+        label='Ich neige dazu, Aufgaben zu verschieben, auch wenn ich weiß, dass es besser wäre, sie gleich zu tun.',
         widget=widgets.RadioSelect
     )
 
