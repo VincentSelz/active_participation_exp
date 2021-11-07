@@ -6,10 +6,10 @@ from .models import Constants
 
 class Instruction(Page):
     form_model = 'player'
-    form_fields = ['q1', 'q2', 'q3', 'q4']
+    form_fields = ['q1', 'q2']
 
     def error_message(self, value):
-        return self.player.set_error_message(value)
+        return self.player.set_error_message1(value)
 
 
 class Popup(Page):
@@ -19,11 +19,21 @@ class Popup(Page):
             popup_duration=Constants.pop_up_duration
         )
 
+class Question2(Page):
+    form_model = 'player'
+    form_fields = ['q3', 'q4']
+
+    def error_message(self, value):
+        return self.player.set_error_message2(value)
+
+
+
 class Correct(Page):
     pass
 
 page_sequence = [
     Instruction,
+    Question2,
     Correct,
     Popup
 ]
