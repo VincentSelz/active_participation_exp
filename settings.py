@@ -18,7 +18,7 @@ SESSION_CONFIGS = [
         name='computer_treatment',
         display_name='Computer Treatment',
         num_demo_participants=2,
-        app_sequence=['StartPage','Iban','Instructions','main_exp_computer','survey', 'bigfive','raven_test','rat'],
+        app_sequence=['StartPage','Iban','Instructions_comp','main_exp_computer','survey', 'bigfive','raven_test','rat'],
     ),
     dict(
         name='main_exp',
@@ -46,9 +46,15 @@ SESSION_CONFIGS = [
     ),
     dict(
         name='Instructions',
-        display_name='Instructions (for social&computer)',
+        display_name='Instructions (social)',
         num_demo_participants=2,
         app_sequence=['Instructions'],
+    ),
+    dict(
+        name='Instructions_comp',
+        display_name='Instructions (computer)',
+        num_demo_participants=2,
+        app_sequence=['Instructions_comp'],
     ),
     dict(
         name='StartPage',

@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Wichtiger Hinweis
+{% endblock %}
+
+{% block content %}
+<p> Um Ihre Aufmerksamkeit zu überprüfen, kann zu jedem beliebigen Zeitpunkt während des Experiments eine Pop-up-Meldung erscheinen, das wie unten abgebildet aussieht. Die Pop-up-Meldung hat eine rote Schaltfläche. Wenn es auftaucht, <b>haben Sie {{popup_duration}} Sekunden Zeit</b>, um auf die Schaltfläche zu klicken. Wenn Sie das nicht tun, erhalten Sie <b>€0</b> als Auszahlung für das Entscheidungsexperiment. Für das Abschließen des Experiments mit der anschließenden Befragung erhalten Sie dann insgesamt €{{pay_inattent}}. </p>
+ <br>
+                <p><center><img align="middle" width=90%
+                        src="{% static "Instructions/popup/popup.png" %}"/></center></p> 
+                <br>
+
+
+<p> Auch wenn das andere Gruppenmitglied die Aufmerksamkeitsprüfung nicht besteht, werden seine Punktzahlen für Ihre Auszahlung gültig sein. </p> <br>
+
+<p> Klicken Sie auf "Weiter", wenn Sie mit dem Experiment beginnen möchten. </p>
+
+
+    {% next_button %}
+{% endblock %}
