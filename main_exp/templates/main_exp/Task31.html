@@ -1,0 +1,147 @@
+<title>Experiment</title>
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Ihr gerade erworbenes Los hat eine Punktzahl von {{my_last}}
+{% endblock %}
+
+{% block content %}
+<div class="all_content block-content">
+<!-- Information regarding payoffs -->
+<div class='left_div'>
+      <p>
+        Jedes Los hat eine zufällige Punktzahl zwischen: <br>
+        <b>{{player.lowerbound}}</b> und <b>{{player.upperbound}}</b>.
+      </p> <br>
+      <br>
+      <br>
+      <p>
+        Jedes Los kostet: <br>
+        <b>{{ Constants.cost}}</b> Punkt
+      </p> <br>
+      <br>
+      <br>
+      <p>
+        Ihr Los mit der höchsten Punktzahl: <br>
+        <b>{{player.current_max_is}}</b>
+      </p> <br>
+      <br>
+      <p>
+        Anzahl der von Ihnen gekauften Lose: <br>
+        <b>{{player.num_draws}}</b>
+      </p><br>
+      <br>
+      <br>
+</div>
+
+<!-- Search history -->
+<div class='right_div'>
+      <p><b>Bisher erreichte Punktzahl:</b></p><br>
+      <table style="width:100%;text-align:center;align:center">
+ <tr>
+   <td>{{player.draw_1}}</td>
+   <td> {{player.draw_11}}</td>
+   <td> {{player.draw_21}}</td>
+   <td> {{player.draw_31}}</td>
+ </tr>
+ <tr>
+   <td>{{player.draw_2}} </td>
+   <td>{{player.draw_12}} </td>
+   <td>{{player.draw_22}} </td>
+   <td> </td>
+ </tr>
+<tr>
+ <td>{{player.draw_3}} </td>
+ <td> {{player.draw_13}}</td>
+   <td> {{player.draw_23}}</td>
+  <td> </td>
+ </tr>
+<tr>
+ <td>{{player.draw_4}} </td>
+ <td> {{player.draw_14}}</td>
+   <td>{{player.draw_24}} </td>
+ <td> </td>
+ </tr>
+<tr>
+<td> {{player.draw_5}}</td>
+<td> {{player.draw_15}}</td>
+   <td>{{player.draw_25}} </td>
+ <td> </td>
+ </tr>
+<tr>
+<td>{{player.draw_6}} </td>
+<td>{{player.draw_16}} </td>
+   <td>{{player.draw_26}} </td>
+ <td> </td>
+</tr>
+<tr>
+<td>{{player.draw_7}} </td>
+<td>{{player.draw_17}} </td>
+   <td>{{player.draw_27}} </td>
+ <td> </td>
+</tr>
+<tr>
+<td>{{player.draw_8}} </td>
+<td>{{player.draw_18}} </td>
+   <td>{{player.draw_28}} </td>
+ <td> </td>
+</tr>
+<tr>
+<td>{{player.draw_9}} </td>
+<td>{{player.draw_19}} </td>
+   <td>{{player.draw_29}} </td>
+ <td> </td>
+</tr>
+<tr>
+<td> {{player.draw_10}}</td>
+<td> {{player.draw_20}}</td>
+   <td>{{player.draw_30}} </td>
+ <td> </td>
+</tr>
+</table>
+</div>
+
+<center> Sie haben die maximale Kaufsumme erreicht. Bitte warten Sie das Ende der Kaufphase ab. </center>
+</div>
+
+{% endblock %}
+
+{% block styles %}
+<style>
+.left_div {
+  margin-right: 5%;
+  padding: 10px;
+  width: 45%;
+  height: 450px;
+  /*background: red;*/
+  float: left;
+  border: 1px solid;
+  border-color: #0053a0 ;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.right_div {
+  margin-left: 5%;
+  padding: 10px;
+  width: 45%;
+  height: 450px;
+  /*background: black;*/
+  float: right;
+  border: 1px solid;
+  border-color: #0053a0 ;
+  border-radius: 4px;
+  text-align: center;
+}
+th, td {
+  padding: 5px;
+}
+</style>
+
+<style>
+    .otree-timer {
+        display: none;
+    }
+</style>
+{% endblock %}
