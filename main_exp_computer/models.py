@@ -30,6 +30,7 @@ class Constants(BaseConstants):
     high_ability = [35,100]
     low_ability =  [0,65]
     high_threshold = 90
+    computer_max_no_draw = 60
     # Examples
     high_example = 68
     low_example = 33
@@ -145,7 +146,10 @@ class Player(BasePlayer):
     total_performance = models.IntegerField()
 
     def set_payoffs(self):
-        self.computer_performance = random.randint(Constants.high_threshold, Constants.high_ability[1])
+        self.computer_performance = 0
+        for x in range(1, Constants.computer_max_no_draw+1):
+            if self.computer_performance>Constants.high_threshold: break
+            self.computer_performance = random.randint(Constants.high_ability[0], Constants.high_ability[1])
         total_performance = max(self.current_max_is,self.computer_performance)
         if self.attention_check == 1:
             self.total_costs = (Constants.cost * self.num_draws)
