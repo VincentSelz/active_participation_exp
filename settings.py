@@ -20,7 +20,13 @@ SESSION_CONFIGS = [
         num_demo_participants=2,
         app_sequence=['StartPage','Iban','Instructions_comp','main_exp_computer','survey', 'bigfive','raven_test','rat'],
     ),
-    dict(
+     dict(
+        name='high_treatment',
+        display_name='High Intensity Treatment',
+        num_demo_participants=2,
+        app_sequence=['StartPage','Iban','Instructions_comp','main_exp_high','survey', 'bigfive','raven_test','rat'],
+    ),
+   dict(
         name='main_exp',
         display_name='Main Task',
         num_demo_participants=2,
