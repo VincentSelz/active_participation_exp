@@ -18,22 +18,22 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'main_exp_computer'
+    name_in_url = 'main_exp_high'
     players_per_group = None
     num_rounds = 1
     #total timeout
-    task_timeout = 60*10
+    task_timeout = 60*1
     cost = 1
     # payment to inattentive subjects (usually =participation fee)
     pay_inattention = 3
 
     high_ability = [15,100]
     low_ability =  [0,85]
-    high_threshold = 90
+    high_threshold = 88
     computer_max_no_draw = 60
     # Examples
-    high_example = 68
-    low_example = 33
+    high_example = 58
+    low_example = 43
     #total timeout
     timeout = 4000
     # modal onset time before timeout So, 10 means 10 seconds before the timeout.
@@ -43,8 +43,8 @@ class Constants(BaseConstants):
     # duration of the animation
     animation_time = 10
     # for hypothetical questions
-    high_ability_alt = [35,85]
-    low_ability_alt = [0,85]
+    high_ability_alt = [35,100]
+    low_ability_alt = [0,65]
     cost_alt = 3
     bonus_points = 10
 

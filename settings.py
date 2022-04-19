@@ -45,6 +45,12 @@ SESSION_CONFIGS = [
         app_sequence=['main_exp_computer'],
     ),
     dict(
+        name='main_exp_high',
+        display_name='Main Task - High Intensity',
+        num_demo_participants=2,
+        app_sequence=['main_exp_high'],
+    ),
+    dict(
         name='survey',
         display_name='Survey',
         num_demo_participants=2,

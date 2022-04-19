@@ -1,0 +1,32 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Jetzt beginnt das Experiment, das für Ihre Auszahlung relevant ist.
+{% endblock %}
+
+{% block content %}
+
+{% if player.type == 'r1' %}
+    <p>Zur Erinnerung: <br> <br>
+
+    Ihnen wurde die Rolle als <text style="color:green";> GRÜNES </text> Gruppenmitglied zugeordnet. Das bedeutet: </p>
+    <p> Die Punktzahl Ihrer Lose wird zwischen {{highlow}} und {{highhigh}} Punkten liegen. <br>
+    Die Punktzahl der Lose Ihres Partners wird zwischen {{lowlow}} und {{lowhigh}} liegen.
+    </p>
+{% elif player.type == 'r2' %}
+    <p>Zur Erinnerung: <br> <br>
+
+    Ihnen wurde die Rolle als <text style="color:blue";> BLAUES </text> Gruppenmitglied zugeordnet. Das bedeutet: </p>
+    <p> Die Punktzahl Ihrer Lose wird zwischen {{lowlow}} und {{lowhigh}} Punkten liegen. <br>
+    Die Punktzahl der Lose Ihres Partners wird zwischen {{highlow}} und {{highhigh}} Punkten liegen.
+    </p>
+{% endif %}
+
+<p> Der Zeitraum, in dem Sie Lose kaufen können, wird 10 Minuten betragen. <br>
+     Klicken Sie auf "Weiter", um zu beginnen.</p>
+<br>
+<br>
+
+    {% next_button %}
+{% endblock %}

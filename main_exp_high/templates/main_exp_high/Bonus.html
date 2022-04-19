@@ -1,0 +1,23 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Bonusfrage
+{% endblock %}
+
+{% block content %}
+
+<p> Dies ist eine Bonusfrage. Sie erhalten zusätzliche 10 Punkte (€ 1,50), wenn Sie sie richtig beantworten. </p>
+
+<p> Zur Erinnerung:<br>
+Die Punktzahl der Lose des <text style="color:blue";>BLAUEN</text> Gruppenmitglieds liegt zwischen {{lowlow}} und {{lowhigh}} Punkten. <br>
+Die Punktzahl der Lose des <text style="color:green";>GRÜNEN</text> Gruppenmitglieds liegt zwischen {{highlow}} und {{highhigh}} Punkten.
+</p>
+
+<p> Nehmen Sie an, das <text style="color:green";>GRÜNE</text> Gruppenmitglied spiele die richtige Strategie, um seine erwartete Auszahlung zu maximieren. Dabei gelte, dass es nicht 10 Sekunden lang auf das Ergebnis der Losziehung warten muss, sondern dass die Ziehung unmittelbar erfolgt. Das bedeutet, dass das Gruppenmitglied zeitlich unbeschränkt Lose kaufen kann. Wie viele Lose sollte das <text style="color:blue";>BLAUE</text> Gruppenmitglied kaufen, um seine erwartete Auszahlung zu maximieren? </p>
+
+    {% formfields %}
+
+    {% next_button %}
+
+{% endblock %}

@@ -13,7 +13,13 @@ class DemoIntro(Page):
     pass
 
 class Type(Page):
-    pass
+    def vars_for_template(self):
+        return dict(
+            lowlow=Constants.low_ability[0],
+            lowhigh=Constants.low_ability[1],
+            highlow=Constants.high_ability[0],
+            highhigh=Constants.high_ability[1],
+        )
 
 class DemoIntro(Page):
     pass
@@ -36,6 +42,13 @@ class Demo(Page):
         )
 
 class TrueStart(Page):
+    def vars_for_template(self):
+        return dict(
+            lowlow=Constants.low_ability[0],
+            lowhigh=Constants.low_ability[1],
+            highlow=Constants.high_ability[0],
+            highhigh=Constants.high_ability[1],
+        )
     def before_next_page(self):
         participant = self.participant
         import time
@@ -117,6 +130,13 @@ class Hypothetical6(Page):
     form_fields = ['ideal']
 
 class Bonus(Page):
+    def vars_for_template(self):
+        return dict(
+            lowlow=Constants.low_ability[0],
+            lowhigh=Constants.low_ability[1],
+            highlow=Constants.high_ability[0],
+            highhigh=Constants.high_ability[1],
+        )
     form_model = 'player'
     form_fields = ['bonusq']
 
