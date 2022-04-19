@@ -20,13 +20,19 @@ SESSION_CONFIGS = [
         num_demo_participants=2,
         app_sequence=['StartPage','Iban','Instructions_comp','main_exp_computer','survey', 'bigfive','raven_test','rat'],
     ),
-     dict(
+    dict(
         name='high_treatment',
         display_name='High Intensity Treatment',
         num_demo_participants=2,
         app_sequence=['StartPage','Iban','Instructions_comp','main_exp_high','survey', 'bigfive','raven_test','rat'],
     ),
-   dict(
+    dict(
+        name='minmax_treatment',
+        display_name='Minmax Treatment',
+        num_demo_participants=2,
+        app_sequence=['StartPage','Iban','Instructions_minmax','main_exp_minmax','survey', 'bigfive','raven_test','rat'],
+    ),
+    dict(
         name='main_exp',
         display_name='Main Task',
         num_demo_participants=2,
@@ -51,6 +57,12 @@ SESSION_CONFIGS = [
         app_sequence=['main_exp_high'],
     ),
     dict(
+        name='main_exp_minmax',
+        display_name='Main Task - Minmax',
+        num_demo_participants=2,
+        app_sequence=['main_exp_minmax'],
+    ),
+    dict(
         name='survey',
         display_name='Survey',
         num_demo_participants=2,
@@ -67,6 +79,12 @@ SESSION_CONFIGS = [
         display_name='Instructions (computer)',
         num_demo_participants=2,
         app_sequence=['Instructions_comp'],
+    ),
+    dict(
+        name='Instructions_minmax',
+        display_name='Instructions (minmax)',
+        num_demo_participants=2,
+        app_sequence=['Instructions_minmax'],
     ),
     dict(
         name='StartPage',

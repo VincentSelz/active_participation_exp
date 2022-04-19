@@ -1,0 +1,167 @@
+<title>Experiment</title>
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Ihr gerade erworbenes Los hat eine Punktzahl von {{my_last}}
+{% endblock %}
+
+{% block content %}
+<div class="all_content block-content">
+<!-- Information regarding payoffs -->
+<div class='left_div'>
+      <p>
+        Jedes Los hat eine zufällige Punktzahl zwischen: <br>
+        <b>{{player.lowerbound}}</b> und <b>{{player.upperbound}}</b>.
+      </p> <br>
+      <br>
+      <br>
+      <p>
+        Jedes Los kostet: <br>
+        <b>{{ Constants.cost}}</b> Punkt
+      </p> <br>
+      <br>
+      <br>
+      <p>
+        Ihr Los mit der niedrigsten Punktzahl: <br>
+        <b>{{player.current_max_is}}</b>
+      </p> <br>
+      <br>
+      <p>
+        Anzahl der von Ihnen gekauften Lose: <br>
+        <b>{{player.num_draws}}</b>
+      </p><br>
+      <br>
+      <br>
+</div>
+
+<!-- Search history -->
+<div class='right_div'>
+      <p><b>Bisher erreichte Punktzahl:</b></p><br>
+      <table style="width:100%;text-align:center;align:center">
+ <tr>
+   <td>{{player.draw_1}}</td>
+   <td> {{player.draw_11}}</td>
+   <td> {{player.draw_21}}</td>
+   <td> {{player.draw_31}}</td>
+   <td> {{player.draw_41}}</td>
+   <td> {{player.draw_51}}</td>
+ </tr>
+ <tr>
+   <td>{{player.draw_2}} </td>
+   <td>{{player.draw_12}} </td>
+   <td>{{player.draw_22}} </td>
+   <td>{{player.draw_32}} </td>
+   <td>{{player.draw_42}} </td>
+   <td>{{player.draw_52}} </td>
+ </tr>
+<tr>
+ <td>{{player.draw_3}} </td>
+ <td> {{player.draw_13}}</td>
+   <td> {{player.draw_23}}</td>
+  <td>{{player.draw_33}} </td>
+  <td> {{player.draw_43}}</td>
+ <td>{{player.draw_53}} </td>
+ </tr>
+<tr>
+ <td>{{player.draw_4}} </td>
+ <td> {{player.draw_14}}</td>
+   <td>{{player.draw_24}} </td>
+ <td> {{player.draw_34}}</td>
+  <td> {{player.draw_44}}</td>
+ <td>{{player.draw_54}} </td>
+</tr>
+<tr>
+<td> {{player.draw_5}}</td>
+<td> {{player.draw_15}}</td>
+   <td>{{player.draw_25}} </td>
+ <td>{{player.draw_35}} </td>
+  <td> {{player.draw_45}}</td>
+ <td>{{player.draw_55}} </td>
+</tr>
+<tr>
+<td>{{player.draw_6}} </td>
+<td>{{player.draw_16}} </td>
+   <td>{{player.draw_26}} </td>
+ <td>{{player.draw_36}} </td>
+ <td>{{player.draw_46}} </td>
+ <td>{{player.draw_56}} </td>
+</tr>
+<tr>
+<td>{{player.draw_7}} </td>
+<td>{{player.draw_17}} </td>
+   <td>{{player.draw_27}} </td>
+ <td>{{player.draw_37}} </td>
+ <td>{{player.draw_47}} </td>
+ <td>{{player.draw_57}} </td>
+</tr>
+<tr>
+<td>{{player.draw_8}} </td>
+<td>{{player.draw_18}} </td>
+   <td>{{player.draw_28}} </td>
+ <td> {{player.draw_38}}</td>
+ <td> {{player.draw_48}}</td>
+ <td> {{player.draw_58}}</td>
+</tr>
+<tr>
+<td>{{player.draw_9}} </td>
+<td>{{player.draw_19}} </td>
+   <td>{{player.draw_29}} </td>
+ <td> {{player.draw_39}}</td>
+ <td> {{player.draw_49}}</td>
+ <td> {{player.draw_59}}</td>
+</tr>
+<tr>
+<td> {{player.draw_10}}</td>
+<td> {{player.draw_20}}</td>
+   <td>{{player.draw_30}} </td>
+ <td>{{player.draw_40}} </td>
+ <td> {{player.draw_50}}</td>
+ <td> {{player.draw_60}}</td>
+</tr>
+</table>
+</div>
+
+<button class="otree-btn-next btn btn-primary" style="text-align: center; background-color: #f44336; margin:auto; display:block;">Los kaufen</button>
+</div>
+
+{% endblock %}
+
+{% block styles %}
+<style>
+.left_div {
+  margin-right: 5%;
+  padding: 10px;
+  width: 45%;
+  height: 450px;
+  /*background: red;*/
+  float: left;
+  border: 1px solid;
+  border-color: #0053a0 ;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.right_div {
+  margin-left: 5%;
+  padding: 10px;
+  width: 45%;
+  height: 450px;
+  /*background: black;*/
+  float: right;
+  border: 1px solid;
+  border-color: #0053a0 ;
+  border-radius: 4px;
+  text-align: center;
+}
+th, td {
+  padding: 5px;
+}
+</style>
+
+<style>
+    .otree-timer {
+        display: none;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Die Zeit ist abgelaufen
+{% endblock %}
+
+{% block content %}
+{% include "global/main/ind_result.html" %}
+
+    {% next_button %}
+{% endblock %}

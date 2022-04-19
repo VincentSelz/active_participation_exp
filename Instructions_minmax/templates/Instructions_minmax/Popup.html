@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Wichtiger Hinweis
+{% endblock %}
+
+{% block content %}
+{% include "global/inst/popup1.html" %}
+
+                <p><center><img align="middle" width=90%
+                        src="{% static "Instructions/popup/popup.png" %}"/></center></p> 
+                <br>
+
+
+{% include "global/inst/popup2.html" %}
+
+    {% next_button %}
+{% endblock %}
