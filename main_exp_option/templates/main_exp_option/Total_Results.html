@@ -1,0 +1,12 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Ihre Auszahlung für diesen Teil des Experiments ist {{my_payoff}}, d.h. {{my_payoff_real_money}}.
+{% endblock %}
+
+{% block content %}
+{% include "global/main/gr_result.html" %}
+
+    {% next_button %}
+{% endblock %}

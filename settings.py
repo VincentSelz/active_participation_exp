@@ -33,6 +33,12 @@ SESSION_CONFIGS = [
         app_sequence=['StartPage','Iban','Instructions_minmax','main_exp_minmax','survey', 'bigfive','raven_test','rat'],
     ),
     dict(
+        name='option_treatment',
+        display_name='Outside Option Treatment',
+        num_demo_participants=2,
+        app_sequence=['StartPage','Iban','Instructions_comp','main_exp_option','survey', 'bigfive','raven_test','rat'],
+    ),
+    dict(
         name='main_exp',
         display_name='Main Task',
         num_demo_participants=2,
@@ -61,6 +67,12 @@ SESSION_CONFIGS = [
         display_name='Main Task - Minmax',
         num_demo_participants=2,
         app_sequence=['main_exp_minmax'],
+    ),
+    dict(
+        name='main_exp_option',
+        display_name='Main Task - Outside Option',
+        num_demo_participants=2,
+        app_sequence=['main_exp_option'],
     ),
     dict(
         name='survey',
