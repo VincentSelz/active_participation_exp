@@ -161,7 +161,7 @@ class Player(BasePlayer):
             if self.computer_performance>Constants.high_threshold: break
             self.computer_performance = random.randint(Constants.high_ability[0], Constants.high_ability[1])
         total_performance = max(self.current_max_is,self.computer_performance)
-        if self.attention_check == 1 and self.option_accepted == 0:
+        if self.attention_check == 1:
             self.total_costs = (Constants.cost * self.num_draws)
             self.task_earning = total_performance - self.total_costs
             self.bonus_earning = Constants.bonus_points*(self.bonusq==0)
