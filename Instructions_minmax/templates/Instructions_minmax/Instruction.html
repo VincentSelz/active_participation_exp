@@ -160,7 +160,7 @@
 <p> <b> Die Gruppen:</b> <br>
 Im Entscheidungsexperiment wird jede Versuchsperson einer 2er-Gruppe zugeordnet. Die Aufgabe im Entscheidungsexperiment wird jeweils von einer Gruppe bearbeitet. In Ihrem Fall übernimmt der Computer die Rolle des zweiten Gruppenmitglieds, mit dem Sie die Aufgabe zusammen bearbeiten werden.  </p>
 
-{% include "global/inst/inst3.html" %}
+{% include "global/inst/inst3_minmax.html" %}
 
 
     <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
@@ -180,10 +180,10 @@ Im Entscheidungsexperiment wird jede Versuchsperson einer 2er-Gruppe zugeordnet.
 <br>
 
 
-{% include "global/inst/inst4.html" %}
+{% include "global/inst/inst4_minmax.html" %}
 
                 <p><center><img align="middle" width=90%
-                        src="{% static "Instructions/diagram/diagram.png" %}"/></center></p> 
+                        src="{% static "Instructions/diagram/diagram_minmax.png" %}"/></center></p> 
                 <br>
 
 
@@ -223,7 +223,7 @@ Im Entscheidungsexperiment wird jede Versuchsperson einer 2er-Gruppe zugeordnet.
   </div>
 <br>
     
-{% include "global/inst/inst6.html" %}
+{% include "global/inst/inst6_minmax.html" %}
 
     <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
 <button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Weiter</button>
@@ -238,7 +238,7 @@ Im Entscheidungsexperiment wird jede Versuchsperson einer 2er-Gruppe zugeordnet.
   </div>
 <br>
  
-{% include "global/inst/inst7.html" %}
+{% include "global/inst/inst7_minmax.html" %}
 
 
     <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
@@ -254,7 +254,7 @@ Im Entscheidungsexperiment wird jede Versuchsperson einer 2er-Gruppe zugeordnet.
   </div>
 <br>
     
-{% include "global/inst/inst8.html" %}
+{% include "global/inst/inst8_minmax.html" %}
 
 
 
@@ -271,7 +271,11 @@ Im Entscheidungsexperiment wird jede Versuchsperson einer 2er-Gruppe zugeordnet.
   </div>
 <br>
     
-{% include "global/inst/inst9.html" %}
+{% include "global/inst/inst9_minmax.html" %}
+
+{% formfield player.q_minmax1 %}
+
+{% formfield player.q_minmax2 %}
 
 {% formfield player.q1 %}
 
@@ -287,10 +291,10 @@ Im Entscheidungsexperiment wird jede Versuchsperson einer 2er-Gruppe zugeordnet.
 
 <div class="collapse" id="collapseExample">
 
-{% include "global/main/collapsed_inst.html" %}
+{% include "global/main/collapsed_inst_minmax.html" %}
  <br>
                 <p><center><img align="middle" width=90%
-                        src="{% static "Instructions/diagram/diagram.png" %}"/></center></p> 
+                        src="{% static "Instructions/diagram/diagram_minmax.png" %}"/></center></p> 
                 <br>
 
 </div>

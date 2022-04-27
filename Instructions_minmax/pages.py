@@ -6,7 +6,7 @@ from .models import Constants
 
 class Instruction(Page):
     form_model = 'player'
-    form_fields = ['q1', 'q2']
+    form_fields = ['q_minmax1', 'q_minmax2', 'q1', 'q2']
 
     def error_message(self, value):
         return self.player.set_error_message1(value)

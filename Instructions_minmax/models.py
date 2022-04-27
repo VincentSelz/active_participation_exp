@@ -37,6 +37,8 @@ class Group(BaseGroup):
 class Player(BasePlayer):
 
     # Comprehension Questions
+    q_minmax1 = models.IntegerField(label="Das Ergebnis für das 1. Gruppenmitglied beträgt:")
+    q_minmax2 = models.IntegerField(label="Das Ergebnis für das 2. Gruppenmitglied beträgt:")
     q1 = models.IntegerField(label="Die Auszahlung für das 1. Gruppenmitglied beträgt:")
     q2 = models.IntegerField(label="Die Auszahlung für das 2. Gruppenmitglied beträgt:")
     q3 = models.IntegerField(label="Die Auszahlung für das 1. Gruppenmitglied beträgt:")
@@ -47,12 +49,14 @@ class Player(BasePlayer):
 
     def set_error_message1(self,value):
         correct_ans1 = {
+                                "q_minmax1" : 85,
+                                "q_minmax2" : 30,
                                 "q1" : 81,
                                 "q2" : 76,
                                  }
 
 
-        list_answers1 = list(value.items())[0:2] 
+        list_answers1 = list(value.items())[0:4] 
         list_correct_answers1 = list(correct_ans1.items())
 
         if list_answers1 != list_correct_answers1:
