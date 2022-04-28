@@ -2,14 +2,20 @@
 {% load otree %}
 
 {% block title %}
-Outside Option
+Option zum Umgehen der Gruppenaufgabe
 {% endblock %}
 
 {% block content %}
 
-    <p> You have an outside option. <br>
-     Would you like to accept the offer? </p>
+    <p> Sie haben die Möglichkeit, die Gruppenaufgabe zu umgehen. Wenn Sie diese Option wählen, sind Ihre Kosten 0 und Ihr höchstes Los wird auf 55 gesetzt. </p>
       <br>
+    <p> Bitte beachten Sie, dass Sie das Ende der 10-minütigen Kaufphase trotzdem abwarten müssen, auch wenn Sie die Option gewählt haben. Die Pop-up-Meldung wird ebenfalls irgendwann erscheinen, wie zuvor beschrieben. </p>
+      <br>
+    <p> Wenn Sie die Option nicht wählen, nehmen Sie wie in den Instruktionen beschrieben an der Aufgabe teil. </p>
+      <br>
+<p> Möchten Sie die Option annehmen? </p>
+      <br>
+
 
     {% formfield player.option_accepted label="" %}
 

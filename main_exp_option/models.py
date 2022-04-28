@@ -64,7 +64,7 @@ class Player(BasePlayer):
     # Outside Option
     option_accepted = models.IntegerField(
         choices=[
-            [1, 'Ja, ich akzeptiere.'],
+            [1, 'Ja, ich möchte die Gruppenaufgabe umgehen.'],
             [0, 'Nein, ich möchte (selbst) mitmachen.'],
         ],
         widget=widgets.RadioSelect
