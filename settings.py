@@ -24,7 +24,7 @@ SESSION_CONFIGS = [
         name='high_treatment',
         display_name='High Intensity Treatment',
         num_demo_participants=2,
-        app_sequence=['StartPage','Iban','Instructions_comp','main_exp_high','survey', 'bigfive','raven_test','rat'],
+        app_sequence=['StartPage','Iban','Instructions_high','main_exp_high','survey', 'bigfive','raven_test','rat'],
     ),
     dict(
         name='minmax_treatment',
@@ -91,6 +91,12 @@ SESSION_CONFIGS = [
         display_name='Instructions (computer)',
         num_demo_participants=2,
         app_sequence=['Instructions_comp'],
+    ),
+    dict(
+        name='Instructions_high',
+        display_name='Instructions (high intensity)',
+        num_demo_participants=2,
+        app_sequence=['Instructions_high'],
     ),
     dict(
         name='Instructions_minmax',

@@ -1,0 +1,312 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+   
+{% endblock %}
+
+{% block scripts %}
+
+<script src="{% static 'Instructions/back_button_v3/js/prev_next_button.js' %}"></script>
+
+
+{% if player.show_tab == 8 %}
+<script>
+  $(function () {
+    $('#myTab li:nth-child(8) a').tab('show')
+  })
+</script>
+{% elif player.show_tab == 9 %}
+<script>
+  $(function () {
+    $('#myTab li:nth-child(9) a').tab('show')
+  })
+</script>
+{% endif %}
+
+{% endblock %}
+
+
+{% block styles %}
+
+<link href="{% static 'Instructions/back_button_v3/css/custom.css' %}" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<!-- Tab navigation -->
+<ul class="nav nav-tabs fixed-top navbar-light bg-light justify-content-center " id="myTab" role="tablist">
+  
+
+  <li class="nav-item" >
+    <a class="nav-link active" id="part1-tab" data-toggle="tab" href="#part1" role="tab" aria-controls="part1" onclick="topFunction()"> Allgemeine Hinweise</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" id="part2-tab" data-toggle="tab" href="#part2" role="tab" aria-controls="part2" onclick="topFunction()">Ablauf des Experiments</a>
+  </li>
+
+
+<li class="nav-item">
+    <a class="nav-link" id="part3-tab" data-toggle="tab" href="#part3" role="tab" aria-controls="part3" onclick="topFunction()">Das Entscheidungsexperiment</a>
+  </li>
+
+<li class="nav-item">
+    <a class="nav-link" id="part4-tab" data-toggle="tab" href="#part4" role="tab" aria-controls="part4" onclick="topFunction()">Zusammensetzung der Gruppe</a>
+  </li>
+
+<li class="nav-item">
+    <a class="nav-link" id="part5-tab" data-toggle="tab" href="#part5" role="tab" aria-controls="part5" onclick="topFunction()">Bestimmung der Auszahlung</a>
+  </li>
+
+<li class="nav-item">
+    <a class="nav-link" id="part6-tab" data-toggle="tab" href="#part6" role="tab" aria-controls="part6" onclick="topFunction()">Beispiel 1</a>
+  </li>
+
+<li class="nav-item">
+    <a class="nav-link" id="part7-tab" data-toggle="tab" href="#part7" role="tab" aria-controls="part7" onclick="topFunction()">Beispiel 2</a>
+  </li>
+
+<li class="nav-item">
+    <a class="nav-link" id="part8-tab" data-toggle="tab" href="#part8" role="tab" aria-controls="part8" onclick="topFunction()">Szenario 1</a>
+  </li>
+
+<li class="nav-item">
+    <a class="nav-link" id="part9-tab" data-toggle="tab" href="#part9" role="tab" aria-controls="part9" onclick="topFunction()">Szenario 2</a>
+  </li>
+
+</ul>
+<br>
+<br>
+
+
+<!-- Tab content -->
+<div class="tab-content" id="myTabContent">
+
+  <div class="tab-pane show active" id="part1" role="tabpanel" aria-labelledby="part1-tab">
+
+
+<div class="card-header bg-transparent mainheader" >
+ <h3 class="card-title font-weight-bold mt-3 mb-3"> Allgemeine Hinweise 
+ </h3>
+  </div>
+<br>
+
+{% include "global/inst/inst1.html" %}
+
+<button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Weiter</button>
+  </div>
+
+
+
+
+
+
+  <div class="tab-pane" id="part2" role="tabpanel" aria-labelledby="part2-tab">
+
+
+<div class="card-header bg-transparent mainheader" >
+ <h3 class="card-title font-weight-bold mt-3 mb-3"> Ablauf des Experiments </h3>
+  </div>
+<br>
+
+{% include "global/inst/inst2.html" %}
+
+<p> Keine andere am Experiment teilnehmende Person wird erfahren, welche Entscheidungen Sie treffen und welche Auszahlung Sie bekommen.  </p>
+
+    <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
+<button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Weiter</button>
+  </div>
+
+
+
+
+
+  <div class="tab-pane" id="part3" role="tabpanel" aria-labelledby="part3-tab">
+
+
+<div class="card-header bg-transparent mainheader" >
+ <h3 class="card-title font-weight-bold mt-3 mb-3"> Das Entscheidungsexperiment </h3>
+  </div>
+<br>
+
+
+<p> Jetzt erklären wir das Experiment! </p>
+
+<p> <b> Die Gruppen:</b> <br>
+Im Entscheidungsexperiment wird jede Versuchsperson einer 2er-Gruppe zugeordnet. Die Aufgabe im Entscheidungsexperiment wird jeweils von einer Gruppe bearbeitet. In Ihrem Fall übernimmt der Computer die Rolle des zweiten Gruppenmitglieds, mit dem Sie die Aufgabe zusammen bearbeiten werden.  </p>
+
+{% include "global/inst/inst3.html" %}
+
+
+    <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
+<button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Weiter</button>
+  </div>
+
+
+
+
+
+  <div class="tab-pane" id="part4" role="tabpanel" aria-labelledby="part4-tab">
+
+
+<div class="card-header bg-transparent mainheader" >
+ <h3 class="card-title font-weight-bold mt-3 mb-3"> Das Entscheidungsexperiment </h3>
+  </div>
+<br>
+
+
+{% include "global/inst/inst4.html" %}
+
+                <p><center><img align="middle" width=90%
+                        src="{% static "Instructions/diagram/diagram.png" %}"/></center></p> 
+                <br>
+
+
+    <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
+<button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Weiter</button>
+  </div>
+
+
+
+
+  <div class="tab-pane" id="part5" role="tabpanel" aria-labelledby="part5-tab">
+
+
+<div class="card-header bg-transparent mainheader" >
+ <h3 class="card-title font-weight-bold mt-3 mb-3">Zusammensetzung der Gruppe</h3>
+  </div>
+<br>
+    
+
+{% include "global/inst/inst5_high.html" %}
+
+
+
+    <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
+<button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Weiter</button>
+  </div>
+
+
+
+
+
+  <div class="tab-pane" id="part6" role="tabpanel" aria-labelledby="part6-tab">
+ 
+
+<div class="card-header bg-transparent mainheader" >
+ <h3 class="card-title font-weight-bold mt-3 mb-3">Bestimmung der Auszahlung</h3>
+  </div>
+<br>
+    
+{% include "global/inst/inst6.html" %}
+
+    <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
+<button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Weiter</button>
+  </div>
+
+
+  <div class="tab-pane" id="part7" role="tabpanel" aria-labelledby="part7-tab">
+
+
+<div class="card-header bg-transparent mainheader" >
+ <h3 class="card-title font-weight-bold mt-3 mb-3">Beispiel 1 </h3>
+  </div>
+<br>
+ 
+{% include "global/inst/inst7.html" %}
+
+
+    <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
+<button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Weiter</button>
+  </div>
+
+
+  <div class="tab-pane" id="part8" role="tabpanel" aria-labelledby="part8-tab">
+
+
+<div class="card-header bg-transparent mainheader" >
+ <h3 class="card-title font-weight-bold mt-3 mb-3">Beispiel 2 </h3>
+  </div>
+<br>
+    
+{% include "global/inst/inst8.html" %}
+
+
+
+    <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
+<button onclick="topFunction()" type="button" class="nexttab btn-primary btn next">Weiter</button>
+  </div>
+
+
+  <div class="tab-pane" id="part9" role="tabpanel" aria-labelledby="part9-tab">
+
+
+<div class="card-header bg-transparent mainheader" >
+ <h3 class="card-title font-weight-bold mt-3 mb-3">Bitte berechnen Sie die Auszahlungen </h3>
+  </div>
+<br>
+    
+{% include "global/inst/inst9.html" %}
+
+{% formfield player.q1 %}
+
+{% formfield player.q2 %}
+
+<div class="d-flex justify-content-center">
+  <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#collapseExample" style="background-color: rgb(175, 175, 175); color: white;">
+      Bitte klicken Sie hier, um die Instruktionen zu lesen.
+  </button>
+</div>
+
+<br>
+
+<div class="collapse" id="collapseExample">
+
+{% include "global/main/collapsed_inst.html" %}
+ <br>
+                <p><center><img align="middle" width=90%
+                        src="{% static "Instructions/diagram/diagram.png" %}"/></center></p> 
+                <br>
+
+</div>
+
+    <button onclick="topFunction()" type="button" class="prevtab btn-primary btn back">Zurück</button>
+<button class="nexttab btn-primary btn next">Weiter</button>
+  </div>
+
+
+</div>
+
+
+</body>
+
+
+{% endblock %}
+
+
+
