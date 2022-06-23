@@ -18,7 +18,7 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'instructions_comp'
+    name_in_url = 'instructions_high'
     players_per_group = None
     num_rounds = 1
     # payment to inattentive subjects (usually =participation fee)
