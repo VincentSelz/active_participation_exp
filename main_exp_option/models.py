@@ -65,7 +65,7 @@ class Player(BasePlayer):
     option_accepted = models.IntegerField(
         choices=[
             [1, 'Ja, ich möchte die Gruppenaufgabe umgehen.'],
-            [0, 'Nein, ich möchte (selbst) mitmachen.'],
+            [0, 'Nein, ich möchte selbst mitmachen.'],
         ],
         widget=widgets.RadioSelect
     )

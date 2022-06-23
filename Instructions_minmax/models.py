@@ -37,8 +37,8 @@ class Group(BaseGroup):
 class Player(BasePlayer):
 
     # Comprehension Questions
-    q_minmax1 = models.IntegerField(label="Das Ergebnis für das 1. Gruppenmitglied beträgt:")
-    q_minmax2 = models.IntegerField(label="Das Ergebnis für das 2. Gruppenmitglied beträgt:")
+    q_minmax1 = models.IntegerField(label="Die niedrigste gezogene Punktzahl des 1. Gruppenmitglieds beträgt:")
+    q_minmax2 = models.IntegerField(label="Die niedrigste gezogene Punktzahl des 2. Gruppenmitglieds beträgt:")
     q1 = models.IntegerField(label="Die Auszahlung für das 1. Gruppenmitglied beträgt:")
     q2 = models.IntegerField(label="Die Auszahlung für das 2. Gruppenmitglied beträgt:")
     q3 = models.IntegerField(label="Die Auszahlung für das 1. Gruppenmitglied beträgt:")
